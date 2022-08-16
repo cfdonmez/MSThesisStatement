@@ -1,0 +1,28 @@
+\part{OPNET İLE YENİLENEBİLİR ENERJİ SİSTEMİ İÇİN DAĞITIK SENSÖR AĞI TASARIM VE SİMÜLASYON SONUÇLARI}
+\thispagestyle{empty}
+\newpage
+Yenilenebilir enerji kaynaklarının gerçek zamanlı durum ve üretimin gözlemlenmesi ile ilgili \gls{dpu}'de simülasyon tasarımları yapılmıştır. Yerel alan ağları incelendiğinde, Zigbee standardının kullanılması durumunda veri paket kaybının oluşmadığı görülmesine rağmen yerel ağda kurulacak bir gözlem merkezine ilettiği verinin gecikme süresi ve yerel sunucuya yüklenen ölçüm verilerinin süresi 1 saniyenin üzerindedir. Bu durum, \gls{iec}'nin belirlemiş olduğu standartları karşılamamaktadır. Bu nedenle yerel noktalarda Zigbee haberleşme tekniğinin kullanılması uygun değildir. Yerel noktalarda Ethernet ve \gls{wifi} standartlarında kullanılacak donanımların ayrı ayrı simülasyonları yapılıp sonuç grafikleri incelendiğinde ilgili komisyonun standartlarının tamamen karşılandığı görülmüştür. Yerel ağ haberleşme maliyet tabloları incelendiğinde, \gls{wifi} tekniğinin kullanıldığı Güneş Enerji Sisteminin \%55 oranında daha az maliyetli olduğu hesaplanmıştır. Bu oran Rüzgar Enerji Sistemi için \%28’dir. Rüzgar Enerji Sistemi, merkeziyetli bir yapıya sahip olduğundan haberleşme maliyet oranı güneş enerji sistemine göre daha düşüktür.
+
+Geniş ağ tasarımında durum değerlendirildiğine fiber optik haberleşme sisteminin gecikme değerleri \gls{wimax} teknolojisine göre çok düşük olduğu gözlemlenmiştir. 
+
+Telekom altyapısıyla bir haberleşme trafiği sağlandığında, haberleşme sisteminin dışarıya karşı korumasız kalmaması için uygulanan güvenlik prosedürlerinin maliyeti fazladır. \gls{wimax} altyapısı kullanıldığında tamamen izole bir ağ kurulmuş olacaktır, ordu standartlarında bir güvenlik şifrelemesi ile paket trafiğinin güvenliği sağlanmış olur.
+
+Geniş ağ tasarımında fizibilite analizinin son kriteri ise sürdürülebilir yapıda olmasıdır. \gls{wimax} altyapısı kullanılırken, baz istasyonlarının olduğu kuleler şehirden uzak dağlık alanlara yerleştirilmiştir. Kulelerde bir problem yaşanması durumunda, arıza müdahale ekibinin ulaşması maliyetli bir süreçtir. Fakat Telekom altyapısında bir problem yaşanması durumunda tüm sorumluluk Telekom firmasına ait olacaktır. 
+
+İlgili kriterler dikkate alınara hesaplanan maliyetler  Tablo \ref{tab:tablo5-1}’de gösterilmiştir.
+
+\begin{table}[htbp]
+\centering
+\caption{Karar tablosu}
+\label{tab:tablo5-1}
+\begin{tabular}{|c|c|c|}
+\hline
+Çözüm cinsi                               & Yerel Alan Ağı & Geniş Alan Ağı        \\ \hline
+En az maliyetli çözüm                     & \gls{wifi}           & \gls{wimax}                 \\ \hline
+Sürdürülebilir çözüm                      & \gls{wifi}           & Telekom fiber hizmeti \\ \hline
+Güvenli iletişim ve en az maliyetli çözüm & \gls{wifi}           & \gls{wimax}                 \\ \hline
+\end{tabular}
+\end{table}
+
+
+Üniversitenin bünyesinde üreteceği enerji sistemlerinin sağlık durumlarının ve verimlerinin takibini personel maliyetlerini minimize ederek çözmesi üniversitenin mali bütçesi açısından en mantıklı çözüm olacaktır. Bu temel nedene göre Tablo \ref{tab:tablo5-1}'deki sürdürülebilir çözümün tercih edilmesi mantıklı olacaktır.

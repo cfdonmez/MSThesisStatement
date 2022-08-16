@@ -1,0 +1,2639 @@
+
+\part{GİRİŞ}
+\thispagestyle{empty}
+\newpage
+\section{HABERLEŞME TEKNOLOJİLERINE GENEL BAKIŞ} \label{girisHaberlesme}
+\subsection{Power Line Communication, Güç Hattı Üzerinden Haberleşme}
+Güç Hattı Üzerinden Haberleşme (PLC), güç dağıtımı için kullnılan iletkenlerin aynı zamanda veri taşıma için de kullanılmasını amaçlayan bir haberleşme sistemidir. Güç hattına bağlanan modülatör ve demodülatör sayesinde enerjinin taşındığı hat üzerinden veri gönderimi sağlanmaktadır. Bu tekniği kullanımından kaynaklanan tek maliyet, fiziksel bağlantı olarak kullanılan sinyal aktarım ve sinyal tekrarlayıcı ekipmanlarıdır.
+
+\gls{plc} için ayrılan frekans bandgenişliği, tipik olarak 64 kb/s veya 4 kHz olarak tanımlanmıştır. Daha yüksek bir frekans kullanıldığında, \gls{plc} iletişimi daha küçük bir hat endüktansı gerektirecektir; dolayısıyla iletişim maliyeti azalacaktır. Bununla birlikte, daha yüksek frekans, iletişim aralığını sınırlayan daha yüksek zayıflamaya neden olacaktır. Pratikte maksimum mesafeler birkaç yüz kilometredir. Daha uzun mesafeli iletişim gerekli olduğunda, iletim sinyalini yükseltmek için \gls{plc} güçlendirme terminalleri kullanılmaktadır.
+
+Enerji dağıtım ağları üzerinden \gls{plc} kullanmanın ana dezavantajı, yer üstü hattan yeraltı hattına geçişten veya bunun tersi durumundan kaynaklanan empedans uyumsuzluğudur. Birden fazla geçiş olması durumunda, geçişlerden kaynaklanan empedans uyumsuzluklarının neden olduğu yansımalar iletişimin kalitesini olumsuz yönde etkileyecektir. Empedans uyumsuzluğun etkisini azaltmak için her geçişte ek ekipman kurulması gerekir. Bu nedenle, \gls{plc} uygulanmadan önce, enerji hattı geçişlerini belirlemek için enerji dağıtım ağının empedans uyum analizi yapılmalıdır\cite{duluau2015scada}.
+\begin{comment}
+\subsection{Radyo Dalgası}
+Özellikle yenilenebilir enerji santrallerinin dağıtık kurulumundan kaynaklı, üre-tilen enerjinin merkeziyetçil kontrolü için bakır tel veya fiber optik kullanımı, kabloları döşemek ve güzergah için yapılacak altyapı işleri yüksek maliyetler gerektirmektedir. Radyo iletişimi kablolu haberleşme sistemlerinin getirmiş olduğu bant genişliğinin yerini almasa da radyo ağlarının güvenilirliği, performansı ve işletme maliyetleri son yıllarda önemli ölçüde artmıştır. Bu gelişmelerde kaynaklı olarak dağıtık enerji sistemlerinde tercih edilen bir haberleşme teknolojisidir\cite{bai2020radio}.
+\end{comment}
+
+\subsection{Mikrodalga Haberleşmesi} \label{mikrohaberlesme}
+1 GHz üzerindeki frekanslarda çalışan, yüksek kanal ve veri iletimi kapasitelerini sunan radyo sistemlerini ifade eder. Mikrodalga haberleşmesi, kablolu haberleşme tekno-lojilerine alternatif olarak kullanılan uzun mesafeli iletişim sistemlerinde yaygın olarak kullanılmaktadır. Parabolik antenler, onlarca kilometre uzaktaki başka bir antene ışın göndermek için kulelere montajlanabilir. Mikrodalga haberleşmesi sayesinde 200 Mbps veri hızına kadar bant genişliği sunar. Bununla birlikte, bir mikrodalga radyo üzerinden iletim kapasitesi, kullanılan radyo frekansı ile doğru, iletim mesafesiyle ters orantılır. Ek olarak, mikrodalga haberleşmesi için açık görüş hattı önemlidir. Uzun mesafeli iletişim durumunda, mikrodalga haberleşme sisteminin en yüksek maliyeti kule kurulumu olarak değerlendirilir\cite{misra2012radio}.
+
+\begin{comment}
+\subsection{Ultra Yüksek Frekans Haberleşmesi}
+
+0,3 -- 1 Ghz arasındaki frekans bandında çalışan haberleşme sistemi olarak tanım-lanan \gls{uhf} haberleşmesi mikrodalga haberleşmesinden fark-lı olarak görüş hattı olmaksı-zın veri iletimi imkanı sunar. Haberleşme anteninin boyutlarına bağlı olarak 30kmyi aşan bir mesafeye 192 kb/s’lik bir bant genişliğinde veri iletimi yapabilir. \gls{uhf} haberleşmesi düşük bant gerektiren özellikle görüş hattının zor olduğu arazilerde yaygın olduğu uygulamalar için makul bir haberleşme çözümüdür\cite{perez2002path}.
+
+\end{comment}
+
+\subsection{Mobil Haberleşme}
+
+Avrupa Telekomünikasyon Standartları Enstitüsü tarafından mobil telefon ağları için geliştirilmiş haberleşme sistemi olan \gls{gsm}, hem sesli hem de \gls{sms} hizmetlerini sağlar. \gls{sms} servisi 160 karaktere kadar mesaj uzunluklarına ve 4 adede kadar ayrı mesajın bir araya getirilmesine izin verir. Ancak, konuşma öncelikli bir haberleşme teknolojisi olduğundan, \gls{sms} mesajlarına şebeke tarafından düşük öncelik verilir ve teslimat garantisi yoktur. \gls{gsm} teknolojisinin üzerine eklenen \gls{gprs} teknolojisi veri hızını 170 kbps’e kadar ulaştırmıştır. \gls{gprs} teknolojisinden sonra mobil iletişim ağıda çığır açan 3. Nesil haberleşme servisi olan 3G haberleşme mimarisi oluşturulmuştur. Mobil ağa kalıcı olarak bağlanma tekniği sayesinde, mobil iletişim cihazlarına paket anahtarlamalı veri iletimine uygun bir şebeke geliştirilmiştir. \cite{smyth2003performance}. 3G iletişim hizmetleri, \gls{gsm} ve \gls{gprs} sistemlerinden farklı olarak veri iletişimi üzerine kuruludur. Geliştirilen 3G teknolojisi önceki nesillerdeki frekans bantlarından farklı olarak 1.6 -- 2.0 GHz frekans aralığında çalışır. Buna göre mobil cihazların anten boyutları güncellenmiştir. Teorik olarak 2Mbps hızında veri transferi kapasitesindedir. Geliştirilen ve ismini 4G teknolojisi olarak duyduğumuz haber-leşme teknolojisi sayesinde paket trafiğinin 100Mbps seviyelerine ulaştığı ve aynı zamanda \gls{wimax} teknoloji ile aynı bant genişliğine ulaştığı görülmektedir. 5G haberleşme sistemine geçiş aşamındaki kilometre taşı olarak belirlenen 4.5 haberleşme standardının en belirgin özelliği 4G haberleşmesinin veri hacminin teorik olarak 20 kat fazlasını sunabilmesidir \cite{routray20164}. 5G haberleşme ağı 4G’den daha hızlı ve güvenli bir şekilde veri iletimi yapmaktadır \cite{mishra2016mechanism}. Günümüzde mobil iletişim teknolojisinin gelişmesini devam ettirmektedir ve 6G haberleşme sistemleri üzerine Finlandiya ciddi çalışmalarda bulunmaktadır.
+
+\subsection{Fiber Optik Haberleşme}
+
+Lazer ışığının, bilgiyi iletecek şekilde modüle edilmesi ve sonrasında ilgili lazerin yapısal özelliği bozunlmadan hedeflenen bölgeye düşük kayıpla gönderilmesi ile ilgili yapılan çalışmalar sonucunda günümüzün yüksek kapasiteli veri aktarım aracı olarn fiber optik haberleşme teknolojisi geliştirilmiştir.
+
+Günümüzde çok yüksek hızda veri iletimi, zayıflama oranı diğer haberleşme türlerine göre çok düşük, elektromanyetik bozunmaya karşı etkili bir teknoloji olan optik haberleşme sayesinde kıtalar arasında iletişim imkanları sağlanmıştır \cite{saleh2019fundamentals}
+
+Fiber optik kablolar temelde çekirdek ve kılıf olmak üzere iki farklı bölgeden oluşmaktadır. Bu bölgelerdeki kırılma indis farkından yararlanılarak, modüle edilmiş lazer kilometrelerce öteye çok düşük kayıplarla iletilmektedir. \cite{agrawal2012fiber}
+
+Fiber optik kablolar tek modlu veya çok modlu olmak üzere ikiye ayrılır. Çekirdek genişliği genelde 8 mikron civarında olan kablo tek mod geçirebilmektedir. Yapılan çalışmalar ışığında tek mod kablonun efektif kullanımı için 1310 -- 1550 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılmaktadır. Çekirdek genişliği yaklaşık 50 -- 62.5 mikron olan fiber kablonun efektif kullanımı için 850 -- 1300 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılmaktadır. tek modlu kabloya göre daha kalın olan çok modlu kablonun veri iletim performansı tek molu fiber optik kabloya göre daha düşüktür \cite{keiser2000optical}. 
+
+\subsection{Zigbee Teknolojisi}
+
+
+Zigbee teknolojisi, \gls{ieee} 802.15.4 standardı üzerine inşa edilmiş kontrol ve kablosuz algılayıcı ağlarıyla haberleşmek için özel olarak tasarlanmıştır. Zigbee 868 MHz, 915 MHz ve 2,4 GHz frekanslarında çalışır. Zigbee standardı 250 kbps veri hızı sağlar ve algılayıcılar ile kontrolörler arasında iki yönlü veri aktarımı yapabilmektedir. Zigbee, yöneticiden uç düğümlerine veya yöneticiden yöneticiye iletişim için çeşitli ağ yapılandırmalarını destekler. Zigbee ağları, yönlendiriciler kullanılarak genişletilebilir ve daha geniş bir alan ağı oluşturmak için birçok düğümün birbirine bağlanmasına izin verir \cite{ramya2011study}. Zigbee haberleşme teknolojisi düşük veri hızlarında olup, düşük güç tüketimi sunan bir sistemdir. Böylelikle nesnelerin interneti uygulamalarında tercih edilir \cite{alliance2010zigbee}.
+
+
+
+\section{YENİLENEBİLİR ENERJİ ÜRETİM SİSTEMLERİNE GENEL BAKIŞ}
+
+\subsection{Rüzgar Enerji Santralleri}
+Rüzgar türbini,  rüzgardan  enerji alan ve kanatların dönmesiyle güç üreten bir buluştur. İki tip rüzgar türbini vardır: yatay eksenli rüzgar türbini ve dikey eksenli rüzgar türbini. Dikey eksenli rüzgar türbininin avantajı, jeneratör ve şanzıman kutusu zemin seviyesindedir ve kule ihtiyacı yoktur fakat dezavantajı düşük rüzgar hızı ve düşük verimliliktir. Yatay eksenli rüzgar türbinlerinin avantajı kanatlarının dönüşleri yere paralel bir biçimde olduğundan rüzgardan daha verimli enerji elde edilir dezavantajı ise bakım onarım maliyetlerinin dikey eksenli rüzgar türbinlerine göre daha fazladır. \cite{Ghenai2012LifeCA}
+
+19. yüzyılda motor, jeneratör ve aydınlatma gibi uygulamaların gelişmesiyle birlikte elektrik enerjisine olan ihtiyaçlar artmaya başladı. Rüzgar türbinlerinin kır evlerine güç sağlayabileceğine inanan Brush Company, 1888'de 12 kW elektrik üretebilen bir rüzgar türbini tasarladılar \cite{veers2019wind}. 
+
+1973 petrol krizinden sonra insanlar farklı enerji kaynakları aramaya başladılar. Rüzgar enerjisi üretiminin temelleri 19. yüzyılın başlarında atılmış olsa da, rüzgar enerjisindeki teknolojik gelişme 1970'lerde hızlanmıştır \cite{KhalilYehia}.
+
+Bir rüzgar türbininin verimi, türbinin aerodinamik yapısına, türbin kiriş uzun-luğuna, kanat uzunluğuna, rüzgarın hücum açısına ve rotorun performansına bağlıdır.
+
+
+\subsection{Güneş Enerji Santralleri}
+
+Fotovoltaik sistemler ve yüksek sıcaklık ilkesi ile çalışan yoğunlaştırıcı sistemler olarak iki farklı teknikle güneşten elektik üretimi yapılmaktadır. 
+
+Yoğunlaştırıcı sistem, ana enerji kaynağı olarak güneş enerjisini kullanan bir güç üretim santralidir. Bu sistemler temelde güneş kollektörleri ile aynı teknikte çalışsalar da güneşten elektrik enerjisi elde etme yönteminde kollektör yapısında farklılıklar göstermektedirler. Alıcı eleman olarak silindirik-parabolik alıcıların kullanıldığı güç santrallerinde; Çalışma sıvısı, kollektör yuvasına yerleştirilmiş absorban boru dolaşır. Kızgın buhar daha sonra bu ısıtılmış sıvıdan ısı eşanjörleri kullanılarak elde edilir. Parabolik çanak kolektörler kullanılan sistemlerde de bu yöntem kullanılarak doğrudan elektrik üretilmektedir.
+\begin{figure}[htbp]
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Flowchart: Alternative Process [id:dp800497824863047] 
+\draw   (30,37) .. controls (30,33.13) and (33.13,30) .. (37,30) -- (132.5,30) .. controls (136.37,30) and (139.5,33.13) .. (139.5,37) -- (139.5,63) .. controls (139.5,66.87) and (136.37,70) .. (132.5,70) -- (37,70) .. controls (33.13,70) and (30,66.87) .. (30,63) -- cycle ;
+%Flowchart: Alternative Process [id:dp2707061592829474] 
+\draw   (30,115.43) .. controls (30,112.43) and (32.43,110) .. (35.42,110) -- (134.07,110) .. controls (137.07,110) and (139.5,112.43) .. (139.5,115.43) -- (139.5,135.57) .. controls (139.5,138.57) and (137.07,141) .. (134.07,141) -- (35.42,141) .. controls (32.43,141) and (30,138.57) .. (30,135.57) -- cycle ;
+%Flowchart: Alternative Process [id:dp5331166517210113] 
+\draw   (30,155.43) .. controls (30,152.43) and (32.43,150) .. (35.42,150) -- (134.07,150) .. controls (137.07,150) and (139.5,152.43) .. (139.5,155.43) -- (139.5,175.58) .. controls (139.5,178.57) and (137.07,181) .. (134.07,181) -- (35.42,181) .. controls (32.43,181) and (30,178.57) .. (30,175.58) -- cycle ;
+%Flowchart: Alternative Process [id:dp6986651955989527] 
+\draw   (29.5,195.74) .. controls (29.5,192.02) and (32.52,189) .. (36.24,189) -- (150.76,189) .. controls (154.48,189) and (157.5,192.02) .. (157.5,195.74) -- (157.5,220.76) .. controls (157.5,224.48) and (154.48,227.5) .. (150.76,227.5) -- (36.24,227.5) .. controls (32.52,227.5) and (29.5,224.48) .. (29.5,220.76) -- cycle ;
+%Straight Lines [id:da856168373978502] 
+\draw    (10,50) -- (10,205.5) ;
+%Straight Lines [id:da8294647418558279] 
+\draw    (10,50) -- (28.5,50) ;
+\draw [shift={(30.5,50)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6800430392515269] 
+\draw    (10,123.5) -- (28.5,123.5) ;
+\draw [shift={(30.5,123.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5027317987543509] 
+\draw    (10.5,165.5) -- (29,165.5) ;
+\draw [shift={(31,165.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7544734790880245] 
+\draw    (10,205.5) -- (28.5,205.5) ;
+\draw [shift={(30.5,205.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Alternative Process [id:dp4332634065377694] 
+\draw   (191,38) .. controls (191,34.13) and (194.13,31) .. (198,31) -- (293.5,31) .. controls (297.37,31) and (300.5,34.13) .. (300.5,38) -- (300.5,64) .. controls (300.5,67.87) and (297.37,71) .. (293.5,71) -- (198,71) .. controls (194.13,71) and (191,67.87) .. (191,64) -- cycle ;
+%Flowchart: Alternative Process [id:dp32933912998984916] 
+\draw   (191,116.43) .. controls (191,113.43) and (193.43,111) .. (196.43,111) -- (295.08,111) .. controls (298.07,111) and (300.5,113.43) .. (300.5,116.43) -- (300.5,136.57) .. controls (300.5,139.57) and (298.07,142) .. (295.08,142) -- (196.43,142) .. controls (193.43,142) and (191,139.57) .. (191,136.57) -- cycle ;
+%Flowchart: Alternative Process [id:dp7999589398674432] 
+\draw   (191,156.43) .. controls (191,153.43) and (193.43,151) .. (196.43,151) -- (295.08,151) .. controls (298.07,151) and (300.5,153.43) .. (300.5,156.43) -- (300.5,176.58) .. controls (300.5,179.57) and (298.07,182) .. (295.08,182) -- (196.43,182) .. controls (193.43,182) and (191,179.57) .. (191,176.58) -- cycle ;
+%Straight Lines [id:da8398175039544862] 
+\draw    (171,51) -- (171,206.5) ;
+%Straight Lines [id:da3539287165529523] 
+\draw    (139.5,51) -- (189.5,51) ;
+\draw [shift={(191.5,51)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da04285759041820825] 
+\draw    (171,124.5) -- (189.5,124.5) ;
+\draw [shift={(191.5,124.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da29527605881727603] 
+\draw    (171.5,166.5) -- (190,166.5) ;
+\draw [shift={(192,166.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da829372356293097] 
+\draw    (171,206.5) -- (189.5,206.5) ;
+\draw [shift={(191.5,206.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Alternative Process [id:dp2943998197125559] 
+\draw   (191,196.43) .. controls (191,193.43) and (193.43,191) .. (196.43,191) -- (295.08,191) .. controls (298.07,191) and (300.5,193.43) .. (300.5,196.43) -- (300.5,216.58) .. controls (300.5,219.57) and (298.07,222) .. (295.08,222) -- (196.43,222) .. controls (193.43,222) and (191,219.57) .. (191,216.58) -- cycle ;
+%Flowchart: Alternative Process [id:dp7295786495800975] 
+\draw   (338,38) .. controls (338,34.13) and (341.13,31) .. (345,31) -- (440.5,31) .. controls (444.37,31) and (447.5,34.13) .. (447.5,38) -- (447.5,64) .. controls (447.5,67.87) and (444.37,71) .. (440.5,71) -- (345,71) .. controls (341.13,71) and (338,67.87) .. (338,64) -- cycle ;
+%Flowchart: Alternative Process [id:dp03843035776535686] 
+\draw   (338,84.43) .. controls (338,81.43) and (340.43,79) .. (343.43,79) -- (442.08,79) .. controls (445.07,79) and (447.5,81.43) .. (447.5,84.43) -- (447.5,104.58) .. controls (447.5,107.57) and (445.07,110) .. (442.08,110) -- (343.43,110) .. controls (340.43,110) and (338,107.57) .. (338,104.58) -- cycle ;
+%Straight Lines [id:da40875268152824384] 
+\draw    (318,51) -- (318,249.5) ;
+%Straight Lines [id:da46962302284352386] 
+\draw    (300.14,51) -- (336.5,51) ;
+\draw [shift={(338.5,51)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da33481815698108774] 
+\draw    (318,92.5) -- (336.5,92.5) ;
+\draw [shift={(338.5,92.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6092912808326774] 
+\draw    (318.5,134.5) -- (337,134.5) ;
+\draw [shift={(339,134.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6994047748165719] 
+\draw    (318,174.5) -- (336.5,174.5) ;
+\draw [shift={(338.5,174.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Alternative Process [id:dp3001809676475484] 
+\draw   (338,164.43) .. controls (338,161.43) and (340.43,159) .. (343.43,159) -- (442.08,159) .. controls (445.07,159) and (447.5,161.43) .. (447.5,164.43) -- (447.5,184.58) .. controls (447.5,187.57) and (445.07,190) .. (442.08,190) -- (343.43,190) .. controls (340.43,190) and (338,187.57) .. (338,184.58) -- cycle ;
+%Flowchart: Alternative Process [id:dp36170727941224134] 
+\draw   (338,122.24) .. controls (338,118.52) and (341.02,115.5) .. (344.74,115.5) -- (459.26,115.5) .. controls (462.98,115.5) and (466,118.52) .. (466,122.24) -- (466,147.26) .. controls (466,150.98) and (462.98,154) .. (459.26,154) -- (344.74,154) .. controls (341.02,154) and (338,150.98) .. (338,147.26) -- cycle ;
+%Straight Lines [id:da03500949612537574] 
+\draw    (318,211) -- (336.5,211) ;
+\draw [shift={(338.5,211)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Alternative Process [id:dp8704373313943377] 
+\draw   (338,200.93) .. controls (338,197.93) and (340.43,195.5) .. (343.43,195.5) -- (442.08,195.5) .. controls (445.07,195.5) and (447.5,197.93) .. (447.5,200.93) -- (447.5,221.08) .. controls (447.5,224.07) and (445.07,226.5) .. (442.08,226.5) -- (343.43,226.5) .. controls (340.43,226.5) and (338,224.07) .. (338,221.08) -- cycle ;
+%Straight Lines [id:da7070383456991982] 
+\draw    (318,248.5) -- (336.5,248.5) ;
+\draw [shift={(338.5,248.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Alternative Process [id:dp6460174687543374] 
+\draw   (338,238.43) .. controls (338,235.43) and (340.43,233) .. (343.43,233) -- (442.08,233) .. controls (445.07,233) and (447.5,235.43) .. (447.5,238.43) -- (447.5,258.58) .. controls (447.5,261.57) and (445.07,264) .. (442.08,264) -- (343.43,264) .. controls (340.43,264) and (338,261.57) .. (338,258.58) -- cycle ;
+
+% Text Node
+\draw (84.75,50) node   [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\footnotesize {\fontfamily{ptm}\selectfont \textbf{BUHAR}}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (84.75,126) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{BUHAR DEPOLANMASI} \\100 -- 330\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (84.75,166) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{ENDÜSTRİYEL BUHAR} \\100 -- 330\textsuperscript{o}C (15-60 bar)}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (95.14,208.5) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{83.45pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{SOĞUTMA}}\\{\fontfamily{ptm}\selectfont ÇİFT FAZ EMİLİM SOĞUTUCUSU}\\{\fontfamily{ptm}\selectfont  120 -- 200\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (245.75,51) node   [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\footnotesize {\fontfamily{ptm}\selectfont \textbf{ELEKTRİK}}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (245.75,127) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{AKÜMÜLASYON }}\\\textbf{ADA ÇÖZÜMÜ}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (245.75,167) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{ELEKTRİK}}\\{\fontfamily{ptm}\selectfont \textbf{TÜKETİCİ}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (245.75,207) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{ŞEBEKE}\\\textbf{BESLEME}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (392.75,51) node   [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\footnotesize {\fontfamily{ptm}\selectfont \textbf{ATIK ISI}}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (392.75,95) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{ISI DEPOLANMASI}}\\{\fontfamily{ptm}\selectfont 60 -- 100\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (392.75,175) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{{\fontfamily{ptm}\selectfont ISITMA}}\\{\fontfamily{ptm}\selectfont 60 -- 100\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (403.64,135) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{83.45pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont \textbf{SOĞUTMA}}\\{\fontfamily{ptm}\selectfont ÇİFT FAZ EMİLİM SOĞUTUCUSU}\\{\fontfamily{ptm}\selectfont  120 -- 200\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (392.75,211.5) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{{\fontfamily{ptm}\selectfont TUZDAN ARINDIRMA}}\\{\fontfamily{ptm}\selectfont 60 -- 90\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (392.75,248.5) node  [font=\tiny] [align=left] {\begin{minipage}[lt]{61.16pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{{\fontfamily{ptm}\selectfont ILIK SU}}\\{\fontfamily{ptm}\selectfont 50 -- 70\textsuperscript{o}C}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+\caption{Parabolik kolektör vasıtasıyla ısı ve elektrik eldesi}
+\label{fig:parabolik}
+\end{figure}
+
+Şekil ~\ref{fig:parabolik}'de parabolik kolektörler vasıtasıyla elde edilebilen yüksek sıcaklık değerleri sistem içerisinde kullanılan akışkan buhar fazına geçiş yapabildiği gösterilmektedir \cite{AZADGILANI2021116756}. Bu sayede parabokil kolektörlerden elektrik eldesi dışında ısıtma ve soğutma için buhar veya ön ısıtma işlemleri için atık ısı kullanılır.
+
+Fotovoltaik ilke, hücrelerin üzerlerine ışık düştüğü zaman hücrelerin uçlarında elektrik gerilimi oluşması olarak tanımlanabilmektedir. Güneş hücresinin verdiği elektrik enerjisinin kaynağı, yüzeyine gelen güneş ışınlarıdır. Güneş hücreleri, mekanik olarak elektrik üreten cihazların aksine hareketli parçalar olmadığından teorik ömürleri sonsuz olarak tanımlanmaktadır. Çok sayıda güneş hücresi birbirine paralel ya da seri bağlanarak güç çıkışı arttırılabilir. Bu yapıya güneş paneli ya da fotovoltaik panel adı verilmektedir. Güneş panelleri talep edilen güce bağlı olarak seri ya da paralel bağlanabilirler. Böylece birkaç Watt’lık küçük enerji üreteçlerinden dev enerji santrallerine kadar sistemler oluşturulabilir\cite{ramakumar1993photovoltaic}.
+
+
+
+
+
+
+
+\subsection{Jeotermal Enerji Üretim Santralleri (JES) }
+
+
+
+Jeotermal akışkandan enerji üretimi amacında yapılan ilk saha çalışmaları 1818 yılında İtalya'da başlamıştır. Jeotermal enerjiden elektrik üretimi, enerjiyi taşıyan kaynak akışkanının faz durumuna göre çevrim modelleri sayesinde gerçekleşmektedir \cite{Jeotarih}. 
+
+Jeotermal enerji santralleri tarihi gelişiminde, kaynağa bağlı olarak termodinamik çevrim teknolojisinde bir çok gelişim gözlemlenmiştir. Dünya jeotermal enerji kaynaklarının çoğu çift fazlı, sıvı yoğun ve içinde çözünmemiş gaz miktarı ile çökelmeye sebep olan karbonatlı bileşimler barındıran özelliktedir.
+
+Orta sıcaklıklı jeotermal kaynaktan elektrik üretimine geçebilmek adına geliş-tirilen ikili (binary) çevrim modeli, üretilen akışkandaki ısı enerjisini ikincil bir akışkana aktarma ile elektrik üretme ilkesine dayanmaktadır. Bunların dışında, hem ayrıştırıcılı hem de ikili (binary) tip çevrim modelini kapsayan başka bir çevrim modeli de geliştirilmiş ya da kombine jeotermal enerji çevrimleri olarak ortaya çıkmıştır.
+
+
+
+\begin{figure}[htbp]
+\centering
+
+
+
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_jdlxnotjs}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_jdlxnotjs}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_pk566o39e}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_pk566o39e}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_8uw5hurff}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_8uw5hurff}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_m9afa8prp}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_m9afa8prp}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_qlgvzdvra}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_qlgvzdvra}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_3jjt37tac}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_3jjt37tac}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_kw11p7iwc}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_kw11p7iwc}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_bz5qt2eam}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_bz5qt2eam}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_edm8jph3v}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_edm8jph3v}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_r7ym86ehs}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_r7ym86ehs}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_hpssuzun5}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_hpssuzun5}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_u6tdih32d}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_u6tdih32d}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_0ty5edbxl/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_vhs5qbjaj}{150bp}{rgb(0bp)=(1,1,1);
+rgb(37.5bp)=(1,1,1);
+rgb(37.5bp)=(0,0,0);
+rgb(100bp)=(0,0,0)}
+\tikzset{_3pfghmn4t/.code = {\pgfsetadditionalshadetransform{\pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 } }}}
+\pgfdeclarehorizontalshading{_xcbtzwssn} {150bp} {color(0bp)=(transparent!0);
+color(37.5bp)=(transparent!0);
+color(37.5bp)=(transparent!10);
+color(100bp)=(transparent!10) } 
+\pgfdeclarefading{_pixhxknkz}{\tikz \fill[shading=_xcbtzwssn,_3pfghmn4t] (0,0) rectangle (50bp,50bp); } 
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Parallelogram [id:dp015291618066607171] 
+\draw  [pattern=_jdlxnotjs,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (29.09,114.84) -- (48.09,114.84) -- (48.09,259.34) -- (29.09,259.34) -- cycle ;
+%Shape: Can [id:dp05566221189355658] 
+\draw   (96.67,60.67) -- (192.67,60.67) .. controls (197.64,60.67) and (201.67,74.1) .. (201.67,90.67) .. controls (201.67,107.24) and (197.64,120.67) .. (192.67,120.67) -- (96.67,120.67) .. controls (91.7,120.67) and (87.67,107.24) .. (87.67,90.67) .. controls (87.67,74.1) and (91.7,60.67) .. (96.67,60.67) .. controls (101.64,60.67) and (105.67,74.1) .. (105.67,90.67) .. controls (105.67,107.24) and (101.64,120.67) .. (96.67,120.67) ;
+%Shape: Block Arc [id:dp9620262989777089] 
+\draw  [pattern=_pk566o39e,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (29.09,114.84) .. controls (29.21,95.62) and (44.83,80.08) .. (64.08,80.08) .. controls (64.34,80.08) and (64.59,80.08) .. (64.84,80.09) -- (64.42,99.58) .. controls (64.31,99.58) and (64.2,99.58) .. (64.08,99.58) .. controls (55.56,99.58) and (48.64,106.46) .. (48.58,114.97) -- cycle ;
+%Right Arrow [id:dp3541277252865851] 
+\draw   (35.33,148.83) -- (35.33,131.33) -- (32.33,131.33) -- (38.33,119.67) -- (44.33,131.33) -- (41.33,131.33) -- (41.33,148.83) -- cycle ;
+%Right Arrow [id:dp3514047235289115] 
+\draw   (35.67,193.17) -- (35.67,175.67) -- (32.67,175.67) -- (38.67,164) -- (44.67,175.67) -- (41.67,175.67) -- (41.67,193.17) -- cycle ;
+%Right Arrow [id:dp0697402127391551] 
+\draw   (35,251.83) -- (35,234.33) -- (32,234.33) -- (38,222.67) -- (44,234.33) -- (41,234.33) -- (41,251.83) -- cycle ;
+%Shape: Spiral [id:dp5948343085021326] 
+\draw   (143.66,102.68) .. controls (142.34,102.41) and (141.13,101.59) .. (140.05,100.26) .. controls (138.96,98.89) and (138.14,97.15) .. (137.6,95.05) .. controls (137.05,92.91) and (136.87,90.68) .. (137.06,88.35) .. controls (137.24,85.98) and (137.78,83.83) .. (138.68,81.92) .. controls (139.59,79.98) and (140.74,78.52) .. (142.14,77.58) .. controls (143.56,76.62) and (145.04,76.31) .. (146.58,76.64) .. controls (148.14,76.98) and (149.55,77.95) .. (150.81,79.54) .. controls (152.09,81.16) and (153.04,83.21) .. (153.65,85.68) .. controls (154.28,88.19) and (154.48,90.81) .. (154.26,93.51) .. controls (154.03,96.27) and (153.39,98.74) .. (152.34,100.96) .. controls (151.27,103.2) and (149.93,104.87) .. (148.31,105.94) .. controls (146.66,107.03) and (144.95,107.37) .. (143.18,106.97) .. controls (141.39,106.56) and (139.77,105.42) .. (138.33,103.59) .. controls (136.87,101.72) and (135.79,99.36) .. (135.09,96.52) .. controls (134.38,93.64) and (134.16,90.65) .. (134.43,87.56) .. controls (134.71,84.42) and (135.44,81.6) .. (136.65,79.09) .. controls (137.87,76.56) and (139.4,74.67) .. (141.24,73.47) .. controls (143.11,72.25) and (145.05,71.87) .. (147.06,72.34) .. controls (149.09,72.82) and (150.92,74.11) .. (152.54,76.22) .. controls (154.18,78.34) and (155.39,81.01) .. (156.17,84.21) .. controls (156.95,87.47) and (157.19,90.83) .. (156.88,94.3) .. controls (156.56,97.82) and (155.73,100.98) .. (154.37,103.79) .. controls (152.99,106.64) and (151.27,108.72) .. (149.2,110.06) .. controls (147.11,111.41) and (144.94,111.81) .. (142.7,111.27) .. controls (140.44,110.72) and (138.4,109.26) .. (136.6,106.91) .. controls (134.78,104.54) and (133.43,101.56) .. (132.58,97.99) .. controls (131.71,94.37) and (131.45,90.63) .. (131.81,86.77) .. controls (132.17,82.86) and (133.1,79.36) .. (134.62,76.26) .. controls (136.14,73.13) and (138.06,70.82) .. (140.35,69.35) .. controls (142.67,67.87) and (145.06,67.43) .. (147.54,68.05) .. controls (150.04,68.67) and (152.28,70.28) .. (154.26,72.89) .. controls (156.27,75.52) and (157.74,78.8) .. (158.68,82.75) .. controls (159.63,86.73) and (159.9,90.84) .. (159.5,95.09) .. controls (159.1,99.38) and (158.07,103.21) .. (156.4,106.62) .. controls (154.72,110.06) and (152.62,112.57) .. (150.1,114.17) .. controls (147.56,115.8) and (144.93,116.26) .. (142.22,115.57) .. controls (139.49,114.88) and (137.04,113.09) .. (134.87,110.24) .. controls (132.68,107.36) and (131.08,103.77) .. (130.07,99.45) .. controls (129.04,95.1) and (128.75,90.61) .. (129.19,85.98) .. controls (129.63,81.31) and (130.76,77.13) .. (132.58,73.43) .. controls (134.42,69.71) and (136.71,66.97) .. (139.45,65.23) .. controls (142.22,63.48) and (145.08,62.99) .. (148.02,63.75) .. controls (150.99,64.51) and (153.65,66.45) .. (155.99,69.56) .. controls (158.36,72.69) and (160.09,76.6) .. (161.19,81.28) .. controls (161.92,84.36) and (162.3,87.51) .. (162.34,90.72) ;
+%Shape: Parallelogram [id:dp9560695712780911] 
+\draw  [pattern=_8uw5hurff,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (64.84,80.09) -- (105.67,80.09) -- (105.67,99.33) -- (64.84,99.33) -- cycle ;
+%Shape: Moon [id:dp1629824260414494] 
+\draw  [draw opacity=0][pattern=_m9afa8prp,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (91.83,62.67) .. controls (106.75,62.67) and (118.83,74.01) .. (118.83,88) .. controls (118.83,101.99) and (106.75,113.33) .. (91.83,113.33) .. controls (99.91,108.27) and (105.33,98.82) .. (105.33,88) .. controls (105.33,77.18) and (99.91,67.73) .. (91.83,62.67) -- cycle ;
+%Shape: Moon [id:dp11150414973655587] 
+\draw  [draw opacity=0][pattern=_qlgvzdvra,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (99.17,64) .. controls (114.08,64) and (126.17,75.34) .. (126.17,89.33) .. controls (126.17,103.32) and (114.08,114.67) .. (99.17,114.67) .. controls (107.24,109.61) and (112.67,100.16) .. (112.67,89.33) .. controls (112.67,78.51) and (107.24,69.06) .. (99.17,64) -- cycle ;
+%Shape: Moon [id:dp6052824128177836] 
+\draw  [draw opacity=0][pattern=_3jjt37tac,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (109.83,62.33) .. controls (124.75,62.33) and (136.83,73.68) .. (136.83,87.67) .. controls (136.83,101.66) and (124.75,113) .. (109.83,113) .. controls (117.91,107.94) and (123.33,98.49) .. (123.33,87.67) .. controls (123.33,76.84) and (117.91,67.39) .. (109.83,62.33) -- cycle ;
+%Shape: Moon [id:dp2719045471469683] 
+\draw  [draw opacity=0][pattern=_kw11p7iwc,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (100.83,69) .. controls (115.75,69) and (127.83,80.34) .. (127.83,94.33) .. controls (127.83,108.32) and (115.75,119.67) .. (100.83,119.67) .. controls (108.91,114.61) and (114.33,105.16) .. (114.33,94.33) .. controls (114.33,83.51) and (108.91,74.06) .. (100.83,69) -- cycle ;
+%Shape: Moon [id:dp5669550810904951] 
+\draw  [draw opacity=0][pattern=_bz5qt2eam,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (141.21,90.76) .. controls (141.31,105.67) and (130.89,117.82) .. (117.95,117.91) .. controls (105,117.99) and (94.43,105.97) .. (94.33,91.06) .. controls (99.07,99.1) and (107.85,104.47) .. (117.86,104.41) .. controls (127.87,104.34) and (136.58,98.86) .. (141.21,90.76) -- cycle ;
+%Right Arrow [id:dp7627684446374623] 
+\draw   (105.33,111.44) -- (114.28,111.44) -- (114.28,109.5) -- (120.25,113.37) -- (114.28,117.25) -- (114.28,115.31) -- (105.33,115.31) -- cycle ;
+%Right Arrow [id:dp7720860456488539] 
+\draw   (105.33,66.77) -- (114.28,66.77) -- (114.28,64.83) -- (120.25,68.71) -- (114.28,72.58) -- (114.28,70.65) -- (105.33,70.65) -- cycle ;
+%Curve Left Arrow [id:dp7177435795884279] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (139.07,91.27) .. controls (138.1,94.16) and (142.13,96.5) .. (148.07,96.5) -- (149.15,93.28) .. controls (143.21,93.28) and (139.18,90.94) .. (140.14,88.05) ;\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (140.14,88.05) .. controls (140.86,85.91) and (144.13,84.07) .. (148.19,83.26) -- (148.55,82.18) -- (152.1,84.44) -- (146.76,87.56) -- (147.12,86.48) .. controls (143.05,87.29) and (139.78,89.13) .. (139.07,91.27)(140.14,88.05) -- (139.07,91.27) ;
+%Shape: Parallelogram [id:dp5702791468187773] 
+\draw  [pattern=_edm8jph3v,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (183.62,260.01) -- (164.62,259.99) -- (164.76,120.83) -- (183.76,120.85) -- cycle ;
+%Right Arrow [id:dp35091072787403266] 
+\draw   (177.4,210.95) -- (177.38,228.45) -- (180.38,228.46) -- (174.37,240.12) -- (168.38,228.44) -- (171.38,228.45) -- (171.4,210.95) -- cycle ;
+%Right Arrow [id:dp05134340780431046] 
+\draw   (177.11,165.62) -- (177.09,183.12) -- (180.09,183.12) -- (174.08,194.78) -- (168.09,183.11) -- (171.09,183.11) -- (171.11,165.61) -- cycle ;
+%Right Arrow [id:dp3692243147903016] 
+\draw   (177.84,127.95) -- (177.82,145.45) -- (180.82,145.46) -- (174.81,157.12) -- (168.82,145.44) -- (171.82,145.45) -- (171.84,127.95) -- cycle ;
+%Shape: Parallelogram [id:dp26182172037618945] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (145,90.04) -- (217.2,90.04) -- (217.2,90.6) -- (145,90.6) -- cycle ;
+%Shape: Moon [id:dp9004792949314562] 
+\draw  [draw opacity=0][pattern=_r7ym86ehs,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (152.26,61.57) .. controls (176.22,61.57) and (195.64,72.91) .. (195.64,86.9) .. controls (195.64,100.9) and (176.22,112.24) .. (152.26,112.24) .. controls (155.05,104.58) and (156.6,95.99) .. (156.6,86.9) .. controls (156.6,77.82) and (155.05,69.23) .. (152.26,61.57) -- cycle ;
+%Shape: Moon [id:dp16724559823969587] 
+\draw  [draw opacity=0][pattern=_hpssuzun5,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (201.71,77.61) .. controls (201.87,101.57) and (190.66,121.07) .. (176.67,121.17) .. controls (162.68,121.26) and (151.21,101.92) .. (151.04,77.96) .. controls (158.72,80.69) and (167.32,82.19) .. (176.41,82.12) .. controls (185.49,82.06) and (194.07,80.45) .. (201.71,77.61) -- cycle ;
+%Shape: Moon [id:dp09627769510811968] 
+\draw  [draw opacity=0][pattern=_u6tdih32d,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (166.54,104.54) .. controls (166.31,80.59) and (174.05,61.09) .. (183.81,61) .. controls (193.57,60.91) and (201.66,80.26) .. (201.89,104.22) .. controls (196.52,101.48) and (190.51,99.98) .. (184.17,100.04) .. controls (177.83,100.1) and (171.85,101.71) .. (166.54,104.54) -- cycle ;
+%Flowchart: Direct Access Storage [id:dp5854993735112144] 
+\path  [shading=_vhs5qbjaj,_0ty5edbxl,path fading= _pixhxknkz ,fading transform={xshift=2}] (274.95,120.04) -- (229.45,120.04) .. controls (222.68,120.04) and (217.2,106.61) .. (217.2,90.04) .. controls (217.2,73.47) and (222.68,60.04) .. (229.45,60.04) -- (274.95,60.04)(287.2,90.04) .. controls (287.2,106.61) and (281.72,120.04) .. (274.95,120.04) .. controls (268.18,120.04) and (262.7,106.61) .. (262.7,90.04) .. controls (262.7,73.47) and (268.18,60.04) .. (274.95,60.04) .. controls (281.72,60.04) and (287.2,73.47) .. (287.2,90.04) ; % for fading 
+ \draw   (274.95,120.04) -- (229.45,120.04) .. controls (222.68,120.04) and (217.2,106.61) .. (217.2,90.04) .. controls (217.2,73.47) and (222.68,60.04) .. (229.45,60.04) -- (274.95,60.04)(287.2,90.04) .. controls (287.2,106.61) and (281.72,120.04) .. (274.95,120.04) .. controls (268.18,120.04) and (262.7,106.61) .. (262.7,90.04) .. controls (262.7,73.47) and (268.18,60.04) .. (274.95,60.04) .. controls (281.72,60.04) and (287.2,73.47) .. (287.2,90.04) ; % for border 
+
+%Shape: Lamp [id:dp6522419512095736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (316.26,78.14) -- (316.26,45.14) .. controls (316.26,36.86) and (325.22,30.14) .. (336.26,30.14) .. controls (347.3,30.14) and (356.26,36.86) .. (356.26,45.14) -- (356.26,78.14) -- (316.26,78.14) -- cycle (324.26,90.14) -- (324.26,60.14) .. controls (324.26,55.18) and (329.63,51.14) .. (336.26,51.14) .. controls (342.88,51.14) and (348.26,55.17) .. (348.26,60.14) -- (348.26,90.14) ;
+%Straight Lines [id:da9091798153138035] 
+\draw    (324.26,100.2) -- (324.26,90.14) ;
+%Straight Lines [id:da9596137980708423] 
+\draw    (286.4,100.2) -- (324.26,100.2) ;
+%Straight Lines [id:da20118907450923795] 
+\draw    (282.8,113.4) -- (348.26,113.4) ;
+%Straight Lines [id:da712718384278229] 
+\draw    (348.26,113.4) -- (348.26,90.14) ;
+%Straight Lines [id:da5487618202061475] 
+\draw    (307.08,23.75) -- (316.75,33.25) ;
+%Straight Lines [id:da8485814769382489] 
+\draw    (335.75,12.25) -- (335.92,24.92) ;
+%Straight Lines [id:da47576812311039807] 
+\draw    (315.58,17.08) -- (322.08,28.08) ;
+%Straight Lines [id:da22910891226803298] 
+\draw    (353.92,15.08) -- (349.42,25.92) ;
+%Straight Lines [id:da32868283280051225] 
+\draw    (325.08,13.25) -- (328.08,26.25) ;
+%Straight Lines [id:da613979225809929] 
+\draw    (344.75,12.75) -- (343.25,25.25) ;
+%Straight Lines [id:da7044020207626895] 
+\draw    (362.08,18.92) -- (354.25,29.25) ;
+%Straight Lines [id:da16034892412336466] 
+\draw    (369.58,24.58) -- (360.92,33.58) ;
+
+% Text Node
+\draw (62.83,265.17) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{53.26pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Üretim Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (199.83,270.83) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{59.62pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Boşaltım Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (127,33.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{24.93pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Türbin}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (228.67,33) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{32.62pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Jeneratör}}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+
+\caption{Kuru buhar enerji santrali elektrik üretim topolojisi.}
+\label{fig:kurubuhar}
+\end{figure}
+
+Şekil \ref{fig:kurubuhar}'de gösterilen kuru buhar enerji santrali en basit ve ekonomik jeotermal santral modelidir. Bu sistemlerde, jeotermal kuyudan çıkarılan akışkanın tamamı tek, buhar fazındadır. Kaynaktan çıkarılan buhar türbinden geçtikten sonra ya atmosfere atılır, ya da yoğuşturucudan geçirilerek boşaltım kuyusuna geri basılır. Kondansör sayesinde türbin çıkışında atmosfer basıncının altında bir basınç, yani vakum oluşturulur. Türbini terk eden buhar daha düşük sıcaklıkta, dolayısıyla daha düşük entalpidedir\cite{atalay}. Böylece, türbinin giriş ve çıkışı arasındaki entalpi farkı artacağından elde edilecek güç de en fazla değere ulaşmış olacaktır. 
+
+ 
+\begin{figure}[htbp]
+\centering
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_ts15d4v6o}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_ts15d4v6o}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_6tvrg0aok}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_6tvrg0aok}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_fca26z2nv}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_fca26z2nv}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_7mqthisef}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_7mqthisef}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_kkftvmzhx}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_kkftvmzhx}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_myx7xx5dk}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_myx7xx5dk}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_7pdt9kfqq}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_7pdt9kfqq}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_zie4qt98h}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_zie4qt98h}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_3b5a4svi5}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_3b5a4svi5}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_1n6uhu954}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_1n6uhu954}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_w8tnsy7t6}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_w8tnsy7t6}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_d519e055h}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_d519e055h}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_iy09rdngq/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_oe26mr68f}{150bp}{rgb(0bp)=(1,1,1);
+rgb(37.5bp)=(1,1,1);
+rgb(37.5bp)=(0,0,0);
+rgb(100bp)=(0,0,0)}
+\tikzset{_en0esqrd4/.code = {\pgfsetadditionalshadetransform{\pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 } }}}
+\pgfdeclarehorizontalshading{_5aeucbli6} {150bp} {color(0bp)=(transparent!0);
+color(37.5bp)=(transparent!0);
+color(37.5bp)=(transparent!10);
+color(100bp)=(transparent!10) } 
+\pgfdeclarefading{_1rrhiawmp}{\tikz \fill[shading=_5aeucbli6,_en0esqrd4] (0,0) rectangle (50bp,50bp); } 
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Can [id:dp64422526720695] 
+\draw  [pattern=_ts15d4v6o,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (19.17,60.17) -- (62.5,60.17) .. controls (67.47,60.17) and (71.5,73.6) .. (71.5,90.17) .. controls (71.5,106.74) and (67.47,120.17) .. (62.5,120.17) -- (19.17,120.17) .. controls (14.2,120.17) and (10.17,106.74) .. (10.17,90.17) .. controls (10.17,73.6) and (14.2,60.17) .. (19.17,60.17) .. controls (24.14,60.17) and (28.17,73.6) .. (28.17,90.17) .. controls (28.17,106.74) and (24.14,120.17) .. (19.17,120.17) ;
+%Shape: Parallelogram [id:dp015291618066607171] 
+\draw  [pattern=_6tvrg0aok,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 1; green, 88; blue, 251}] (29.09,59.75) -- (48.09,59.75) -- (48.09,259.34) -- (29.09,259.34) -- cycle ;
+%Shape: Can [id:dp05566221189355658] 
+\draw   (96.67,60.67) -- (192.67,60.67) .. controls (197.64,60.67) and (201.67,74.1) .. (201.67,90.67) .. controls (201.67,107.24) and (197.64,120.67) .. (192.67,120.67) -- (96.67,120.67) .. controls (91.7,120.67) and (87.67,107.24) .. (87.67,90.67) .. controls (87.67,74.1) and (91.7,60.67) .. (96.67,60.67) .. controls (101.64,60.67) and (105.67,74.1) .. (105.67,90.67) .. controls (105.67,107.24) and (101.64,120.67) .. (96.67,120.67) ;
+%Right Arrow [id:dp3541277252865851] 
+\draw   (35.33,148.83) -- (35.33,131.33) -- (32.33,131.33) -- (38.33,119.67) -- (44.33,131.33) -- (41.33,131.33) -- (41.33,148.83) -- cycle ;
+%Right Arrow [id:dp3514047235289115] 
+\draw   (35.67,193.17) -- (35.67,175.67) -- (32.67,175.67) -- (38.67,164) -- (44.67,175.67) -- (41.67,175.67) -- (41.67,193.17) -- cycle ;
+%Right Arrow [id:dp0697402127391551] 
+\draw   (35,251.83) -- (35,234.33) -- (32,234.33) -- (38,222.67) -- (44,234.33) -- (41,234.33) -- (41,251.83) -- cycle ;
+%Shape: Spiral [id:dp5948343085021326] 
+\draw   (143.66,102.68) .. controls (142.34,102.41) and (141.13,101.59) .. (140.05,100.26) .. controls (138.96,98.89) and (138.14,97.15) .. (137.6,95.05) .. controls (137.05,92.91) and (136.87,90.68) .. (137.06,88.35) .. controls (137.24,85.98) and (137.78,83.83) .. (138.68,81.92) .. controls (139.59,79.98) and (140.74,78.52) .. (142.14,77.58) .. controls (143.56,76.62) and (145.04,76.31) .. (146.58,76.64) .. controls (148.14,76.98) and (149.55,77.95) .. (150.81,79.54) .. controls (152.09,81.16) and (153.04,83.21) .. (153.65,85.68) .. controls (154.28,88.19) and (154.48,90.81) .. (154.26,93.51) .. controls (154.03,96.27) and (153.39,98.74) .. (152.34,100.96) .. controls (151.27,103.2) and (149.93,104.87) .. (148.31,105.94) .. controls (146.66,107.03) and (144.95,107.37) .. (143.18,106.97) .. controls (141.39,106.56) and (139.77,105.42) .. (138.33,103.59) .. controls (136.87,101.72) and (135.79,99.36) .. (135.09,96.52) .. controls (134.38,93.64) and (134.16,90.65) .. (134.43,87.56) .. controls (134.71,84.42) and (135.44,81.6) .. (136.65,79.09) .. controls (137.87,76.56) and (139.4,74.67) .. (141.24,73.47) .. controls (143.11,72.25) and (145.05,71.87) .. (147.06,72.34) .. controls (149.09,72.82) and (150.92,74.11) .. (152.54,76.22) .. controls (154.18,78.34) and (155.39,81.01) .. (156.17,84.21) .. controls (156.95,87.47) and (157.19,90.83) .. (156.88,94.3) .. controls (156.56,97.82) and (155.73,100.98) .. (154.37,103.79) .. controls (152.99,106.64) and (151.27,108.72) .. (149.2,110.06) .. controls (147.11,111.41) and (144.94,111.81) .. (142.7,111.27) .. controls (140.44,110.72) and (138.4,109.26) .. (136.6,106.91) .. controls (134.78,104.54) and (133.43,101.56) .. (132.58,97.99) .. controls (131.71,94.37) and (131.45,90.63) .. (131.81,86.77) .. controls (132.17,82.86) and (133.1,79.36) .. (134.62,76.26) .. controls (136.14,73.13) and (138.06,70.82) .. (140.35,69.35) .. controls (142.67,67.87) and (145.06,67.43) .. (147.54,68.05) .. controls (150.04,68.67) and (152.28,70.28) .. (154.26,72.89) .. controls (156.27,75.52) and (157.74,78.8) .. (158.68,82.75) .. controls (159.63,86.73) and (159.9,90.84) .. (159.5,95.09) .. controls (159.1,99.38) and (158.07,103.21) .. (156.4,106.62) .. controls (154.72,110.06) and (152.62,112.57) .. (150.1,114.17) .. controls (147.56,115.8) and (144.93,116.26) .. (142.22,115.57) .. controls (139.49,114.88) and (137.04,113.09) .. (134.87,110.24) .. controls (132.68,107.36) and (131.08,103.77) .. (130.07,99.45) .. controls (129.04,95.1) and (128.75,90.61) .. (129.19,85.98) .. controls (129.63,81.31) and (130.76,77.13) .. (132.58,73.43) .. controls (134.42,69.71) and (136.71,66.97) .. (139.45,65.23) .. controls (142.22,63.48) and (145.08,62.99) .. (148.02,63.75) .. controls (150.99,64.51) and (153.65,66.45) .. (155.99,69.56) .. controls (158.36,72.69) and (160.09,76.6) .. (161.19,81.28) .. controls (161.92,84.36) and (162.3,87.51) .. (162.34,90.72) ;
+%Shape: Parallelogram [id:dp9560695712780911] 
+\draw  [pattern=_fca26z2nv,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (71,80.09) -- (105.67,80.09) -- (105.67,99.33) -- (71,99.33) -- cycle ;
+%Shape: Moon [id:dp1629824260414494] 
+\draw  [draw opacity=0][pattern=_7mqthisef,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (91.83,62.67) .. controls (106.75,62.67) and (118.83,74.01) .. (118.83,88) .. controls (118.83,101.99) and (106.75,113.33) .. (91.83,113.33) .. controls (99.91,108.27) and (105.33,98.82) .. (105.33,88) .. controls (105.33,77.18) and (99.91,67.73) .. (91.83,62.67) -- cycle ;
+%Shape: Moon [id:dp11150414973655587] 
+\draw  [draw opacity=0][pattern=_kkftvmzhx,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (99.17,64) .. controls (114.08,64) and (126.17,75.34) .. (126.17,89.33) .. controls (126.17,103.32) and (114.08,114.67) .. (99.17,114.67) .. controls (107.24,109.61) and (112.67,100.16) .. (112.67,89.33) .. controls (112.67,78.51) and (107.24,69.06) .. (99.17,64) -- cycle ;
+%Shape: Moon [id:dp6052824128177836] 
+\draw  [draw opacity=0][pattern=_myx7xx5dk,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (109.83,62.33) .. controls (124.75,62.33) and (136.83,73.68) .. (136.83,87.67) .. controls (136.83,101.66) and (124.75,113) .. (109.83,113) .. controls (117.91,107.94) and (123.33,98.49) .. (123.33,87.67) .. controls (123.33,76.84) and (117.91,67.39) .. (109.83,62.33) -- cycle ;
+%Shape: Moon [id:dp2719045471469683] 
+\draw  [draw opacity=0][pattern=_7pdt9kfqq,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (100.83,69) .. controls (115.75,69) and (127.83,80.34) .. (127.83,94.33) .. controls (127.83,108.32) and (115.75,119.67) .. (100.83,119.67) .. controls (108.91,114.61) and (114.33,105.16) .. (114.33,94.33) .. controls (114.33,83.51) and (108.91,74.06) .. (100.83,69) -- cycle ;
+%Shape: Moon [id:dp5669550810904951] 
+\draw  [draw opacity=0][pattern=_zie4qt98h,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (141.21,90.76) .. controls (141.31,105.67) and (130.89,117.82) .. (117.95,117.91) .. controls (105,117.99) and (94.43,105.97) .. (94.33,91.06) .. controls (99.07,99.1) and (107.85,104.47) .. (117.86,104.41) .. controls (127.87,104.34) and (136.58,98.86) .. (141.21,90.76) -- cycle ;
+%Right Arrow [id:dp7627684446374623] 
+\draw   (105.33,111.44) -- (114.28,111.44) -- (114.28,109.5) -- (120.25,113.37) -- (114.28,117.25) -- (114.28,115.31) -- (105.33,115.31) -- cycle ;
+%Right Arrow [id:dp7720860456488539] 
+\draw   (105.33,66.77) -- (114.28,66.77) -- (114.28,64.83) -- (120.25,68.71) -- (114.28,72.58) -- (114.28,70.65) -- (105.33,70.65) -- cycle ;
+%Curve Left Arrow [id:dp7177435795884279] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (139.07,91.27) .. controls (138.1,94.16) and (142.13,96.5) .. (148.07,96.5) -- (149.15,93.28) .. controls (143.21,93.28) and (139.18,90.94) .. (140.14,88.05) ;\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (140.14,88.05) .. controls (140.86,85.91) and (144.13,84.07) .. (148.19,83.26) -- (148.55,82.18) -- (152.1,84.44) -- (146.76,87.56) -- (147.12,86.48) .. controls (143.05,87.29) and (139.78,89.13) .. (139.07,91.27)(140.14,88.05) -- (139.07,91.27) ;
+%Shape: Parallelogram [id:dp5702791468187773] 
+\draw  [pattern=_3b5a4svi5,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (183.62,260.01) -- (164.62,259.99) -- (164.76,120.83) -- (183.76,120.85) -- cycle ;
+%Right Arrow [id:dp35091072787403266] 
+\draw   (177.4,210.95) -- (177.38,228.45) -- (180.38,228.46) -- (174.37,240.12) -- (168.38,228.44) -- (171.38,228.45) -- (171.4,210.95) -- cycle ;
+%Right Arrow [id:dp05134340780431046] 
+\draw   (177.11,165.62) -- (177.09,183.12) -- (180.09,183.12) -- (174.08,194.78) -- (168.09,183.11) -- (171.09,183.11) -- (171.11,165.61) -- cycle ;
+%Right Arrow [id:dp3692243147903016] 
+\draw   (177.84,127.95) -- (177.82,145.45) -- (180.82,145.46) -- (174.81,157.12) -- (168.82,145.44) -- (171.82,145.45) -- (171.84,127.95) -- cycle ;
+%Shape: Parallelogram [id:dp26182172037618945] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (145,90.04) -- (217.2,90.04) -- (217.2,90.6) -- (145,90.6) -- cycle ;
+%Shape: Moon [id:dp9004792949314562] 
+\draw  [draw opacity=0][pattern=_1n6uhu954,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (152.26,61.57) .. controls (176.22,61.57) and (195.64,72.91) .. (195.64,86.9) .. controls (195.64,100.9) and (176.22,112.24) .. (152.26,112.24) .. controls (155.05,104.58) and (156.6,95.99) .. (156.6,86.9) .. controls (156.6,77.82) and (155.05,69.23) .. (152.26,61.57) -- cycle ;
+%Shape: Moon [id:dp16724559823969587] 
+\draw  [draw opacity=0][pattern=_w8tnsy7t6,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (201.71,77.61) .. controls (201.87,101.57) and (190.66,121.07) .. (176.67,121.17) .. controls (162.68,121.26) and (151.21,101.92) .. (151.04,77.96) .. controls (158.72,80.69) and (167.32,82.19) .. (176.41,82.12) .. controls (185.49,82.06) and (194.07,80.45) .. (201.71,77.61) -- cycle ;
+%Shape: Moon [id:dp09627769510811968] 
+\draw  [draw opacity=0][pattern=_d519e055h,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (166.54,104.54) .. controls (166.31,80.59) and (174.05,61.09) .. (183.81,61) .. controls (193.57,60.91) and (201.66,80.26) .. (201.89,104.22) .. controls (196.52,101.48) and (190.51,99.98) .. (184.17,100.04) .. controls (177.83,100.1) and (171.85,101.71) .. (166.54,104.54) -- cycle ;
+%Flowchart: Direct Access Storage [id:dp5854993735112144] 
+\path  [shading=_oe26mr68f,_iy09rdngq,path fading= _1rrhiawmp ,fading transform={xshift=2}] (274.95,120.04) -- (229.45,120.04) .. controls (222.68,120.04) and (217.2,106.61) .. (217.2,90.04) .. controls (217.2,73.47) and (222.68,60.04) .. (229.45,60.04) -- (274.95,60.04)(287.2,90.04) .. controls (287.2,106.61) and (281.72,120.04) .. (274.95,120.04) .. controls (268.18,120.04) and (262.7,106.61) .. (262.7,90.04) .. controls (262.7,73.47) and (268.18,60.04) .. (274.95,60.04) .. controls (281.72,60.04) and (287.2,73.47) .. (287.2,90.04) ; % for fading 
+ \draw   (274.95,120.04) -- (229.45,120.04) .. controls (222.68,120.04) and (217.2,106.61) .. (217.2,90.04) .. controls (217.2,73.47) and (222.68,60.04) .. (229.45,60.04) -- (274.95,60.04)(287.2,90.04) .. controls (287.2,106.61) and (281.72,120.04) .. (274.95,120.04) .. controls (268.18,120.04) and (262.7,106.61) .. (262.7,90.04) .. controls (262.7,73.47) and (268.18,60.04) .. (274.95,60.04) .. controls (281.72,60.04) and (287.2,73.47) .. (287.2,90.04) ; % for border 
+
+%Shape: Lamp [id:dp6522419512095736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (316.26,78.14) -- (316.26,45.14) .. controls (316.26,36.86) and (325.22,30.14) .. (336.26,30.14) .. controls (347.3,30.14) and (356.26,36.86) .. (356.26,45.14) -- (356.26,78.14) -- (316.26,78.14) -- cycle (324.26,90.14) -- (324.26,60.14) .. controls (324.26,55.18) and (329.63,51.14) .. (336.26,51.14) .. controls (342.88,51.14) and (348.26,55.17) .. (348.26,60.14) -- (348.26,90.14) ;
+%Straight Lines [id:da9091798153138035] 
+\draw    (324.26,100.2) -- (324.26,90.14) ;
+%Straight Lines [id:da9596137980708423] 
+\draw    (286.4,100.2) -- (324.26,100.2) ;
+%Straight Lines [id:da20118907450923795] 
+\draw    (282.8,113.4) -- (348.26,113.4) ;
+%Straight Lines [id:da712718384278229] 
+\draw    (348.26,113.4) -- (348.26,90.14) ;
+%Straight Lines [id:da5487618202061475] 
+\draw    (307.08,23.75) -- (316.75,33.25) ;
+%Straight Lines [id:da8485814769382489] 
+\draw    (335.75,12.25) -- (335.92,24.92) ;
+%Straight Lines [id:da47576812311039807] 
+\draw    (315.58,17.08) -- (322.08,28.08) ;
+%Straight Lines [id:da22910891226803298] 
+\draw    (353.92,15.08) -- (349.42,25.92) ;
+%Straight Lines [id:da32868283280051225] 
+\draw    (325.08,13.25) -- (328.08,26.25) ;
+%Straight Lines [id:da613979225809929] 
+\draw    (344.75,12.75) -- (343.25,25.25) ;
+%Straight Lines [id:da7044020207626895] 
+\draw    (362.08,18.92) -- (354.25,29.25) ;
+%Straight Lines [id:da16034892412336466] 
+\draw    (369.58,24.58) -- (360.92,33.58) ;
+
+% Text Node
+\draw (62.83,265.17) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{53.26pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Üretim Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (199.83,270.83) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{59.62pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Boşaltım Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (125,27.83) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{24.94pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Türbin}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (228.67,29.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{32.63pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Jeneratör}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (14,24.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{36.69pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Flaş Tankı}}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+
+\caption{Tek flaşlı jeotermal enerji santrali elektrik üretim topolojisi}
+\label{fig:singleflash}
+\end{figure}
+
+Sıvı buhar karışımı halinde bulunan jeotermal kaynaklar için, buharın türbine gönderilmeden önce sudan ayrılması gerekmektedir. Bu sebepten, bu tür jeotermal akış-kanlardan elektrik üretimi sırasında ayrıştırıcı (separator) kullanılmaktadır. Tek separatorlü ve iki separatörlü olan modelleri mevcuttur. Bir separatörün kullanıldığı sistemler Tek Flaşlı “Single Flash ” olarak anılırlar. Böyle bir jeotermal çevrimde akışkan separatörde ayrıştırıldıktan sonra buhar, türbine geçer. Şekil \ref{fig:singleflash}'de örnek bir tek flaşlı jeotermal elektrik santralinin çalışma mekanizması görülmektedir \cite{dipippo2012geothermal}.
+
+ 
+\begin{figure}[htbp]
+\centering
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_745bglwqv}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_745bglwqv}
+{\pgfqpoint{-\mcThickness}{-\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathlineto{\pgfpoint{0}{\mcSize}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_bzzrbc236}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_bzzrbc236}
+{\pgfqpoint{-\mcThickness}{-\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathlineto{\pgfpoint{0}{\mcSize}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_n0ry76iqo}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_n0ry76iqo}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_hpnwsth4m}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_hpnwsth4m}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_niub5b3ou}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_niub5b3ou}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_9bt2ku87y}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_9bt2ku87y}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_6bgf8j5g3}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_6bgf8j5g3}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_7u1fj9i2i}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_7u1fj9i2i}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_66m2franp}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_66m2franp}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_beqig1j8k}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_beqig1j8k}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_z188vl6kr}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_z188vl6kr}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_1fb2q2zfj}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_1fb2q2zfj}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_k1cz2w93q/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_35ndbol1g}{150bp}{rgb(0bp)=(1,1,1);
+rgb(37.5bp)=(1,1,1);
+rgb(37.5bp)=(0,0,0);
+rgb(100bp)=(0,0,0)}
+\tikzset{_itc7uuifd/.code = {\pgfsetadditionalshadetransform{\pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 } }}}
+\pgfdeclarehorizontalshading{_7xqklhl93} {150bp} {color(0bp)=(transparent!0);
+color(37.5bp)=(transparent!0);
+color(37.5bp)=(transparent!10);
+color(100bp)=(transparent!10) } 
+\pgfdeclarefading{_eln1ef4bm}{\tikz \fill[shading=_7xqklhl93,_itc7uuifd] (0,0) rectangle (50bp,50bp); } 
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_fv1ktq4gp}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_fv1ktq4gp}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_p6f7squti}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_p6f7squti}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_qv07738wh}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_qv07738wh}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_voquugssi}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_voquugssi}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_v2tdi9yug}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_v2tdi9yug}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_xhs9p0pea}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_xhs9p0pea}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_8utt1tpl3}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_8utt1tpl3}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_83ux78d2v}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_83ux78d2v}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_j7x9iml7u}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_j7x9iml7u}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_79wkqhqrc}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_79wkqhqrc}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_falbs9mev}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_falbs9mev}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Rectangle [id:dp9718132524944028] 
+\draw  [pattern=_745bglwqv,pattern size=23.174999999999997pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (45.4,120) -- (179.8,120) -- (179.8,197.8) -- (45.4,197.8) -- cycle ;
+%Shape: Rectangle [id:dp2160990334120001] 
+\draw  [pattern=_bzzrbc236,pattern size=6pt,pattern thickness=2.25pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (181,120) -- (228.6,120) -- (228.6,197.8) -- (181,197.8) -- cycle ;
+%Shape: Parallelogram [id:dp8816135148479192] 
+\draw  [pattern=_n0ry76iqo,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}][line width=0.75]  (158.2,75.59) -- (181.17,75.59) -- (181.17,94.33) -- (158.2,94.33) -- cycle ;
+%Shape: Parallelogram [id:dp015291618066607171] 
+\draw  [pattern=_hpnwsth4m,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (8.79,174.67) -- (27.79,174.67) -- (27.79,279.91) -- (8.79,279.91) -- cycle ;
+%Shape: Can [id:dp05566221189355658] 
+\draw   (54.17,56.17) -- (150.17,56.17) .. controls (155.14,56.17) and (159.17,69.6) .. (159.17,86.17) .. controls (159.17,102.74) and (155.14,116.17) .. (150.17,116.17) -- (54.17,116.17) .. controls (49.2,116.17) and (45.17,102.74) .. (45.17,86.17) .. controls (45.17,69.6) and (49.2,56.17) .. (54.17,56.17) .. controls (59.14,56.17) and (63.17,69.6) .. (63.17,86.17) .. controls (63.17,102.74) and (59.14,116.17) .. (54.17,116.17) ;
+%Right Arrow [id:dp0697402127391551] 
+\draw   (14.7,272.4) -- (14.7,254.9) -- (11.7,254.9) -- (17.7,243.23) -- (23.7,254.9) -- (20.7,254.9) -- (20.7,272.4) -- cycle ;
+%Shape: Spiral [id:dp5948343085021326] 
+\draw   (101.16,98.18) .. controls (99.84,97.91) and (98.63,97.09) .. (97.55,95.76) .. controls (96.46,94.39) and (95.64,92.65) .. (95.1,90.55) .. controls (94.55,88.41) and (94.37,86.18) .. (94.56,83.85) .. controls (94.74,81.48) and (95.28,79.33) .. (96.18,77.42) .. controls (97.09,75.48) and (98.24,74.02) .. (99.64,73.08) .. controls (101.06,72.12) and (102.54,71.81) .. (104.08,72.14) .. controls (105.64,72.48) and (107.05,73.45) .. (108.31,75.04) .. controls (109.59,76.66) and (110.54,78.71) .. (111.15,81.18) .. controls (111.78,83.69) and (111.98,86.31) .. (111.76,89.01) .. controls (111.53,91.77) and (110.89,94.24) .. (109.84,96.46) .. controls (108.77,98.7) and (107.43,100.37) .. (105.81,101.44) .. controls (104.16,102.53) and (102.45,102.87) .. (100.68,102.47) .. controls (98.89,102.06) and (97.27,100.92) .. (95.83,99.09) .. controls (94.37,97.22) and (93.29,94.86) .. (92.59,92.02) .. controls (91.88,89.14) and (91.66,86.15) .. (91.93,83.06) .. controls (92.21,79.92) and (92.94,77.1) .. (94.15,74.59) .. controls (95.37,72.06) and (96.9,70.17) .. (98.74,68.97) .. controls (100.61,67.75) and (102.55,67.37) .. (104.56,67.84) .. controls (106.59,68.32) and (108.42,69.61) .. (110.04,71.72) .. controls (111.68,73.84) and (112.89,76.51) .. (113.67,79.71) .. controls (114.45,82.97) and (114.69,86.33) .. (114.38,89.8) .. controls (114.06,93.32) and (113.23,96.48) .. (111.87,99.29) .. controls (110.49,102.14) and (108.77,104.22) .. (106.7,105.56) .. controls (104.61,106.91) and (102.44,107.31) .. (100.2,106.77) .. controls (97.94,106.22) and (95.9,104.76) .. (94.1,102.41) .. controls (92.28,100.04) and (90.93,97.06) .. (90.08,93.49) .. controls (89.21,89.87) and (88.95,86.13) .. (89.31,82.27) .. controls (89.67,78.36) and (90.6,74.86) .. (92.12,71.76) .. controls (93.64,68.63) and (95.56,66.32) .. (97.85,64.85) .. controls (100.17,63.37) and (102.56,62.93) .. (105.04,63.55) .. controls (107.54,64.17) and (109.78,65.78) .. (111.76,68.39) .. controls (113.77,71.02) and (115.24,74.3) .. (116.18,78.25) .. controls (117.13,82.23) and (117.4,86.34) .. (117,90.59) .. controls (116.6,94.88) and (115.57,98.71) .. (113.9,102.12) .. controls (112.22,105.56) and (110.12,108.07) .. (107.6,109.67) .. controls (105.06,111.3) and (102.43,111.76) .. (99.72,111.07) .. controls (96.99,110.38) and (94.54,108.59) .. (92.37,105.74) .. controls (90.18,102.86) and (88.58,99.27) .. (87.57,94.95) .. controls (86.54,90.6) and (86.25,86.11) .. (86.69,81.48) .. controls (87.13,76.81) and (88.26,72.63) .. (90.08,68.93) .. controls (91.92,65.21) and (94.21,62.47) .. (96.95,60.73) .. controls (99.72,58.98) and (102.58,58.49) .. (105.52,59.25) .. controls (108.49,60.01) and (111.15,61.95) .. (113.49,65.06) .. controls (115.86,68.19) and (117.59,72.1) .. (118.69,76.78) .. controls (119.42,79.86) and (119.8,83.01) .. (119.84,86.22) ;
+%Shape: Parallelogram [id:dp9560695712780911] 
+\draw  [pattern=_niub5b3ou,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (23,75.59) -- (63.17,75.59) -- (63.17,94.33) -- (23,94.33) -- cycle ;
+%Shape: Moon [id:dp1629824260414494] 
+\draw  [draw opacity=0][pattern=_9bt2ku87y,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (49.33,58.17) .. controls (64.25,58.17) and (76.33,69.51) .. (76.33,83.5) .. controls (76.33,97.49) and (64.25,108.83) .. (49.33,108.83) .. controls (57.41,103.77) and (62.83,94.32) .. (62.83,83.5) .. controls (62.83,72.68) and (57.41,63.23) .. (49.33,58.17) -- cycle ;
+%Shape: Moon [id:dp11150414973655587] 
+\draw  [draw opacity=0][pattern=_6bgf8j5g3,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (56.67,59.5) .. controls (71.58,59.5) and (83.67,70.84) .. (83.67,84.83) .. controls (83.67,98.82) and (71.58,110.17) .. (56.67,110.17) .. controls (64.74,105.11) and (70.17,95.66) .. (70.17,84.83) .. controls (70.17,74.01) and (64.74,64.56) .. (56.67,59.5) -- cycle ;
+%Shape: Moon [id:dp6052824128177836] 
+\draw  [draw opacity=0][pattern=_7u1fj9i2i,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (67.33,57.83) .. controls (82.25,57.83) and (94.33,69.18) .. (94.33,83.17) .. controls (94.33,97.16) and (82.25,108.5) .. (67.33,108.5) .. controls (75.41,103.44) and (80.83,93.99) .. (80.83,83.17) .. controls (80.83,72.34) and (75.41,62.89) .. (67.33,57.83) -- cycle ;
+%Shape: Moon [id:dp5669550810904951] 
+\draw  [draw opacity=0][pattern=_66m2franp,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (98.71,86.26) .. controls (98.81,101.17) and (88.39,113.32) .. (75.45,113.41) .. controls (62.5,113.49) and (51.93,101.47) .. (51.83,86.56) .. controls (56.57,94.6) and (65.35,99.97) .. (75.36,99.91) .. controls (85.37,99.84) and (94.08,94.36) .. (98.71,86.26) -- cycle ;
+%Right Arrow [id:dp7627684446374623] 
+\draw   (62.83,106.94) -- (71.78,106.94) -- (71.78,105) -- (77.75,108.87) -- (71.78,112.75) -- (71.78,110.81) -- (62.83,110.81) -- cycle ;
+%Right Arrow [id:dp7720860456488539] 
+\draw   (62.83,62.27) -- (71.78,62.27) -- (71.78,60.33) -- (77.75,64.21) -- (71.78,68.08) -- (71.78,66.15) -- (62.83,66.15) -- cycle ;
+%Curve Left Arrow [id:dp7177435795884279] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (96.57,86.77) .. controls (95.6,89.66) and (99.63,92) .. (105.57,92) -- (106.65,88.78) .. controls (100.71,88.78) and (96.68,86.44) .. (97.64,83.55) ;\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (97.64,83.55) .. controls (98.36,81.41) and (101.63,79.57) .. (105.69,78.76) -- (106.05,77.68) -- (109.6,79.94) -- (104.26,83.06) -- (104.62,81.98) .. controls (100.55,82.79) and (97.28,84.63) .. (96.57,86.77)(97.64,83.55) -- (96.57,86.77) ;
+%Shape: Parallelogram [id:dp26182172037618945] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (127.3,84.34) -- (199.5,84.34) -- (199.5,84.9) -- (127.3,84.9) -- cycle ;
+%Shape: Moon [id:dp9004792949314562] 
+\draw  [draw opacity=0][pattern=_beqig1j8k,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (109.76,57.07) .. controls (133.72,57.07) and (153.14,68.41) .. (153.14,82.4) .. controls (153.14,96.4) and (133.72,107.74) .. (109.76,107.74) .. controls (112.55,100.08) and (114.1,91.49) .. (114.1,82.4) .. controls (114.1,73.32) and (112.55,64.73) .. (109.76,57.07) -- cycle ;
+%Shape: Moon [id:dp16724559823969587] 
+\draw  [draw opacity=0][pattern=_z188vl6kr,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (159.21,73.11) .. controls (159.37,97.07) and (148.16,116.57) .. (134.17,116.67) .. controls (120.18,116.76) and (108.71,97.42) .. (108.54,73.46) .. controls (116.22,76.19) and (124.82,77.69) .. (133.91,77.62) .. controls (142.99,77.56) and (151.57,75.95) .. (159.21,73.11) -- cycle ;
+%Shape: Moon [id:dp09627769510811968] 
+\draw  [draw opacity=0][pattern=_1fb2q2zfj,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (124.04,100.04) .. controls (123.81,76.09) and (131.55,56.59) .. (141.31,56.5) .. controls (151.07,56.41) and (159.16,75.76) .. (159.39,99.72) .. controls (154.02,96.98) and (148.01,95.48) .. (141.67,95.54) .. controls (135.33,95.6) and (129.35,97.21) .. (124.04,100.04) -- cycle ;
+%Flowchart: Direct Access Storage [id:dp5854993735112144] 
+\path  [shading=_35ndbol1g,_k1cz2w93q,path fading= _eln1ef4bm ,fading transform={xshift=2}] (257.25,114.34) -- (211.75,114.34) .. controls (204.98,114.34) and (199.5,100.91) .. (199.5,84.34) .. controls (199.5,67.77) and (204.98,54.34) .. (211.75,54.34) -- (257.25,54.34)(269.5,84.34) .. controls (269.5,100.91) and (264.02,114.34) .. (257.25,114.34) .. controls (250.48,114.34) and (245,100.91) .. (245,84.34) .. controls (245,67.77) and (250.48,54.34) .. (257.25,54.34) .. controls (264.02,54.34) and (269.5,67.77) .. (269.5,84.34) ; % for fading 
+ \draw   (257.25,114.34) -- (211.75,114.34) .. controls (204.98,114.34) and (199.5,100.91) .. (199.5,84.34) .. controls (199.5,67.77) and (204.98,54.34) .. (211.75,54.34) -- (257.25,54.34)(269.5,84.34) .. controls (269.5,100.91) and (264.02,114.34) .. (257.25,114.34) .. controls (250.48,114.34) and (245,100.91) .. (245,84.34) .. controls (245,67.77) and (250.48,54.34) .. (257.25,54.34) .. controls (264.02,54.34) and (269.5,67.77) .. (269.5,84.34) ; % for border 
+
+%Shape: Lamp [id:dp6522419512095736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (298.56,72.44) -- (298.56,39.44) .. controls (298.56,31.16) and (307.52,24.44) .. (318.56,24.44) .. controls (329.6,24.44) and (338.56,31.16) .. (338.56,39.44) -- (338.56,72.44) -- (298.56,72.44) -- cycle (306.56,84.44) -- (306.56,54.44) .. controls (306.56,49.48) and (311.93,45.44) .. (318.56,45.44) .. controls (325.18,45.44) and (330.56,49.47) .. (330.56,54.44) -- (330.56,84.44) ;
+%Straight Lines [id:da9091798153138035] 
+\draw    (306.56,94.5) -- (306.56,84.44) ;
+%Straight Lines [id:da9596137980708423] 
+\draw    (268.7,94.5) -- (306.56,94.5) ;
+%Straight Lines [id:da20118907450923795] 
+\draw    (265.1,107.7) -- (330.56,107.7) ;
+%Straight Lines [id:da712718384278229] 
+\draw    (330.56,107.7) -- (330.56,84.44) ;
+%Straight Lines [id:da5487618202061475] 
+\draw    (289.38,18.05) -- (299.05,27.55) ;
+%Straight Lines [id:da8485814769382489] 
+\draw    (318.05,6.55) -- (318.22,19.22) ;
+%Straight Lines [id:da47576812311039807] 
+\draw    (297.88,11.38) -- (304.38,22.38) ;
+%Straight Lines [id:da22910891226803298] 
+\draw    (336.22,9.38) -- (331.72,20.22) ;
+%Straight Lines [id:da32868283280051225] 
+\draw    (307.38,7.55) -- (310.38,20.55) ;
+%Straight Lines [id:da613979225809929] 
+\draw    (327.05,7.05) -- (325.55,19.55) ;
+%Straight Lines [id:da7044020207626895] 
+\draw    (344.38,13.22) -- (336.55,23.55) ;
+%Straight Lines [id:da16034892412336466] 
+\draw    (351.88,18.88) -- (343.22,27.88) ;
+%Shape: Parallelogram [id:dp08021152030862799] 
+\draw  [pattern=_fv1ktq4gp,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (160.96,174.8) -- (160.96,193.8) -- (28.01,193.8) -- (28.01,174.8) -- cycle ;
+%Shape: Parallelogram [id:dp5094365327884736] 
+\draw  [pattern=_p6f7squti,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (160.79,174.67) -- (179.79,174.67) -- (179.79,280.17) -- (160.79,280.17) -- cycle ;
+%Right Arrow [id:dp8447773408508104] 
+\draw   (173.37,247.49) -- (173.37,264.99) -- (176.37,264.99) -- (170.37,276.66) -- (164.37,264.99) -- (167.37,264.99) -- (167.37,247.49) -- cycle ;
+%Shape: Moon [id:dp2719045471469683] 
+\draw  [draw opacity=0][pattern=_qv07738wh,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (81.17,193) .. controls (66.25,193) and (54.17,189.34) .. (54.17,184.83) .. controls (54.17,180.32) and (66.25,176.67) .. (81.17,176.67) .. controls (77.71,178.93) and (75.67,181.76) .. (75.67,184.83) .. controls (75.67,187.9) and (77.71,190.73) .. (81.17,193) -- cycle ;
+%Shape: Moon [id:dp7102591938304417] 
+\draw  [draw opacity=0][pattern=_voquugssi,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (110.5,192.33) .. controls (95.59,192.33) and (83.5,188.68) .. (83.5,184.17) .. controls (83.5,179.66) and (95.59,176) .. (110.5,176) .. controls (107.05,178.27) and (105,181.1) .. (105,184.17) .. controls (105,187.24) and (107.05,190.07) .. (110.5,192.33) -- cycle ;
+%Shape: Moon [id:dp11954169977843065] 
+\draw  [draw opacity=0][pattern=_v2tdi9yug,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (145.5,192.33) .. controls (130.59,192.33) and (118.5,188.68) .. (118.5,184.17) .. controls (118.5,179.66) and (130.59,176) .. (145.5,176) .. controls (142.05,178.27) and (140,181.1) .. (140,184.17) .. controls (140,187.24) and (142.05,190.07) .. (145.5,192.33) -- cycle ;
+%Shape: Parallelogram [id:dp4834941966910844] 
+\draw  [pattern=_xhs9p0pea,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (23.45,94.33) -- (42.45,94.33) -- (42.45,151.33) -- (23.45,151.33) -- cycle ;
+%Shape: Parallelogram [id:dp37760320853719476] 
+\draw  [pattern=_8utt1tpl3,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (161.8,132.42) -- (161.8,151.42) -- (42.4,151.42) -- (42.4,132.42) -- cycle ;
+%Shape: Parallelogram [id:dp41213936134755524] 
+\draw  [pattern=_83ux78d2v,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (161.85,94.33) -- (180.85,94.33) -- (180.85,151.33) -- (161.85,151.33) -- cycle ;
+%Shape: Moon [id:dp024618054404238476] 
+\draw  [draw opacity=0][pattern=_j7x9iml7u,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (90.3,150.73) .. controls (75.39,150.73) and (63.3,147.08) .. (63.3,142.57) .. controls (63.3,138.06) and (75.39,134.4) .. (90.3,134.4) .. controls (86.85,136.67) and (84.8,139.5) .. (84.8,142.57) .. controls (84.8,145.64) and (86.85,148.47) .. (90.3,150.73) -- cycle ;
+%Shape: Moon [id:dp4363371421745408] 
+\draw  [draw opacity=0][pattern=_79wkqhqrc,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (125.5,149.53) .. controls (110.59,149.53) and (98.5,145.88) .. (98.5,141.37) .. controls (98.5,136.86) and (110.59,133.2) .. (125.5,133.2) .. controls (122.05,135.47) and (120,138.3) .. (120,141.37) .. controls (120,144.44) and (122.05,147.27) .. (125.5,149.53) -- cycle ;
+%Shape: Moon [id:dp12415652998283289] 
+\draw  [draw opacity=0][pattern=_falbs9mev,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 11; green, 35; blue, 241}] (158.3,149.53) .. controls (143.39,149.53) and (131.3,145.88) .. (131.3,141.37) .. controls (131.3,136.86) and (143.39,133.2) .. (158.3,133.2) .. controls (154.85,135.47) and (152.8,138.3) .. (152.8,141.37) .. controls (152.8,144.44) and (154.85,147.27) .. (158.3,149.53) -- cycle ;
+
+% Text Node
+\draw (35.27,291.33) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{53.26pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Üretim Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (192.4,291.13) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{59.62pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Boşaltım Kuyusu}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (82.5,23.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{24.94pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Türbin}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (210.97,24.2) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{32.63pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Jeneratör}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (238.57,143.6) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{47.38pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Ara Akışkan }}\\{\fontfamily{ptm}\selectfont {\footnotesize Sıvılı Eşanjör}}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+
+
+\caption{İkili (binary) çevrim jeotermal enerji santrali üretim topolojisi \protect\cite{dipippo2012geothermal}.}
+\label{fig:binary}
+\end{figure}
+
+Düşük sıcaklıklı ve sıvı ağırlıklı jeotermal kaynaklardan elektrik üretimi için, jeotermal akışkandan ikinci bir çalışma sıvısına ısı geçişinin bir ısı değiştiricide sağ-lanması ve ikinci sıvının da türbine genleşip yoğuşturucuda faz değiştirmesiyle ortaya çıkan artık ısının soğutma kulesinden atılması sonucu tamamlanan kapalı devre çevrim sistemli jeotermal enerji santrallerinin diyagramı Şekil \ref{fig:binary}'de gösterilmiştir.
+
+\subsection{Biyokütle Enerji Santralleri}
+
+
+Biyokütle, bitkiler veya bitki türevli malzemeler gibi canlı veya yakın zamanda yaşayan organizmalardan elde edilen biyolojik materyali ifade eder. Bir enerji kaynağı olarak, biyokütle ya doğrudan yanma yoluyla ısı üretmek için ya da çeşitli biyoyakıt biçimlerine dönüştürüldükten sonra dolaylı olarak kullanılabilir. Biyokütlenin biyoyakıta dönüştürülmesi, genel olarak termal, kimyasal ve biyokimyasal olarak sınıflandırılan yön-temlerle gerçekleşmektedir \cite{speight2022encyclopedia}. Şekil \ref{fig:biomass}'de biyokütle enerji santralinin çalışma prensibi gösterilmiştir. Yoğunlaştırıcı ünitesine eklenen suyun devir daim pompasıyle buhar kazanına geçişi sağlanır. Biyokütle enerji kaynağının ateşleme odasında yanmasıyla buhar kazanındaki suy buharı türbine iletilir. Böylelikle biyokütle enerji kaynağı kullanılarak elektrik enerjisi üretilmiş olur.
+
+
+\begin{figure}[htbp]
+\centering
+
+
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_vuvoepb2i}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_vuvoepb2i}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_vtvzl3905}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_vtvzl3905}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_5z3snq6bw}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_5z3snq6bw}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_nswrugt25}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_nswrugt25}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_3xb09pypc}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_3xb09pypc}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_cjelte9ux}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_cjelte9ux}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_5tbk967ec}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_5tbk967ec}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_gqqog6p60}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_gqqog6p60}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_ssx7tapcz}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_ssx7tapcz}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_xzzildl3v}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_xzzildl3v}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_15mmasso1/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_ert6gh8rw}{150bp}{rgb(0bp)=(1,1,1);
+rgb(37.5bp)=(1,1,1);
+rgb(37.5bp)=(0,0,0);
+rgb(100bp)=(0,0,0)}
+\tikzset{_go7347wbv/.code = {\pgfsetadditionalshadetransform{\pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 } }}}
+\pgfdeclarehorizontalshading{_645bnk5wf} {150bp} {color(0bp)=(transparent!0);
+color(37.5bp)=(transparent!0);
+color(37.5bp)=(transparent!10);
+color(100bp)=(transparent!10) } 
+\pgfdeclarefading{_o5er8210f}{\tikz \fill[shading=_645bnk5wf,_go7347wbv] (0,0) rectangle (50bp,50bp); } 
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_u8pdlk7j3}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_u8pdlk7j3}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_y8z0j9nar}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_y8z0j9nar}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_6n4mclg11}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_6n4mclg11}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_j9ohn0ap1}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_j9ohn0ap1}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_7nri7dgvm}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_7nri7dgvm}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_bbyv9kvpl/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_lza11c2g6}{150bp}{rgb(0bp)=(1,0,0);
+rgb(37.5bp)=(1,0,0);
+rgb(50bp)=(1,1,0);
+rgb(62.5bp)=(1,0,0);
+rgb(100bp)=(1,0,0)}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,438); %set diagram left start at 0, and has height of 438
+
+%Shape: Memristor [id:dp21670994114864772] 
+\draw  [color={rgb, 255:red, 218; green, 218; blue, 218 }  ,draw opacity=1 ][line width=2.25]  (308.2,288.2) -- (328.58,288.2) -- (328.58,270.8) -- (337.63,270.8) -- (337.63,305.6) -- (346.69,305.6) -- (346.69,270.8) -- (355.74,270.8) -- (355.74,305.6) -- (364.8,305.6) -- (364.8,270.8) -- (373.86,270.8) -- (373.86,305.6) -- (382.91,305.6) -- (382.91,270.8) -- (391.97,270.8) -- (391.97,305.6) -- (401.02,305.6) -- (401.02,288.2) -- (421.4,288.2) ;
+%Shape: Can [id:dp05566221189355658] 
+\draw   (368.18,124.33) -- (448.02,124.33) .. controls (451.85,124.33) and (454.96,134.68) .. (454.96,147.46) .. controls (454.96,160.23) and (451.85,170.58) .. (448.02,170.58) -- (368.18,170.58) .. controls (364.35,170.58) and (361.24,160.23) .. (361.24,147.46) .. controls (361.24,134.68) and (364.35,124.33) .. (368.18,124.33) .. controls (372.01,124.33) and (375.12,134.68) .. (375.12,147.46) .. controls (375.12,160.23) and (372.01,170.58) .. (368.18,170.58) ;
+%Shape: Spiral [id:dp5948343085021326] 
+\draw   (407.28,156.71) .. controls (406.19,156.5) and (405.2,155.89) .. (404.31,154.85) .. controls (403.41,153.8) and (402.74,152.46) .. (402.29,150.84) .. controls (401.84,149.19) and (401.69,147.47) .. (401.84,145.67) .. controls (402,143.84) and (402.44,142.2) .. (403.18,140.71) .. controls (403.93,139.21) and (404.88,138.09) .. (406.02,137.37) .. controls (407.19,136.62) and (408.41,136.39) .. (409.67,136.64) .. controls (410.96,136.91) and (412.12,137.65) .. (413.15,138.88) .. controls (414.2,140.12) and (414.98,141.7) .. (415.49,143.61) .. controls (416.01,145.55) and (416.17,147.56) .. (415.98,149.65) .. controls (415.8,151.77) and (415.27,153.69) .. (414.41,155.39) .. controls (413.53,157.12) and (412.43,158.41) .. (411.1,159.23) .. controls (409.74,160.08) and (408.34,160.34) .. (406.88,160.03) .. controls (405.4,159.71) and (404.07,158.84) .. (402.89,157.42) .. controls (401.69,155.98) and (400.8,154.15) .. (400.23,151.97) .. controls (399.65,149.76) and (399.47,147.45) .. (399.69,145.06) .. controls (399.91,142.64) and (400.52,140.46) .. (401.51,138.53) .. controls (402.51,136.57) and (403.77,135.13) .. (405.29,134.19) .. controls (406.83,133.25) and (408.42,132.96) .. (410.07,133.33) .. controls (411.74,133.7) and (413.24,134.7) .. (414.57,136.31) .. controls (415.92,137.95) and (416.92,140.01) .. (417.56,142.48) .. controls (418.2,144.98) and (418.4,147.57) .. (418.14,150.26) .. controls (417.88,152.97) and (417.19,155.41) .. (416.08,157.57) .. controls (414.95,159.76) and (413.53,161.37) .. (411.83,162.4) .. controls (410.11,163.45) and (408.33,163.77) .. (406.49,163.34) .. controls (404.62,162.91) and (402.95,161.79) .. (401.47,159.98) .. controls (399.97,158.14) and (398.87,155.86) .. (398.16,153.1) .. controls (397.45,150.31) and (397.24,147.44) .. (397.53,144.45) .. controls (397.83,141.44) and (398.6,138.74) .. (399.84,136.35) .. controls (401.1,133.93) and (402.67,132.16) .. (404.55,131.02) .. controls (406.46,129.87) and (408.43,129.53) .. (410.46,130.02) .. controls (412.52,130.5) and (414.36,131.75) .. (415.99,133.75) .. controls (417.64,135.77) and (418.85,138.31) .. (419.62,141.35) .. controls (420.4,144.42) and (420.62,147.59) .. (420.3,150.86) .. controls (419.97,154.17) and (419.12,157.13) .. (417.75,159.75) .. controls (416.36,162.4) and (414.64,164.34) .. (412.57,165.58) .. controls (410.48,166.83) and (408.32,167.18) .. (406.09,166.65) .. controls (403.84,166.12) and (401.83,164.75) .. (400.05,162.55) .. controls (398.25,160.33) and (396.93,157.55) .. (396.1,154.23) .. controls (395.25,150.88) and (395.01,147.42) .. (395.38,143.85) .. controls (395.74,140.24) and (396.67,137.02) .. (398.17,134.17) .. controls (399.68,131.29) and (401.56,129.18) .. (403.82,127.85) .. controls (406.09,126.51) and (408.44,126.12) .. (410.86,126.7) .. controls (413.3,127.29) and (415.48,128.78) .. (417.41,131.18) .. controls (419.36,133.61) and (420.78,136.62) .. (421.69,140.22) .. controls (422.28,142.6) and (422.6,145.02) .. (422.63,147.5) ;
+%Shape: Parallelogram [id:dp9560695712780911] 
+\draw  [pattern=_vuvoepb2i,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (330,139.3) -- (377.04,139.3) -- (377.04,157) -- (330,157) -- cycle ;
+%Shape: Moon [id:dp1629824260414494] 
+\draw  [draw opacity=0][pattern=_vtvzl3905,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (364.67,125.87) .. controls (376.93,125.87) and (386.86,134.61) .. (386.86,145.4) .. controls (386.86,156.19) and (376.93,164.93) .. (364.67,164.93) .. controls (371.31,161.03) and (375.77,153.74) .. (375.77,145.4) .. controls (375.77,137.05) and (371.31,129.77) .. (364.67,125.87) -- cycle ;
+%Shape: Moon [id:dp11150414973655587] 
+\draw  [draw opacity=0][pattern=_5z3snq6bw,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (370.7,126.9) .. controls (382.96,126.9) and (392.89,135.64) .. (392.89,146.43) .. controls (392.89,157.21) and (382.96,165.96) .. (370.7,165.96) .. controls (377.33,162.06) and (381.8,154.77) .. (381.8,146.43) .. controls (381.8,138.08) and (377.33,130.8) .. (370.7,126.9) -- cycle ;
+%Shape: Moon [id:dp6052824128177836] 
+\draw  [draw opacity=0][pattern=_nswrugt25,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (379.47,125.61) .. controls (391.72,125.61) and (401.66,134.36) .. (401.66,145.14) .. controls (401.66,155.93) and (391.72,164.67) .. (379.47,164.67) .. controls (386.1,160.77) and (390.56,153.49) .. (390.56,145.14) .. controls (390.56,136.8) and (386.1,129.51) .. (379.47,125.61) -- cycle ;
+%Shape: Moon [id:dp2719045471469683] 
+\draw  [draw opacity=0][pattern=_3xb09pypc,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (372.07,130.75) .. controls (384.33,130.75) and (394.26,139.5) .. (394.26,150.28) .. controls (394.26,161.07) and (384.33,169.81) .. (372.07,169.81) .. controls (378.71,165.91) and (383.17,158.63) .. (383.17,150.28) .. controls (383.17,141.94) and (378.71,134.65) .. (372.07,130.75) -- cycle ;
+%Shape: Moon [id:dp5669550810904951] 
+\draw  [draw opacity=0][pattern=_cjelte9ux,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 91; green, 244; blue, 231}] (405.26,147.53) .. controls (405.34,159.02) and (396.78,168.39) .. (386.13,168.46) .. controls (375.49,168.52) and (366.8,159.26) .. (366.73,147.76) .. controls (370.62,153.96) and (377.83,158.1) .. (386.06,158.05) .. controls (394.3,158) and (401.45,153.77) .. (405.26,147.53) -- cycle ;
+%Right Arrow [id:dp7627684446374623] 
+\draw   (375.77,163.47) -- (383.12,163.47) -- (383.12,161.97) -- (388.03,164.96) -- (383.12,167.95) -- (383.12,166.46) -- (375.77,166.46) -- cycle ;
+%Right Arrow [id:dp7720860456488539] 
+\draw   (375.77,129.03) -- (383.12,129.03) -- (383.12,127.54) -- (388.03,130.53) -- (383.12,133.51) -- (383.12,132.02) -- (375.77,132.02) -- cycle ;
+%Curve Left Arrow [id:dp7177435795884279] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (403.46,148.03) .. controls (402.69,150.2) and (406.02,151.95) .. (410.9,151.95) -- (411.84,149.3) .. controls (406.96,149.3) and (403.63,147.55) .. (404.4,145.38) ;\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.4,145.38) .. controls (404.98,143.78) and (407.65,142.4) .. (410.99,141.79) -- (411.3,140.91) -- (414.16,142.79) -- (409.73,145.32) -- (410.04,144.44) .. controls (406.7,145.05) and (404.03,146.43) .. (403.46,148.03)(404.4,145.38) -- (403.46,148.03) ;
+%Shape: Parallelogram [id:dp5702791468187773] 
+\draw  [pattern=_5tbk967ec,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (440.12,278.01) -- (424.51,277.99) -- (424.62,170.71) -- (440.23,170.73) -- cycle ;
+%Right Arrow [id:dp35091072787403266] 
+\draw   (435.01,240.19) -- (434.99,253.68) -- (437.46,253.68) -- (432.52,262.67) -- (427.59,253.67) -- (430.06,253.68) -- (430.07,240.18) -- cycle ;
+%Right Arrow [id:dp05134340780431046] 
+\draw   (434.77,205.24) -- (434.76,218.73) -- (437.22,218.73) -- (432.28,227.72) -- (427.36,218.72) -- (429.82,218.73) -- (429.84,205.23) -- cycle ;
+%Right Arrow [id:dp3692243147903016] 
+\draw   (435.37,176.2) -- (435.36,189.69) -- (437.82,189.7) -- (432.88,198.68) -- (427.96,189.68) -- (430.42,189.69) -- (430.44,176.2) -- cycle ;
+%Shape: Parallelogram [id:dp26182172037618945] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (408.38,146.97) -- (467.73,146.97) -- (467.73,147.4) -- (408.38,147.4) -- cycle ;
+%Shape: Moon [id:dp9004792949314562] 
+\draw  [draw opacity=0][pattern=_gqqog6p60,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (414.35,125.02) .. controls (434.04,125.02) and (450.01,133.77) .. (450.01,144.55) .. controls (450.01,155.34) and (434.04,164.09) .. (414.35,164.09) .. controls (416.63,158.18) and (417.91,151.56) .. (417.91,144.55) .. controls (417.91,137.55) and (416.63,130.93) .. (414.35,125.02) -- cycle ;
+%Shape: Moon [id:dp16724559823969587] 
+\draw  [draw opacity=0][pattern=_ssx7tapcz,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (454.99,137.39) .. controls (455.13,155.86) and (445.92,170.89) .. (434.41,170.97) .. controls (422.91,171.04) and (413.48,156.13) .. (413.34,137.66) .. controls (419.65,139.77) and (426.73,140.92) .. (434.19,140.87) .. controls (441.66,140.82) and (448.72,139.58) .. (454.99,137.39) -- cycle ;
+%Shape: Moon [id:dp09627769510811968] 
+\draw  [draw opacity=0][pattern=_xzzildl3v,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 178; green, 203; blue, 203}] (426.08,158.15) .. controls (425.9,139.68) and (432.25,124.65) .. (440.28,124.58) .. controls (448.3,124.51) and (454.96,139.43) .. (455.14,157.9) .. controls (450.73,155.79) and (445.79,154.64) .. (440.58,154.68) .. controls (435.37,154.73) and (430.45,155.97) .. (426.08,158.15) -- cycle ;
+%Flowchart: Direct Access Storage [id:dp5854993735112144] 
+\path  [shading=_ert6gh8rw,_15mmasso1,path fading= _o5er8210f ,fading transform={xshift=2}] (515.2,170.1) -- (477.8,170.1) .. controls (472.24,170.1) and (467.73,159.74) .. (467.73,146.97) .. controls (467.73,134.2) and (472.24,123.84) .. (477.8,123.84) -- (515.2,123.84)(525.27,146.97) .. controls (525.27,159.74) and (520.77,170.1) .. (515.2,170.1) .. controls (509.64,170.1) and (505.13,159.74) .. (505.13,146.97) .. controls (505.13,134.2) and (509.64,123.84) .. (515.2,123.84) .. controls (520.77,123.84) and (525.27,134.2) .. (525.27,146.97) ; % for fading 
+ \draw   (515.2,170.1) -- (477.8,170.1) .. controls (472.24,170.1) and (467.73,159.74) .. (467.73,146.97) .. controls (467.73,134.2) and (472.24,123.84) .. (477.8,123.84) -- (515.2,123.84)(525.27,146.97) .. controls (525.27,159.74) and (520.77,170.1) .. (515.2,170.1) .. controls (509.64,170.1) and (505.13,159.74) .. (505.13,146.97) .. controls (505.13,134.2) and (509.64,123.84) .. (515.2,123.84) .. controls (520.77,123.84) and (525.27,134.2) .. (525.27,146.97) ; % for border 
+
+%Shape: Lamp [id:dp6522419512095736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (549.16,137.8) -- (549.16,112.36) .. controls (549.16,105.98) and (556.53,100.79) .. (565.6,100.79) .. controls (574.68,100.79) and (582.04,105.97) .. (582.04,112.36) -- (582.04,137.8) -- (549.16,137.8) -- cycle (555.74,147.05) -- (555.74,123.92) .. controls (555.74,120.09) and (560.16,116.98) .. (565.6,116.98) .. controls (571.05,116.98) and (575.47,120.09) .. (575.47,123.92) -- (575.47,147.05) ;
+%Straight Lines [id:da9091798153138035] 
+\draw    (555.74,154.8) -- (555.74,147.05) ;
+%Straight Lines [id:da9596137980708423] 
+\draw    (524.62,154.8) -- (555.74,154.8) ;
+%Straight Lines [id:da20118907450923795] 
+\draw    (521.66,164.98) -- (575.47,164.98) ;
+%Straight Lines [id:da712718384278229] 
+\draw    (575.47,164.98) -- (575.47,147.05) ;
+%Straight Lines [id:da5487618202061475] 
+\draw    (541.62,95.87) -- (549.57,103.19) ;
+%Straight Lines [id:da8485814769382489] 
+\draw    (565.19,87) -- (565.32,96.77) ;
+%Straight Lines [id:da47576812311039807] 
+\draw    (548.61,90.73) -- (553.95,99.21) ;
+%Straight Lines [id:da22910891226803298] 
+\draw    (580.12,89.18) -- (576.42,97.54) ;
+%Straight Lines [id:da32868283280051225] 
+\draw    (556.42,87.77) -- (558.88,97.79) ;
+%Straight Lines [id:da613979225809929] 
+\draw    (572.59,87.39) -- (571.35,97.02) ;
+%Straight Lines [id:da7044020207626895] 
+\draw    (586.83,92.14) -- (580.39,100.11) ;
+%Straight Lines [id:da16034892412336466] 
+\draw    (593,96.51) -- (585.88,103.45) ;
+%Shape: Trapezoid [id:dp04965005805983469] 
+\draw  [pattern=_u8pdlk7j3,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 208; green, 2; blue, 27}] (182,209) -- (194,169) -- (240,169) -- (252,209) -- cycle ;
+%Shape: Rectangle [id:dp29775165035679174] 
+\draw  [pattern=_y8z0j9nar,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 208; green, 2; blue, 27}] (182,208) -- (252,208) -- (252,248) -- (182,248) -- cycle ;
+%Shape: Memristor [id:dp9277905997526078] 
+\draw   (250,147) -- (264.4,147) -- (264.4,127) -- (270.8,127) -- (270.8,167) -- (277.2,167) -- (277.2,127) -- (283.6,127) -- (283.6,167) -- (290,167) -- (290,127) -- (296.4,127) -- (296.4,167) -- (302.8,167) -- (302.8,127) -- (309.2,127) -- (309.2,167) -- (315.6,167) -- (315.6,147) -- (330,147) ;
+%Shape: Rectangle [id:dp1300169570096794] 
+\draw   (248,113) -- (330,113) -- (330,180) -- (248,180) -- cycle ;
+%Shape: Block Arc [id:dp47932212254124884] 
+\draw  [pattern=_6n4mclg11,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 208; green, 2; blue, 27}] (206,169.22) .. controls (206,169.15) and (206,169.07) .. (206,169) .. controls (206,149.75) and (225.1,134.13) .. (248.71,134) -- (248.88,153.97) .. controls (236.21,154.01) and (225.97,160.72) .. (225.97,169) .. controls (225.97,169.04) and (225.97,169.08) .. (225.97,169.12) -- cycle ;
+%Shape: Rectangle [id:dp4723477018027987] 
+\draw  [pattern=_j9ohn0ap1,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 74; green, 144; blue, 226}] (275,266) -- (464,266) -- (464,309) -- (275,309) -- cycle ;
+%Shape: Parallelogram [id:dp8608006347474394] 
+\draw  [pattern=_7nri7dgvm,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 20; green, 90; blue, 236}] (288.61,173.71) -- (304.22,173.73) -- (304.13,281.01) -- (288.52,280.99) -- cycle ;
+%Right Arrow [id:dp43412449944846376] 
+\draw   (293.73,212.53) -- (293.74,199.04) -- (291.28,199.04) -- (296.22,190.05) -- (301.14,199.05) -- (298.67,199.04) -- (298.66,212.54) -- cycle ;
+%Right Arrow [id:dp40325951454610753] 
+\draw   (293.97,247.48) -- (293.98,233.99) -- (291.52,233.99) -- (296.46,225) -- (301.38,234) -- (298.92,233.99) -- (298.91,247.49) -- cycle ;
+%Shape: Cloud [id:dp05534992557449625] 
+\path  [shading=_lza11c2g6,_bbyv9kvpl] (189.92,241.77) .. controls (189.39,241.14) and (191.11,240.52) .. (194.34,240.16) .. controls (197.57,239.81) and (201.75,239.79) .. (205.1,240.11) .. controls (206.29,239.75) and (208.46,239.5) .. (210.96,239.43) .. controls (213.46,239.37) and (215.99,239.5) .. (217.8,239.79) .. controls (218.81,239.46) and (220.79,239.24) .. (223.05,239.2) .. controls (225.3,239.17) and (227.51,239.33) .. (228.88,239.62) .. controls (230.71,239.27) and (233.62,239.12) .. (236.34,239.24) .. controls (239.07,239.36) and (241.13,239.73) .. (241.63,240.18) .. controls (243.87,240.28) and (245.74,240.53) .. (246.74,240.88) .. controls (247.75,241.22) and (247.81,241.62) .. (246.89,241.96) .. controls (249.1,242.43) and (249.61,243.06) .. (248.25,243.61) .. controls (246.88,244.15) and (243.84,244.54) .. (240.26,244.63) .. controls (240.23,245.14) and (238.51,245.61) .. (235.75,245.86) .. controls (233,246.11) and (229.63,246.09) .. (226.96,245.82) .. controls (225.83,246.43) and (222.63,246.89) .. (218.75,246.98) .. controls (214.87,247.08) and (211,246.8) .. (208.82,246.26) .. controls (206.15,246.52) and (202.94,246.6) .. (199.92,246.47) .. controls (196.9,246.34) and (194.33,246.02) .. (192.78,245.58) .. controls (190.05,245.63) and (187.41,245.4) .. (186.17,245) .. controls (184.93,244.6) and (185.35,244.11) .. (187.23,243.79) .. controls (184.79,243.55) and (183.55,243.09) .. (184.15,242.63) .. controls (184.75,242.18) and (187.05,241.84) .. (189.86,241.79) ; % for fading 
+ \draw   (189.92,241.77) .. controls (189.39,241.14) and (191.11,240.52) .. (194.34,240.16) .. controls (197.57,239.81) and (201.75,239.79) .. (205.1,240.11) .. controls (206.29,239.75) and (208.46,239.5) .. (210.96,239.43) .. controls (213.46,239.37) and (215.99,239.5) .. (217.8,239.79) .. controls (218.81,239.46) and (220.79,239.24) .. (223.05,239.2) .. controls (225.3,239.17) and (227.51,239.33) .. (228.88,239.62) .. controls (230.71,239.27) and (233.62,239.12) .. (236.34,239.24) .. controls (239.07,239.36) and (241.13,239.73) .. (241.63,240.18) .. controls (243.87,240.28) and (245.74,240.53) .. (246.74,240.88) .. controls (247.75,241.22) and (247.81,241.62) .. (246.89,241.96) .. controls (249.1,242.43) and (249.61,243.06) .. (248.25,243.61) .. controls (246.88,244.15) and (243.84,244.54) .. (240.26,244.63) .. controls (240.23,245.14) and (238.51,245.61) .. (235.75,245.86) .. controls (233,246.11) and (229.63,246.09) .. (226.96,245.82) .. controls (225.83,246.43) and (222.63,246.89) .. (218.75,246.98) .. controls (214.87,247.08) and (211,246.8) .. (208.82,246.26) .. controls (206.15,246.52) and (202.94,246.6) .. (199.92,246.47) .. controls (196.9,246.34) and (194.33,246.02) .. (192.78,245.58) .. controls (190.05,245.63) and (187.41,245.4) .. (186.17,245) .. controls (184.93,244.6) and (185.35,244.11) .. (187.23,243.79) .. controls (184.79,243.55) and (183.55,243.09) .. (184.15,242.63) .. controls (184.75,242.18) and (187.05,241.84) .. (189.86,241.79) ; % for border 
+ \draw   (187.23,243.79) .. controls (188.38,243.9) and (189.71,243.95) .. (191.04,243.93)(192.78,245.58) .. controls (193.35,245.57) and (193.91,245.54) .. (194.44,245.51)(208.82,246.26) .. controls (208.42,246.16) and (208.08,246.06) .. (207.81,245.95)(226.96,245.82) .. controls (227.17,245.71) and (227.31,245.59) .. (227.37,245.47)(240.26,244.63) .. controls (240.29,244.08) and (238.39,243.58) .. (235.37,243.34)(246.89,241.96) .. controls (246.4,242.15) and (245.66,242.32) .. (244.72,242.45)(241.63,240.18) .. controls (241.72,240.26) and (241.75,240.33) .. (241.75,240.41)(228.88,239.62) .. controls (228.43,239.71) and (228.05,239.81) .. (227.77,239.91)(217.8,239.79) .. controls (217.56,239.87) and (217.37,239.96) .. (217.26,240.04)(205.1,240.11) .. controls (205.81,240.18) and (206.46,240.26) .. (207.05,240.36)(189.92,241.77) .. controls (189.99,241.85) and (190.1,241.94) .. (190.26,242.02) ;
+%Shape: Cloud [id:dp0002286765483795472] 
+\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (133.08,299.75) .. controls (132.44,294.92) and (134.55,290.13) .. (138.53,287.42) .. controls (142.5,284.71) and (147.65,284.56) .. (151.77,287.03) .. controls (153.23,284.21) and (155.9,282.27) .. (158.98,281.79) .. controls (162.06,281.3) and (165.18,282.33) .. (167.4,284.57) .. controls (168.64,282.02) and (171.09,280.31) .. (173.86,280.04) .. controls (176.64,279.77) and (179.35,280.98) .. (181.04,283.25) .. controls (183.29,280.55) and (186.87,279.41) .. (190.22,280.33) .. controls (193.58,281.25) and (196.12,284.06) .. (196.73,287.55) .. controls (199.49,288.31) and (201.78,290.27) .. (203.02,292.9) .. controls (204.27,295.53) and (204.33,298.58) .. (203.21,301.27) .. controls (205.92,304.88) and (206.55,309.68) .. (204.87,313.89) .. controls (203.19,318.11) and (199.45,321.09) .. (195.04,321.74) .. controls (195.01,325.69) and (192.89,329.32) .. (189.5,331.22) .. controls (186.1,333.12) and (181.96,333.01) .. (178.68,330.91) .. controls (177.28,335.65) and (173.34,339.13) .. (168.56,339.86) .. controls (163.79,340.59) and (159.03,338.43) .. (156.35,334.32) .. controls (153.06,336.34) and (149.11,336.93) .. (145.39,335.94) .. controls (141.68,334.95) and (138.51,332.46) .. (136.6,329.05) .. controls (133.24,329.45) and (129.99,327.67) .. (128.47,324.59) .. controls (126.94,321.51) and (127.46,317.79) .. (129.78,315.27) .. controls (126.78,313.47) and (125.25,309.89) .. (125.98,306.4) .. controls (126.72,302.92) and (129.56,300.31) .. (133.01,299.94) ; \draw   (129.78,315.27) .. controls (131.19,316.13) and (132.83,316.51) .. (134.46,316.38)(136.6,329.05) .. controls (137.31,328.96) and (138,328.79) .. (138.65,328.52)(156.35,334.32) .. controls (155.85,333.56) and (155.44,332.75) .. (155.11,331.9)(178.68,330.91) .. controls (178.93,330.05) and (179.1,329.16) .. (179.17,328.26)(195.04,321.74) .. controls (195.08,317.53) and (192.74,313.67) .. (189.03,311.83)(203.21,301.27) .. controls (202.61,302.7) and (201.69,303.97) .. (200.53,304.98)(196.73,287.55) .. controls (196.84,288.12) and (196.88,288.71) .. (196.87,289.3)(181.04,283.25) .. controls (180.48,283.92) and (180.02,284.68) .. (179.67,285.49)(167.4,284.57) .. controls (167.1,285.18) and (166.88,285.83) .. (166.73,286.5)(151.77,287.03) .. controls (152.64,287.55) and (153.45,288.18) .. (154.17,288.9)(133.08,299.75) .. controls (133.17,300.42) and (133.31,301.08) .. (133.5,301.72) ;
+%Curve Lines [id:da864556507034824] 
+\draw    (208.8,301.4) .. controls (246.63,312.96) and (265.06,275.93) .. (242.81,253.36) ;
+\draw [shift={(241.4,252)}, rotate = 42.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (406.46,97.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{22.15pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Türbin}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (473.06,101.05) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{28.89pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Jeneratör}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (258.06,81.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{40.59pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Buhar kazanı}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (152.56,239.01) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{48.13pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Ateşleme Odası}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (142.06,297.4) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{34.91pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Biyokütle}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (307.36,235.01) node [anchor=north west][inner sep=0.75pt]  [rotate=-270] [align=left] {\begin{minipage}[lt]{10.26pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Su}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (333.66,268.91) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{45.17pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize \textbf{Yoğunlaştırıcı}}}\\{\fontfamily{ptm}\selectfont {\scriptsize \textbf{ünitesi}}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (334.46,137.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{20.17pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Buhar}}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+
+\caption{Biyokütle enerji santrali üretim topolojisi}
+\label{fig:biomass}
+\end{figure}
+
+
+
+
+\subsection{Hidroelektrik Enerji Santralleri}
+
+
+
+Hidroelektrik enerji yenilenebilir ve temiz enerji kaynağıdır. Hidroelektrik güç,
+akmakta olan suyun mekanik enerjisinin kullanılmasıyla elektrik enerjisi imalatı için bir jeneratörü döndürerek üretilen güçtür. Dünya genelinde pek çok ülke hidroelektrik enerjisinin ekonomik, teknik ve çevresel yararlarını dikkate alarak kalkınmaya öncelik vermektedir. Hidroelektrik santrallerden uzun bir süredir faydalanılmakta olup, dünya elektrik enerjisi üretimindeki payı yaklaşık \%16 düzeyindedir. \cite{speight2022encyclopedia}.
+
+
+Hidroelektrik santrallerinin çalışma prensibi, suyun akım enerjisinin su türbinleri aracılığıyla mekanik enerjiye ve ilgili su türbinlerinin etkilediği jeneratörler aracılığıyla elektrik enerjisine dönüştürülmesine dayanmaktadır. Şekil \ref{fig:hidroelek} hidroelektrik santralinin enerji üretim topolojisini göstermektedir.
+ 
+\begin{figure}[htbp]
+\centering
+
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_1lfag1g6h}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_1lfag1g6h}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Gradient Info
+  
+\tikzset {_3efwt9y5m/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_qq7publh6}{150bp}{rgb(0bp)=(1,1,1);
+rgb(37.5bp)=(1,1,1);
+rgb(37.5bp)=(0,0,0);
+rgb(100bp)=(0,0,0)}
+\tikzset{_ocg0af63v/.code = {\pgfsetadditionalshadetransform{\pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 } }}}
+\pgfdeclarehorizontalshading{_6wf6fy7sp} {150bp} {color(0bp)=(transparent!0);
+color(37.5bp)=(transparent!0);
+color(37.5bp)=(transparent!10);
+color(100bp)=(transparent!10) } 
+\pgfdeclarefading{_b7hgc35i6}{\tikz \fill[shading=_6wf6fy7sp,_ocg0af63v] (0,0) rectangle (50bp,50bp); } 
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_dgaw2e30w}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_dgaw2e30w}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_keewsiby2}{
+\makeatletter
+\pgfdeclarepatternformonly[\mcRadius,\mcThickness,\mcSize]{_keewsiby2}
+{\pgfpoint{-0.5*\mcSize}{-0.5*\mcSize}}
+{\pgfpoint{0.5*\mcSize}{0.5*\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathcircle\pgfpointorigin{\mcRadius}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,438); %set diagram left start at 0, and has height of 438
+
+%Shape: Can [id:dp05566221189355658] 
+\draw  [pattern=_1lfag1g6h,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 0; green, 0; blue, 255}] (252.45,270.13) -- (423.01,301.62) .. controls (426.35,302.24) and (426.93,311.65) .. (424.31,322.65) .. controls (421.68,333.65) and (416.85,342.07) .. (413.51,341.45) -- (242.95,309.97) .. controls (239.61,309.35) and (239.03,299.93) .. (241.65,288.93) .. controls (244.28,277.93) and (249.11,269.51) .. (252.45,270.13) .. controls (255.79,270.75) and (256.37,280.17) .. (253.75,291.17) .. controls (251.13,302.17) and (246.3,310.58) .. (242.95,309.97) ;
+%Shape: Spiral [id:dp5948343085021326] 
+\draw   (374.61,324.05) .. controls (373.52,323.84) and (372.53,323.21) .. (371.64,322.18) .. controls (370.74,321.12) and (370.07,319.79) .. (369.63,318.17) .. controls (369.18,316.52) and (369.03,314.79) .. (369.18,313) .. controls (369.33,311.17) and (369.78,309.52) .. (370.51,308.05) .. controls (371.26,306.54) and (372.21,305.44) .. (373.36,304.7) .. controls (374.53,303.96) and (375.74,303.72) .. (377,303.98) .. controls (378.29,304.24) and (379.45,304.99) .. (380.48,306.21) .. controls (381.54,307.46) and (382.32,309.03) .. (382.82,310.94) .. controls (383.34,312.87) and (383.5,314.89) .. (383.32,316.98) .. controls (383.13,319.11) and (382.6,321.02) .. (381.74,322.72) .. controls (380.86,324.46) and (379.76,325.73) .. (378.43,326.57) .. controls (377.08,327.41) and (375.67,327.67) .. (374.22,327.36) .. controls (372.74,327.04) and (371.41,326.16) .. (370.22,324.75) .. controls (369.02,323.31) and (368.13,321.49) .. (367.56,319.3) .. controls (366.98,317.08) and (366.8,314.78) .. (367.02,312.39) .. controls (367.25,309.97) and (367.85,307.8) .. (368.84,305.87) .. controls (369.85,303.9) and (371.1,302.46) .. (372.62,301.53) .. controls (374.16,300.58) and (375.75,300.29) .. (377.4,300.66) .. controls (379.07,301.04) and (380.57,302.03) .. (381.9,303.65) .. controls (383.26,305.28) and (384.25,307.34) .. (384.89,309.81) .. controls (385.54,312.32) and (385.73,314.9) .. (385.47,317.59) .. controls (385.21,320.31) and (384.53,322.74) .. (383.41,324.91) .. controls (382.28,327.1) and (380.87,328.7) .. (379.16,329.74) .. controls (377.44,330.79) and (375.66,331.1) .. (373.82,330.67) .. controls (371.96,330.25) and (370.29,329.13) .. (368.8,327.31) .. controls (367.3,325.49) and (366.2,323.18) .. (365.5,320.43) .. controls (364.78,317.65) and (364.57,314.76) .. (364.87,311.79) .. controls (365.16,308.77) and (365.93,306.08) .. (367.17,303.68) .. controls (368.43,301.26) and (370,299.49) .. (371.89,298.35) .. controls (373.79,297.22) and (375.76,296.88) .. (377.79,297.35) .. controls (379.85,297.83) and (381.69,299.08) .. (383.33,301.08) .. controls (384.97,303.12) and (386.18,305.64) .. (386.95,308.68) .. controls (387.73,311.75) and (387.96,314.92) .. (387.63,318.2) .. controls (387.3,321.51) and (386.45,324.47) .. (385.08,327.09) .. controls (383.7,329.73) and (381.97,331.68) .. (379.9,332.91) .. controls (377.81,334.15) and (375.65,334.52) .. (373.43,333.99) .. controls (371.18,333.45) and (369.16,332.08) .. (367.38,329.88) .. controls (365.59,327.65) and (364.27,324.89) .. (363.43,321.56) .. controls (362.59,318.21) and (362.35,314.75) .. (362.71,311.18) .. controls (363.08,307.57) and (364.01,304.35) .. (365.5,301.5) .. controls (367.01,298.63) and (368.9,296.52) .. (371.15,295.18) .. controls (373.42,293.84) and (375.77,293.45) .. (378.19,294.04) .. controls (380.63,294.62) and (382.82,296.13) .. (384.75,298.52) .. controls (386.69,300.93) and (388.12,303.95) .. (389.02,307.55) .. controls (389.61,309.93) and (389.93,312.35) .. (389.96,314.83) ;
+%Right Arrow [id:dp7627684446374623] 
+\draw   (343.51,322.14) -- (350.71,323.47) -- (351.02,322.18) -- (355.21,325.64) -- (349.79,327.33) -- (350.1,326.04) -- (342.9,324.72) -- cycle ;
+%Right Arrow [id:dp7720860456488539] 
+\draw   (350.58,292.47) -- (357.78,293.8) -- (358.09,292.52) -- (362.28,295.98) -- (356.86,297.67) -- (357.17,296.38) -- (349.97,295.05) -- cycle ;
+%Curve Left Arrow [id:dp7177435795884279] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (370.79,315.37) .. controls (370.02,317.53) and (373.35,319.29) .. (378.23,319.29) -- (379.18,316.63) .. controls (374.3,316.63) and (370.97,314.88) .. (371.74,312.72) ;\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (371.74,312.72) .. controls (372.31,311.11) and (374.98,309.73) .. (378.32,309.12) -- (378.63,308.24) -- (381.5,310.12) -- (377.06,312.66) -- (377.37,311.77) .. controls (374.04,312.38) and (371.37,313.76) .. (370.79,315.37)(371.74,312.72) -- (370.79,315.37) ;
+%Shape: Parallelogram [id:dp26182172037618945] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (376.57,294.75) -- (376.39,235.4) -- (376.82,235.4) -- (377,294.75) -- cycle ;
+%Flowchart: Direct Access Storage [id:dp5854993735112144] 
+\path  [shading=_qq7publh6,_3efwt9y5m,path fading= _b7hgc35i6 ,fading transform={xshift=2}] (399.38,187.85) -- (399.49,225.26) .. controls (399.5,230.82) and (389.16,235.36) .. (376.39,235.4) .. controls (363.62,235.43) and (353.25,230.96) .. (353.23,225.39) -- (353.12,187.99)(376.22,177.85) .. controls (388.99,177.81) and (399.36,182.29) .. (399.38,187.85) .. controls (399.39,193.42) and (389.05,197.95) .. (376.28,197.99) .. controls (363.51,198.03) and (353.14,193.55) .. (353.12,187.99) .. controls (353.1,182.43) and (363.45,177.89) .. (376.22,177.85) ; % for fading 
+ \draw   (399.38,187.85) -- (399.49,225.26) .. controls (399.5,230.82) and (389.16,235.36) .. (376.39,235.4) .. controls (363.62,235.43) and (353.25,230.96) .. (353.23,225.39) -- (353.12,187.99)(376.22,177.85) .. controls (388.99,177.81) and (399.36,182.29) .. (399.38,187.85) .. controls (399.39,193.42) and (389.05,197.95) .. (376.28,197.99) .. controls (363.51,198.03) and (353.14,193.55) .. (353.12,187.99) .. controls (353.1,182.43) and (363.45,177.89) .. (376.22,177.85) ; % for border 
+
+%Shape: Lamp [id:dp6522419512095736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (423.83,199.13) -- (423.83,173.69) .. controls (423.83,167.31) and (431.2,162.13) .. (440.27,162.13) .. controls (449.35,162.13) and (456.71,167.31) .. (456.71,173.69) -- (456.71,199.13) -- (423.83,199.13) -- cycle (430.41,208.38) -- (430.41,185.26) .. controls (430.41,181.43) and (434.83,178.32) .. (440.27,178.32) .. controls (445.72,178.32) and (450.13,181.42) .. (450.13,185.26) -- (450.13,208.38) ;
+%Straight Lines [id:da9091798153138035] 
+\draw    (430.41,216.14) -- (430.41,208.38) ;
+%Straight Lines [id:da9596137980708423] 
+\draw    (399.46,216.13) -- (430.58,216.04) ;
+%Straight Lines [id:da20118907450923795] 
+\draw    (396.53,226.31) -- (450.34,226.16) ;
+%Straight Lines [id:da712718384278229] 
+\draw    (450.13,226.31) -- (450.13,208.38) ;
+%Straight Lines [id:da5487618202061475] 
+\draw    (416.29,157.2) -- (424.23,164.52) ;
+%Straight Lines [id:da8485814769382489] 
+\draw    (439.85,148.33) -- (439.99,158.1) ;
+%Straight Lines [id:da47576812311039807] 
+\draw    (423.27,152.06) -- (428.62,160.54) ;
+%Straight Lines [id:da22910891226803298] 
+\draw    (454.79,150.52) -- (451.09,158.87) ;
+%Straight Lines [id:da32868283280051225] 
+\draw    (431.08,149.1) -- (433.55,159.13) ;
+%Straight Lines [id:da613979225809929] 
+\draw    (447.25,148.72) -- (446.02,158.36) ;
+%Straight Lines [id:da7044020207626895] 
+\draw    (461.5,153.47) -- (455.06,161.44) ;
+%Straight Lines [id:da16034892412336466] 
+\draw    (467.67,157.84) -- (460.54,164.78) ;
+%Flowchart: Manual Operation [id:dp1492684593436926] 
+\draw  [pattern=_dgaw2e30w,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 0; green, 0; blue, 255}] (119.94,340) -- (84,215.67) -- (275.67,215.67) -- (239.73,340) -- cycle ;
+%Flowchart: Manual Operation [id:dp33520602479615547] 
+\draw  [pattern=_keewsiby2,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0.75pt, pattern color={rgb, 255:red, 0; green, 0; blue, 255}] (422.1,348.67) -- (406.67,295.26) -- (489,295.26) -- (473.56,348.67) -- cycle ;
+%Right Arrow [id:dp6932839069964951] 
+\draw   (277.92,285.14) -- (285.12,286.47) -- (285.42,285.18) -- (289.61,288.64) -- (284.2,290.33) -- (284.5,289.04) -- (277.3,287.72) -- cycle ;
+%Right Arrow [id:dp33024699240122923] 
+\draw   (289.92,309.14) -- (297.12,310.47) -- (297.42,309.18) -- (301.61,312.64) -- (296.2,314.33) -- (296.5,313.04) -- (289.3,311.72) -- cycle ;
+%Right Arrow [id:dp23135494224852282] 
+\draw   (312.58,297.14) -- (319.78,298.47) -- (320.09,297.18) -- (324.28,300.64) -- (318.86,302.33) -- (319.17,301.04) -- (311.97,299.72) -- cycle ;
+
+% Text Node
+\draw (361.13,341.97) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{22.15pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Türbin}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (330.45,230.2) node [anchor=north west][inner sep=0.75pt]  [rotate=-269.83] [align=left] {\begin{minipage}[lt]{28.89pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\scriptsize Jeneratör}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (120.46,189.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{20.4pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Baraj}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (420.46,269.64) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{19.95pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Çıkış}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (154.46,189.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{19.04pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Gölü}}
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (449.46,269.64) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{19.51pt}\setlength\topsep{0pt}
+\begin{center}
+{\fontfamily{ptm}\selectfont {\footnotesize Suyu}}
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+
+
+
+\caption{Hidroelektrik enerji santrali üretim diyagramı}
+\label{fig:hidroelek}
+\end{figure}

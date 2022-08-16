@@ -1,0 +1,337 @@
+\documentclass[12pt, a4paper, oneside]{report}
+\usepackage{pslatex,apacite} 
+\bibliographystyle{apacite}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{geometry} 
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+%\usepackage{ragged2e}
+\pgfplotsset{compat=1.18} 
+%saçma ama olmasıı gerekiyor
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\newcommand{\Lira}{%
+\begin{tikzpicture}[x=0.08em, y=0.08em, xscale=0.03, yscale=-0.03, inner sep=0pt, outer sep=0pt]
+\fill (54.3355,9.3092) .. controls (70.3869,9.3092) and (79.7110,9.3092) ..
+  (82.3075,9.3092) .. controls (82.3075,12.1418) and (82.3075,24.2985) ..
+  (82.3075,45.7791) .. controls (82.3075,67.2598) and (82.3075,79.2984) ..
+  (82.3075,81.8950) -- (167.2860,51.0903) .. controls (167.2860,59.3521) and
+  (167.2860,66.7877) .. (167.2860,73.3971) -- (82.3075,104.2018) .. controls
+  (82.3075,105.1460) and (82.3075,107.1525) .. (82.3075,110.2211) .. controls
+  (82.3075,113.2898) and (82.3075,115.2962) .. (82.3075,116.2404) --
+  (128.3375,99.9529) -- (167.2860,85.4358) .. controls (167.2860,86.8521) and
+  (167.2860,90.4518) .. (167.2860,96.2351) .. controls (167.2860,102.0184) and
+  (167.2860,105.5001) .. (167.2860,106.6804) .. controls (167.2860,107.6246) and
+  (167.0499,108.0967) .. (166.5778,108.0967) -- (84.7861,137.4851) .. controls
+  (83.8419,137.9572) and (83.0157,138.4293) .. (82.3075,138.9014) .. controls
+  (82.3075,153.3005) and (82.3075,173.1878) .. (82.3075,198.5633) .. controls
+  (82.3075,223.9388) and (82.3075,243.8262) .. (82.3075,258.2253) .. controls
+  (82.3075,258.2253) and (82.3075,258.3433) .. (82.3075,258.5794) .. controls
+  (82.3075,258.8154) and (82.3075,258.9334) .. (82.3075,258.9334) .. controls
+  (103.7882,256.3369) and (122.7903,248.1931) .. (139.3139,234.5021) .. controls
+  (157.4899,219.6309) and (169.6465,201.1009) .. (175.7838,178.9121) .. controls
+  (178.3804,168.7619) and (179.6787,158.6117) .. (179.6787,148.4614) .. controls
+  (179.6787,148.4614) and (189.1207,148.4614) .. (208.0048,148.4614) .. controls
+  (208.0048,171.3584) and (202.4576,192.9571) .. (191.3632,213.2575) .. controls
+  (183.5735,228.8369) and (172.9512,242.2918) .. (159.4963,253.6223) .. controls
+  (146.9856,264.7167) and (132.9405,273.2145) .. (117.3611,279.1158) .. controls
+  (97.0607,286.9055) and (76.0522,289.6201) .. (54.3355,287.2596) .. controls
+  (54.3355,271.9163) and (54.3355,248.9013) .. (54.3355,218.2146) .. controls
+  (54.3355,187.5279) and (54.3355,164.3949) .. (54.3355,148.8155) .. controls
+  (54.3355,148.8155) and (52.8011,149.4057) .. (49.7325,150.5859) --
+  (1.2239,167.9357) .. controls (1.2239,160.8541) and (1.2239,153.4185) ..
+  (1.2239,145.6288) -- (54.3355,126.5087) .. controls (54.3355,125.0924) and
+  (54.3355,120.9615) .. (54.3355,114.1160) .. controls (51.7389,115.2962) and
+  (48.2571,116.7126) .. (43.8902,118.3649) .. controls (39.5232,120.0173) and
+  (36.7496,120.9615) .. (35.5694,121.1975) -- (7.5973,131.4658) .. controls
+  (7.5973,131.4658) and (6.8301,131.7018) .. (5.2958,132.1739) .. controls
+  (3.7615,132.6460) and (2.4042,133.0001) .. (1.2239,133.2361) .. controls
+  (1.2239,121.9057) and (1.2239,114.4701) .. (1.2239,110.9293) --
+  (54.3355,92.1632) .. controls (54.3355,81.7770) and (54.3355,67.9680) ..
+  (54.3355,50.7362) .. controls (54.3355,33.5045) and (54.3355,19.6955) ..
+  (54.3355,9.3092) -- cycle;
+
+\end{tikzpicture}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%--------------------------
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage[skip=12pt, indent=1.5cm]{parskip}
+
+%************KISALTMALAR TANIMI*************
+\usepackage[acronym]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
+\newacronym{dpu}{DPÜ}{Kütahya Dumlupınar Üniversitesi}
+\newacronym{plc}{PLC}{Power Line Communication}
+\newacronym{uhf}{UHF}{Ultra High Frequency}
+
+\newacronym{sms}{SMS}{Short Message Service}
+\newacronym{gsm}{GSM}{Global System for Communications}
+\newacronym{gprs}{GPRS}{General Packet Radio Service}
+\newacronym{dsl}{DSL}{Digital Subscriber Line}
+\newacronym{myo}{MYO}{Meslek Yüksekokulu}
+\newacronym{ppm}{ppm}{Milyonda Bir Derişim}
+\newacronym{iec}{IEC}{Uluslararası Elektroteknik Komisyonu}
+\newacronym{wimax}{WiMAX}{Worldwide Interoperability for Microwave Access}
+\newacronym{wifi}{WiFi}{telsiz Ethernet}
+\newacronym{man}{MAN}{Metropol Alan Ağı}
+\newacronym{lan}{LAN}{Yerel Alan Ağı}
+\newacronym{wan}{WAN}{Geniş Alan Ağı}
+\newacronym{pan}{PAN}{Kişisel Alan Ağı}
+\newacronym{opnet}{OPNET}{Optimizad Network Engineering Tool}
+\newacronym{wnac}{WNAC}{türbin motor modülü}
+\newacronym{utp}{UTP}{Ekranlı olmayan bükülü çiftli kablo}
+\newacronym{dmo}{DMO}{Devlet Malzeme Ofisi}
+\newacronym{ieee}{IEEE}{Elektrik ve Elektronik Mühendisleri Enstitüsü}
+\newacronym{bcit}{BCIT}{Britanya Komobiyası Teknoloji Enstitüsü}
+\newacronym{res}{RES}{Rüzgar Enerji Santrali}
+\newacronym{ges}{GES}{Güneş Enerji Santrali}
+\newacronym{hes}{HES}{Hidroelektrik Santrali}
+\newacronym{bes}{BES}{Biyokütle Enerji Santrali}
+\newacronym{lora}{LoRAWAN}{Long Range Wide Area Network}
+
+\newacronym{iot}{IoT}{Nesnelerin interneti}
+
+
+
+\makeglossaries
+
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead*{\pagemark}
+%----------
+%AŞAĞIDAKİ KISIM BAŞLI BAŞINA BİR DERT SONRA AÇIKLARIM
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%AŞAĞIDA CHAPTER DÜZENLENDİ VE BÖLÜM OLARAK YAZILDI PUNTOSU 12PT OLDU
+\titleformat{\chapter}{\normalfont\bfseries\MakeUppercase}{\thechapter.\quad}{0pt}{}
+\titlespacing{\chapter}{0pt}{-50pt}{1pt}
+
+\addto\captionsenglish{\renewcommand{\partname}{BÖLÜM}}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{}}
+
+
+%--------------------
+%\usepackage{tocloft}
+\usepackage{etoc}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+%\addto\captionsenglish{% Replace "english" with the language you use
+%  \renewcommand{\contentsname}%
+%    {İÇİNDEKİLER}%
+%}
+%----------------
+
+\titleformat*{\section}{\normalfont\bfseries\MakeUppercase}
+\titleformat*{\subsection}{\normalfont\bfseries}
+\titleformat*{\subsubsection}{\normalfont\bfseries}
+\titleformat*{\paragraph}{\normalfont\bfseries}
+\titleformat*{\subparagraph}{\normalfont\bfseries}
+\renewcommand*\thepart{\arabic{part}}% arabic numbers for part
+\makeatletter
+\@addtoreset{chapter}{part}% reset section number when a new part starts
+\makeatother
+%\renewcommand*\thechapter{\thepart.\arabic{chapter}}% chapter 1.1
+\renewcommand*\thesection{\thepart.\arabic{section}}% section 1.1
+\renewcommand*\thesubsection{\thesection.\arabic{subsection}}% subsection 1.1.1
+\renewcommand*\thesubsubsection{\thesubsection.\arabic{subsubsection}}% subsection 1.1.1.1
+\renewcommand*\theparagraph{\thesubsubsection.\arabic{paragraph}}% paragraph 1.1.1.1.1
+
+%-----------------------------------------------
+\makeatletter
+\renewcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart}
+\makeatother
+%Part olarak belirlenen bölüm numaralarının olduğu sayfalardaki numaralar gözükmemektedir
+
+%-------------------------------
+
+
+
+
+
+
+
+
+
+%----------------------
+\usepackage{blindtext}
+
+\newgeometry{
+    head=19pt,
+    top = 2 cm,
+    bottom = 2 cm,
+    outer = 3 cm,
+    inner = 3 cm
+}
+
+\setlength{\footheight}{17.99445pt}
+%-----------------------------
+%ÖZELLİKLE BÖLÜMLERİN KAPAK SAYFASININ AYARI AŞAĞIDA YAPILMIŞTIR.
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}
+[display]
+{\centering\normalfont\normalfont\bfseries}
+{\vspace{21.5cm}\MakeUppercase{\partname} \thepart}
+{0pt}
+{\normalfont\bfseries\MakeUppercase}
+%
+\titlespacing*{\part}{0pt}{0pt}{6pt}
+
+%---------------------------
+\usepackage{multirow}
+\usepackage{tabularx}
+%------------------------------
+\usepackage{lastpage}
+
+%---------------------
+%AŞAĞIDAKİ KISIM TOC'NİN NOKTALARINI OLUŞTURUYOR
+\addtocontents{toc}{~\hfill\textbf{Sayfa}\par}
+
+\makeatletter
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\normalfont\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\makeatother
+%------------------------
+%aşağıdaki kodlama resimlere otomatik numara atarken bağlı oldukları bölüm başlıklarını ekliyor.
+\usepackage{chngcntr}
+\counterwithin{figure}{part}
+\counterwithin{table}{part}
+\counterwithin{equation}{part}
+
+%-------------------------
+%aşağıdaki komut figure yazısını şekil yazısına çeviriyor.
+\addto\captionsenglish{\renewcommand{\figurename}{\textbf{Şekil}}}
+%------------
+%aşağıdaki komut table yazısını tablo yazısına çeviriyor
+
+\addto\captionsenglish{\renewcommand{\tablename}{\textbf{Tablo}}}
+
+\addto\captionsenglish{\renewcommand{\refname}{KAYNAKÇA} }
+\addto\captionsenglish{\renewcommand{\acronymname}{\hfill\bfseries\normalsize DİZİN \hfill} }
+
+
+\begin{document}
+
+\input{OnKisim/1IcKapak}
+
+\newgeometry{
+    head=19pt,
+    top = 2.5 cm,
+    bottom = 2.5 cm,
+    outer = 2 cm,
+    inner = 4 cm
+}
+\pagenumbering{roman}
+\onehalfspacing
+
+%-----------------------------------------
+\addcontentsline{toc}{chapter}{KABUL VE ONAY}
+\include{OnKisim/2TezOnay}
+\addcontentsline{toc}{chapter}{BİLİMSEL ETİK BİLDİRİMİ}
+%-----------------------------------------
+\include{OnKisim/3YeminMetni}
+\addcontentsline{toc}{chapter}{ÖZGEÇMİŞ}
+
+\include{OnKisim/4Ozgecmis}
+\addcontentsline{toc}{chapter}{ÖZET}
+\input{OnKisim/5Ozet}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\include{OnKisim/6Abstract}
+\addcontentsline{toc}{chapter}{ÖNSÖZ}
+\include{OnKisim/7Onsoz}
+%----------------------
+
+\include{TOC}
+
+
+
+
+\newpage
+
+\renewcommand{\listtablename}{\hfill\bfseries\normalsize TABLOLAR LİSTESİ\hfill}   
+
+\listoftables
+\newpage
+%şekiller listesi olacak
+
+
+\renewcommand{\listfigurename}{\hfill\bfseries\normalsize ŞEKİLLER LİSTESİ\hfill}   
+
+
+
+\listoffigures
+\newpage
+
+
+\pagenumbering{arabic}
+\include{MetinKisim/Bolum1}
+\include{MetinKisim/Bolum2}
+\include{MetinKisim/Bolum3}
+\include{MetinKisim/Bolum4}
+\include{MetinKisim/Bolum5}
+%gecenlerde tekrar geziyordum bakım ne goreyim\gls{dpu}
+
+\bibliography{ref.bib}
+\printglossary[type=\acronymtype]
+
+
+
+
+
+
+\end{document}
