@@ -636,9 +636,9 @@ Zigbee haberleşme altyapısı \gls{wifi} ve ethernet haberleşme teknolojilerin
 
 \paragraph{Güneş Enerji Sistemi}\label{zigbeeges112}
 
-\gls{lan}'da Zigbee teknolojisi enerji kullanım açısından çok verimlidir.
+\gls{lan}'da Zigbee, enerji kullanım açısından verimli bir haberleşme teknolojisidir \cite{alliance2010zigbee}.
 Fakat \gls{ieee} 1646 ve \gls{iec} 61850 standartlarınin belirlemiş olduğu gerçek zamanlı veri iletişim şartını sağlamamaktadır.
-Resim \ref{fig:4-23}'de Zigbee ağının trafiğindeki gecikme değerleri görülmektedir. \gls{lan}'daki kabul edilebilir değerler 1 saniyenin altında olması gerekirken, Resim \ref{fig:4-23}'deki senaryoda dakika derecesinde bir gecikme yaşanmaktadır. \gls{wifi} ve Ethernet haberleşmesinde verinin rotalama metodu kullanılmasına karşın, Zigbee teknolojisinde bu özellik bulunmamaktadır. Resim \ref{fig:4-23}'deki gecikme sonucu olarak Resim \ref{fig:4-24}'da yerel sunucuya yüklenen veri boyutlarının 30.000 Byte/s -- 18.000 Byte/s aralığında değiştiği görülmektedir. Örneğin \gls{ges}'de Ethernet yada \gls{wifi} teknolojisi kullanıldığında Şekil \ref{fig:4-12}'deki gibi düzenli bir veri trafiği olması ve 29.016 Byte/s'lik algılayıcı verisinin yerel sunucuya yüklenmesi beklenmektedir. Fakat görüldüğü üzere zaman zaman 30.000 Byte/s değerini yakalayan sunucuya yüklenen boyuttan anlaşılacağı üzere algılayıcıların ölçüm ve durum verileri gecikmeli olarak Zigbee tarafından yerel sunucuya yüklenmektedir.
+Resim \ref{fig:4-23}'de Zigbee ağının trafiğindeki gecikme değerleri görülmektedir. \gls{lan}'daki kabul edilebilir değerler 1 saniyenin altında olması gerekirken, Resim \ref{fig:4-23}'deki senaryo sonucunda dakika derecesinde bir gecikme yaşandığı görülmektedir. \gls{wifi} ve Ethernet haberleşmesinde verinin rotalama metodu kullanılmasına karşın, Zigbee teknolojisinde bu özellik bulunmamaktadır. Resim \ref{fig:4-23}'deki gecikme sonucu olarak Resim \ref{fig:4-24}'da yerel sunucuya yüklenen veri boyutlarının 30.000 Byte/s -- 18.000 Byte/s aralığında değiştiği görülmektedir. Örneğin \gls{ges}'de Ethernet yada \gls{wifi} teknolojisi kullanıldığında Şekil \ref{fig:4-12}'deki gibi düzenli bir veri trafiği olması ve 29.016 Byte/s'lik algılayıcı verisinin yerel sunucuya yüklenmesi beklenmektedir. Fakat Resim \ref{fig:4-24}'daki 30.000 Byte/s değerlerinde veri yükleme boyutundan anlaşılacağı üzere sisteme ait algılayıcıların gönderdiği veriler gerçek zamanlı bir şekilde kontrol merkezinden gözlem yapma imkanı sağlamamaktadır.
 
 
 \begin{figure}[htbp]
@@ -800,7 +800,7 @@ Zigbee, \gls{wifi} ve Ethernet altyapısında modellenen simülasyonların 2 \gl
 
 \section{OPNET GENİŞ ALAN AĞI TASARIM VE SİMÜLASYON SONUÇLARI}
 
-Önceki bölümde \gls{lan} modeli incelenmiştir. Şekil \ref{fig:4-27}’de Google Earth yazılımında Kütahya’nın meslek yüksekokulları ve merkez kampüsü gösterilmiştir. Okullardaki enerji üretim sisteminin merkezi bir noktadan kontrolü gözlemi ve aksiyonu için \gls{iec}, veri haberleşmesinin en fazla 1 saniye gecikmesine izin vermiştir. Tasarım olarak enerji üretiminin izleme merkezi \gls{dpu} Merkez Kampüsü olarak belirlenmiştir. Geniş alan ağı tasarım senaryoları kablosuz ve kablolu olarak iki kısımda incelenmiştir.
+Önceki bölümde \gls{lan} modeli incelenmiştir. Şekil \ref{fig:4-27}’de Google Earth yazılı-mında Kütahya’nın meslek yüksekokulları ve merkez kampüsü gösterilmiştir. Okullardaki enerji üretim sisteminin merkezi bir noktadan kontrolü gözlemi ve aksiyonu için \gls{iec}, veri haberleşmesinin en fazla 1 saniye gecikmesine izin vermiştir. Tasarım olarak enerji üretiminin izleme merkezi \gls{dpu} Merkez Kampüsü olarak belirlenmiştir. Geniş alan ağı tasarım senaryoları kablosuz ve kablolu olarak iki kısımda incelenmiştir.
 
 
 \begin{figure}[htbp]
@@ -855,7 +855,7 @@ Emet \gls{myo} (Rüzgar)     &  & Merkez Kampüs (İzleme)  &  \\ \hline
 \gls{wimax} haberleşmesinde minimum veri kullanımı önemli bir faktördür. Gereksiz veri trafiği en istenmeyen durumdur. Bölüm \ref{motivasyon}'de belirtildiği üzere amaçlanan kriter minimum haberleşme maliyeti ile maksimum performansta bir haberleşme çözümü sunmaktır. Bu nedenle lokal bölgelerde oluşturulan verilerin \gls{dpu} Merkez kampüsüne ileti-lirken diğer lokal bölgelere iletilmesinin önüne geçilmelidir. 
 
 Günümüzde IP haberleşmesinde farklı ağları birbirleriyle haberleştirme tekniği olarak yönlendirme protokolleri kullanılmaktadır. 
-Kullanıcı kendi yerel alan ağı dışındaki bir noktaya veri gönderebilmek için yerel ağındaki yönlendiriciye verisini iletir; yönlendirici de nihai hedefe doğru verileri iletir. Nihai hedefin yerel alan ağından sorumlu yönlendiriciye kadar belirli cihazlar arasında atlama yapmaktadır. Uçtan uca yol boyunca her yönlendirici, hedefe ulaşmak için kullanılan bir sonraki atlama cihazını seçer. Sonraki atlama, hedefe ulaşmak için yol boyunca bir sonraki cihazı temsil eder. Böylelikle rotalama tekniği uygulanmış olur. 
+Kullanıcı kendi yerel alan ağı dışındaki bir noktaya veri gönderebilmek için yerel ağındaki yönlendiriciye verisini iletir; yönlendi-rici de nihai hedefe doğru verileri iletir. Nihai hedefin yerel alan ağından sorumlu yönlen-diriciye kadar belirli cihazlar arasında atlama yapmaktadır. Uçtan uca yol boyunca her yönlendirici, hedefe ulaşmak için kullanılan bir sonraki atlama cihazını seçer. Sonraki atlama, hedefe ulaşmak için yol boyunca bir sonraki cihazı temsil eder. Böylelikle rotalama tekniği uygulanmış olur. 
 
 IP yönlendirme metodu statik ve dinamik olarak iki kısımda incelenir. Bu tezde veri trafiklerini geniş alan ağlarında yönetmek için statik yönlendirme kullanılmıştır.
 
@@ -881,7 +881,7 @@ Statik yönlendirme, ağ yöneticisi tarafından tasarlanır ve ağa uygulanır.
 
 \subsubsection{Senaryo:1}\label{senaryo1}
 
-\gls{wimax} teknolojisi ile haberleşilen geniş alan ağının ilk senaryosunda \gls{wimax} altyapısı kullanılmıştır. Meslek Yüksekokullarında üretilen algılayıcı verileri \gls{wifi} altyapısında haberleşmektedir. Yapılan senaryo tasarımı sonrasında tüm \gls{myo}'larda bulunan algılayıcı düğümlerinde gözlemlenen ortalama gecikme (delay) değeri 0.06 saniye değerindedir. Gecikme değeri, aynı haberleşme protokolünde çalışan iki düğüm arasında paket gönderim süresi olarak tanımlanmıştır. Şekil \ref{fig:4-31}’de gözlemlenen gecikme değişimi \gls{iec} 61400 ve \gls{iec} 61724 standartlarını karşılamaktadır. 12 adet kampüs içi yerel alan ağının \gls{wifi} üzerinden haberleşme yapılması durumuyla birleştirilmiş \gls{wimax} geniş alan ağı teknolojisinde yaşanan gecikmenin grafiği Şekil \ref{fig:4-31}’de paylaşılmıştır.
+\gls{wimax} teknolojisi ile haberleşilen geniş alan ağının ilk senaryosunda \gls{wimax} altyapısı kullanılmıştır. Meslek Yüksekokullarında üretilen algılayıcı verileri \gls{wifi} altya-pısında haberleşmektedir. Yapılan senaryo tasarımı sonrasında tüm \gls{myo}'larda bulunan algılayıcı düğümlerinde gözlemlenen ortalama gecikme (delay) değeri 0.06 saniyedir. Gecikme değeri, aynı haberleşme protokolünde çalışan iki düğüm arasında paket gönde-rim süresi olarak tanımlanmıştır. Şekil \ref{fig:4-31}’de gözlemlenen gecikme değişimi \gls{iec} 61400 ve \gls{iec} 61724 standartlarını karşılamaktadır. 12 adet kampüs içi yerel alan ağının \gls{wifi} üzerinden haberleşme yapılması durumuyla birleştirilmiş \gls{wimax} geniş alan ağı teknolojisinde yaşanan gecikmenin grafiği Şekil \ref{fig:4-31}’de paylaşılmıştır.
 
 
 
@@ -965,7 +965,7 @@ yticklabel style = {
 \end{figure}
 
 
-Simülasyon sonucunda ana sunucuya gelen algılayıcıların anlık veri boyutları Resim \ref{fig:4-33}’te gösterilmiştir. Örneğin, Tablo \ref{tab:tablo4-5}’teki rüzgar algılayıcılarının ürettikleri veri değeri 6 Byte/s değerindedir, bu durum ile birlikte Tablo \ref{tab:tablo4-4}’teki rüzgar enerji türbininin rotor modülü 12010 Byte/s değerinde veri üretmektedir. İlgili \gls{wan} senaryosunda 5 adet \gls{ges}, 5 adet \gls{res} bulunmaktadır. Simülasyon sonucunda "Rüzgar Hızı" algılayıcıları toplamda 30 Byte/s'lik, "WROT" algılayıcıları toplamda 72.060 Byte/s'lik hızlarda ana sunucuya veri göndermişlerdir. Farklı algılayıcının üretmiş olduğu veri miktarlarının aynı grafikte birlikte gösterilebilmesi için logaritmik eksen tercih edilmiştir. 
+Simülasyon sonucunda ana sunucuya gelen algılayıcıların anlık veri boyutları Resim \ref{fig:4-33}’te gösterilmiştir. Örneğin, Tablo \ref{tab:tablo4-5}’teki rüzgar algılayıcılarının ürettikleri veri değeri 6 Byte/s değerindedir, bu durum ile birlikte Tablo \ref{tab:tablo4-4}’teki WROT algılayıcısı 12010 Byte/s değerinde veri üretmektedir. İlgili \gls{wan} senaryosunda 5 adet \gls{ges}, 5 adet \gls{res} bulunmaktadır. Simülasyon sonucunda "Rüzgar Hızı" algılayıcıları toplamda 30 Byte/s'lik, "WROT" algılayıcıları toplamda 72.060 Byte/s'lik hızlarda ana sunucuya veri göndermişlerdir. Farklı algılayıcının üretmiş olduğu veri miktarlarının aynı grafikte birlikte gösterilebilmesi için logaritmik eksen tercih edilmiştir. 
 %bunu tablo olarak göster
 
 
@@ -1147,7 +1147,7 @@ legend pos = outer north east,]
 \end{figure}
 
 
-Tablo \ref{tab:tablo4-6}’ya göre \gls{myo}'larda üretilen algılayıcı verilerinin \gls{dpu} komuta merkezi sunucusuna gönderilme zamanı Şekil \ref{fig:4-34}’de gösterilmiştir. Bu grafiğe göre üretilen veriler yaklaşık 0.46 saniyelik gecikme ile ana sunucuda toplandığı gözlemlenmiştir. Geniş alan ağında, \gls{iec} standartlarına göre, verilerin 1 saniyenin altında bir süre ile hedef noktasına iletilmesi gerektiği belirtilmektedir \cite{mackiewicz2006overview}. Buna göre tasarlanan \gls{wifi} ve \gls{wimax} hibrit teknolojili haberleşme ağı ilgili standartları tamamen karşılamaktadır
+Tablo \ref{tab:tablo4-6}’ya göre \gls{myo}'larda üretilen algılayıcı verilerinin \gls{dpu} merkez sunu-cusuna gönderilme zamanı Şekil \ref{fig:4-34}’de gösterilmiştir. Şekil \ref{fig:4-34}’de üretilen veriler yaklaşık 0.46 saniyelik gecikme ile ana sunucuda toplandığı gözlemlenmiştir. Geniş alan ağında, \gls{iec} standartlarına göre, verilerin 1 saniyenin altında bir süre ile hedef noktasına iletilmesi gerektiği belirtilmektedir \cite{mackiewicz2006overview}. Buna göre tasarlanan \gls{wifi} ve \gls{wimax} hibrit teknolojili haberleşme ağı ilgili standartları tamamen karşılamaktadır
 
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/Sekil4-33.jpg}}
@@ -1187,7 +1187,7 @@ yticklabel style = {
 \newpage
 \subsubsection{Senaryo:2}\label{senaryo2}
 
-11 adet \gls{myo}'da kurulmuş olan UTP altyapılı haberleşme sisteminde gözlemlenen ortalama gecikme değeri Şekil \ref{fig:4-35}’te görüldüğü üzere yaklaşık 0.00015 saniyedir. İlgili MYO'ların \gls{wimax} altyapısındaki ortalama gecikme değeri 0.06 saniye değerindedir. 
+11 adet \gls{myo}'da kurulmuş olan UTP altyapılı haberleşme sisteminde gözlemlenen ortalama gecikme değeri Şekil \ref{fig:4-35}’te görüldüğü üzere yaklaşık 0.00015 saniyedir. İlgili MYO'ların \gls{wimax} altyapısındaki ortalama gecikme değeri 0.05 saniyedir. 
 Bu değerler, yerel alan ağında \gls{wifi} teknolojisi kullanıldığı duruma göre daha iyidir. 
 
 \begin{figure}[htbp]
@@ -1274,7 +1274,7 @@ yticklabel style = {
 \end{figure}
 
 
-Ana sunucuda toplanan algılayıcı modüllerin anlık değeri Şekil \ref{fig:4-37}’de görülmektedir. Yerel ağda \gls{wifi} teknolojisi kullanıldığında da aynı değerler elde edilmiştir. Buna göre haberleşme trafiğinde yerel ağ teknolojisinin Ethernet veya \gls{wifi} olması veri aktarımında bir performans değişikliği oluşturmamaktadır.
+Ana sunucuda toplanan algılayıcıların gerçek zamanlı veri boyutları Şekil \ref{fig:4-37} üzerinde gösterilmiştir. Yerel ağda \gls{wifi} teknolojisi kullanıldığında da aynı değerler elde edilmiştir. Buna göre haberleşme trafiğinde yerel ağ teknolojisinin Ethernet veya \gls{wifi} olma durumu, performans açısından bir fark oluşturmamaktadır.
 
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/sekil4-36.jpg}}
