@@ -42,7 +42,7 @@ Yerel enerji üretim durumunu kontrol edebilmek için komuta kontrol merkezi ile
 
 
 \centerline{\includegraphics[width=7cm]{Resim/Sekil4-9.png}}
-\caption{OPNET yazılımında tasarlanan ethernet tipi algılayıcıların görüntüsü.}
+\caption{OPNET yazılımında tasarlanan ethernet tipi algılayıcıların görüntüsü. Algılayıcı düğümlerde oluşturulan ölçüm ve durum verileri IP haberleşme standardına geçebilmesi için gereken işleç grupları görülmektedir. İlgili ölçüm ve durum veri paketlerinin önüne veya sonuna eklenen paketler sayesinde haberleşme sisteminde rotalama işlemleri yapılmaktadır.}
 \label{fig:4-9}
 \end{figure}
 \begin{comment}
@@ -134,7 +134,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{\gls{lan}'da algılayıcılardan gönderilen verilerin yerel sunucuya yüklenme süresi}
+\caption{\gls{lan}'da algılayıcılardan gönderilen verilerin yerel sunucuya yüklenme süresi değişimi.}
 \label{fig:4-11}
 \end{figure}
 
@@ -184,7 +184,7 @@ legend style = {font=\tiny,at={(1,0.8)}, anchor=east}
 
 \end{semilogyaxis}
 \end{tikzpicture}
-\caption{\gls{lan}'da 1 adet \gls{myo}'ya ait yerel sunucuya yüklenen veri grubunun değişimi}
+\caption{\gls{lan}'da 1 adet \gls{myo}'ya ait yerel sunucuya yüklenen veri grubunun değişimi.}
 \label{fig:4-12}
 \end{figure}
 
@@ -232,7 +232,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Algılayıcılardan gönderilen verilerin yerel sunucuya yüklenme süresi}
+\caption{Algılayıcılardan gönderilen verilerin \gls{lan} sunucuya yüklenme süre değişimi.}
 \label{fig:4-13}
 \end{figure}
 
@@ -298,7 +298,7 @@ legend style = {font=\tiny,at={(1,0.3)}, anchor=east}
 
 
 
-\caption{Yerel sunucuya yüklenen veri grubunun logaritmik değeri}
+\caption{\gls{lan} sunucusuna yüklenen veri grubunun logaritmik eksende zamana bağlı değişim grafiği.}
 \label{fig:4-14}
 \end{figure}
 
@@ -333,7 +333,7 @@ yticklabel style = {
 
 \end{axis}
 \end{tikzpicture}
-\caption{Ethernet haberleşmesinde yaşanan gecikme}
+\caption{\gls{lan} senaryosunda ethernet sistemindeki yaşanan gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-15}
 \end{figure}
 
@@ -348,7 +348,7 @@ Yerel enerji üretim durumunu kontrol edebilmek için komuta kontrol merkezi ile
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=7cm]{Resim/PV-Sayfa -5.drawio.png}}
-\caption{OPNET yazılımındaki \gls{wifi} algılayıcı düğümünün gösterimi.}
+\caption{OPNET yazılımındaki \gls{wifi} algılayıcı düğümünün gösterimi. Algılayıcı düğümlerde oluşturulan ölçüm ve durum verileri IP haberleşme standardına geçebilmesi için gereken işleç grupları görülmektedir. İlgili ölçüm ve durum veri paketlerinin önüne veya sonuna eklenen paketler sayesinde haberleşme sisteminde rotalama işlemleri yapılmaktadır.}
 \label{fig:4-16}
 \end{figure}
 
@@ -389,7 +389,7 @@ yticklabel style = {
 
 
 
-\caption{Yerel sunucuya yüklenen verilerin ortalama süresi}
+\caption{\gls{lan}'da algılayıcılardan gönderilen verilerin yerel sunucuya yüklenme süresinin zaman bağlı değişim grafiği.}
 \label{fig:4-17}
 \end{figure}
 
@@ -425,7 +425,7 @@ yticklabel style = {
 
 \end{axis}
 \end{tikzpicture}
-\caption{Yerel ağda yaşanan gecikme süresi}
+\caption{\gls{lan} senaryosunda WiFi sistemindeki yaşanan gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-18}
 \end{figure}
 
@@ -477,13 +477,12 @@ legend style = {font=\tiny,at={(1,0.8)}, anchor=east}
 \end{tikzpicture}
 
 
-\caption{Yerel sunucuya yüklenen veri gruplarının logaritmik değeri}
+\caption{LAN’da 1 adet MYO’ya ait yerel sunucuya yüklenen veri grubunun logaritmik eksende zamana bağlı değişim grafiği.}
 \label{fig:4-19}
 \end{figure}
-
+\newpage
 \paragraph{Rüzgar Enerji Sistemi \gls{lan} Tasarımı}
-
-Domaniç \gls{myo}'nun rüzgar enerji sistemindeki haberleşme altyapısı \gls{wifi} olarak OPNET ortamında kurulduktan sonra edinilen simülasyon sonuçları Şekil \ref{fig:4-20}-\ref{fig:4-22}’de paylaşılmıştır.
+Yerel enerji üretim durumunu kontrol edebilmek için komuta kontrol merkezi ile enerji üretim sisteminin haberleşme gecikmesinin 1 saniyenin altında olması ve paket trafiğinin minimum gecikmeyle komuta merkezine aktarılması gerektiği \gls{iec} 61400-24 standardının temel kriteridir. Domaniç \gls{myo}'nun rüzgar enerji sistemindeki haberleşme altyapısı \gls{wifi} olarak OPNET ortamında kurulduktan sonra edinilen simülasyon sonuçları Şekil \ref{fig:4-20}-\ref{fig:4-22}’de paylaşılmıştır.
 
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=5cm]{Resim/Sekil4-19.png}}
@@ -519,7 +518,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Yerel ağda yaşanan gecikme değişimi}
+\caption{\gls{res}'in \gls{lan} senaryosunda WiFi sistemindeki yaşanan gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-20}
 \end{figure}
 
@@ -556,7 +555,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Yerel sunucuya yüklenen verilerin ortalama süre değerleri}
+\caption{\gls{res}'in yerel sunucusuna yüklenen algılayıcı verilerinin zamana bağlı değişim grafiği.}
 \label{fig:4-21}
 \end{figure}
 
@@ -623,7 +622,7 @@ legend style = {font=\tiny,at={(1,0.3)}, anchor=east}
 
 
 
-\caption{Yerel sunucuya yüklenen veri gruplarının değişimi}
+\caption{LAN’da 1 adet MYO’ya ait yerel sunucuya yüklenen veri grubunun logaritmik eksende zamana bağlı değişim grafiği.}
 \label{fig:4-22}
 \end{figure}
 
@@ -674,7 +673,7 @@ yticklabel style = {
 \end{axis}
 \end{tikzpicture}
 
-\caption{Yerel ağda yaşanan gecikme değişimi}
+\caption{\gls{lan} senaryosunda zigbee sistemindeki yaşanan gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-23}
 \end{figure}
 
@@ -711,7 +710,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Yerel ağdaki sunucuda toplanan veri boyutu}
+\caption{Yerel ağdaki sunucuya yüklenen veri boyutunun zamana bağlı değişim grafiği.}
 \label{fig:4-24}
 \end{figure}
 
@@ -751,7 +750,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Yerel ağda yaşanan gecikme süresi}\label{fig:4-25}
+\caption{\gls{lan} senaryosunda zigbee sistemindeki yaşanan gecikmenin zamana bağlı değişim grafiği.}\label{fig:4-25}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -787,7 +786,7 @@ yticklabel style = {
 \end{axis}
 \end{tikzpicture}
 
-\caption{Yerel ağdaki sunucuda toplanan veri boyutu}
+\caption{Yerel ağdaki sunucuya yüklenen veri boyutunun zamana bağlı değişim grafiği.}
 \label{fig:4-26}
 \end{figure}
 
@@ -922,7 +921,7 @@ legend style = {font=\tiny,at={(1,0.3)}, anchor=east}
 \end{tikzpicture}
 
 
-\caption{\gls{wimax} ve \gls{wifi} teknolojisinde gözlemlenen gecikme değeri}
+\caption{\gls{wimax} ve \gls{wifi} teknolojisinde gözlemlenen gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-31}
 \end{figure}
 
@@ -960,7 +959,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Ana sunucuda toplanan verilerin değeri}
+\caption{DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sucuya yüklenen veri boyutlarının zamana bağlı değişim grafiği.}
 \label{fig:4-32}
 \end{figure}
 
@@ -1142,7 +1141,7 @@ legend pos = outer north east,]
 \end{tikzpicture}
 
 
-\caption{Ana sunuca toplanan algılayıcı düğümlerin logaritmik değeri}
+\caption{DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin logaritmik eksendeki zamana bağlı değişim grafiği.}
 \label{fig:4-33}
 \end{figure}
 
@@ -1180,7 +1179,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Enerji sistemlerindeki algılayıcı verilerin ana sunucuya ortalama ulaşma süresi}
+\caption{11 adet MYO'da çalışan algılayıcı düğümlerinde üretilen veri paketlerinin ana sunucuya yüklenme süresine ait zamana bağlı değişim grafiği.}
 \label{fig:4-34}
 \end{figure}
 \newpage
@@ -1227,7 +1226,7 @@ legend style = {font=\tiny,at={(1,0.3)}, anchor=east}
 
 
 
-\caption{\gls{wimax} ve Ethernet teknolojisinde gözlemlenen gecikme değeri}
+\caption{\gls{wimax} ve Ethernet teknolojisinde gözlemlenen gecikmenin zamana bağlı değişim grafiği.}
 \label{fig:4-35}
 \end{figure}
 
@@ -1268,7 +1267,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Ana sunucuda toplanan verilerin boyutu}
+\caption{DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sucuya yüklenen veri boyutlarının zamana bağlı değişim grafiği.}
 \label{fig:4-36}
 \end{figure}
 
@@ -1417,7 +1416,7 @@ legend pos = outer north east,]
 \end{semilogyaxis}
 \end{tikzpicture}
 
-\caption{Ana sunuca toplanan algılayıcıların veri değişimi}
+\caption{DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin logaritmik eksendeki zamana bağlı değişim grafiği.}
 \label{fig:4-37}
 \end{figure}
 
@@ -1456,7 +1455,7 @@ yticklabel style = {
 \end{tikzpicture}
 
 
-\caption{Upload Response Time}
+\caption{11 adet MYO'da çalışan algılayıcı düğümlerinde üretilen veri paketlerinin ana sunucuya yüklenme süresine ait zamana bağlı değişim grafiği.}
 \label{fig:4-38}
 \end{figure}
 
