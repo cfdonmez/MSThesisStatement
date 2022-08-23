@@ -1511,6 +1511,159 @@ yticklabel style = {
 \caption{11 adet MYO'da çalışan algılayıcı düğümlerinde üretilen veri paketlerinin ana sunucuya yüklenme süresine ait zamana bağlı değişim grafiği.}
 \label{fig:4-40}
 \end{figure}
+
+
+
+\begin{figure}[htbp]
+%\centerline{\includegraphics[width=10cm]{Resim/Sekil4-32.jpg}}
+
+\centering
+\pgfplotsset{every axis/.append style={
+font=\footnotesize,
+thin,
+tick style={ultra thin}},
+scaled y ticks=false,
+yticklabel style = {
+/pgf/number format/fixed,
+/pgf/number format/precision=5
+},
+}
+    \begin{tikzpicture}
+\begin{semilogyaxis}[
+zmode = log,
+zmin = 1,
+xlabel={Simülasyon Süresi (Saniye)},
+zlabel={Yüklenen Veri Boyutu (Byte/s)},
+ytick = \empty,
+grid = major,
+log ticks with fixed point,
+legend style = {font=\tiny,at={(1,0.8)}, anchor=east},
+area plot1/.style={%ilk alan için oluşturulan saydanlık vs.
+fill opacity=0.33,
+draw = orange!80!black,thick,
+fill = orange,
+mark=none,
+},
+area plot2/.style={
+fill opacity=0.33,
+draw = blue!80!black,thick,
+fill = blue,
+mark=none,
+},
+area plot3/.style={
+fill opacity=0.33,
+draw = cyan!80!black,thick,
+fill = cyan,
+mark=none,
+},
+area plot4/.style={
+fill opacity=0.33,
+draw = red!80!black,thick,
+fill = red,
+mark=none,
+},
+area plot5/.style={
+fill opacity=0.33,
+draw = yellow!80!black,thick,
+fill = yellow,
+mark=none,
+},
+area plot6/.style={
+fill opacity=0.23,
+draw = gray!80!black,thick,
+fill = gray,
+mark=none,
+},
+area plot7/.style={
+fill opacity=0.23,
+draw = purple!80!black,thick,
+fill = purple,
+mark=none,
+},
+area plot8/.style={
+fill opacity=0.23,
+draw = green!80!black,thick,
+fill = green,
+mark=none,
+},
+legend pos = outer north east,]
+%bu kısımda turbinlerin hepsini plot3'e ekliyoruz
+\addplot3+ [area plot1]  table [x = Simulation Duration, y = eksen1, z = TrafficReceivedbytessecINVERTERAKIM, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{İnverter Akım}
+%---------
+
+\addplot3+ [area plot1]  table [y = eksen2, z = TrafficReceivedbytessecINVERTERVOLTAJ, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{İnverter Gerilim}
+%---------
+
+\addplot3+ [area plot2]  table [y = eksen3, z = TrafficReceivedbytessecMETEOR, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{Meteoroloji}
+%---------
+
+
+\addplot3+ [area plot3]  table [y = eksen4, z = TrafficReceivedbytessecRADYANTISIMA, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{Radyant Işıma}
+%---------
+
+
+\addplot3+ [area plot4]  table [y = eksen5, z = TrafficReceivedbytessecRUZGARHIZI, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{Rüzgar Hızı}
+%---------
+
+
+\addplot3+ [area plot5]  table [y = eksen6, z = TrafficReceivedbytessecWCNV, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WCNV}
+%---------
+
+\addplot3+ [area plot6]  table [y = eksen7, z = TrafficReceivedbytessecWGEN, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WCNV}
+%---------
+
+\addplot3+ [area plot7]  table [y = eksen8, z = TrafficReceivedbytessecWMET, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WMET}
+%---------
+
+
+\addplot3+ [area plot2]  table [y = eksen9, z = TrafficReceivedbytessecWNAC, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WNAC}
+%---------
+
+\addplot3+ [area plot1]  table [y = eksen10, z = TrafficReceivedbytessecWROT, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WROT}
+%---------
+
+
+\addplot3+ [area plot3]  table [y = eksen11, z = TrafficReceivedbytessecWTOW, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WTOW}
+%---------
+
+\addplot3+ [area plot4]  table [y = eksen12, z = TrafficReceivedbytessecWTRF, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WTRF}
+%---------
+
+
+\addplot3+ [area plot2]  table [y = eksen13, z = TrafficReceivedbytessecWTRM, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WTRM}
+%---------
+
+\addplot3+ [area plot2]  table [y = eksen14, z = TrafficReceivedbytessecWYAW, col sep = comma] {fig4deneme (1).csv} \closedcycle;
+\addlegendentry{WYAW}
+%---------
+
+
+\end{semilogyaxis}
+\end{tikzpicture}
+
+
+\caption{DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin logaritmik eksendeki zamana bağlı değişim grafiği.}
+\label{fig:fiberLog}
+\end{figure}
+
+
+
+
+
+
 \newpage
 \section{SİSTEM BİLEŞENLERİNİN MALİYET HESABI}
 
