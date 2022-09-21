@@ -6,7 +6,7 @@
 \subsection{Power Line Communication, Güç Hattı Üzerinden Haberleşme}
 Güç Hattı Üzerinden Haberleşme (PLC), güç dağıtımı için kullnılan iletkenlerin aynı zamanda veri taşıma için de kullanılmasını amaçlayan bir haberleşme sistemidir. Güç hattına bağlanan modülatör ve demodülatör sayesinde enerjinin taşındığı hat üzerinden veri gönderimi sağlanmaktadır. Bu tekniği kullanımından kaynaklanan tek maliyet, fiziksel bağlantı olarak kullanılan sinyal aktarım ve sinyal tekrarlayıcı ekipmanlarıdır.
 
-\gls{plc} için ayrılan frekans bandgenişliği, tipik olarak 64 kb/s veya 4 kHz olarak tanımlanmıştır. Daha yüksek bir frekans kullanıldığında, \gls{plc} iletişimi daha küçük bir hat endüktansı gerektirecektir; dolayısıyla iletişim maliyeti azalacaktır. Bununla birlikte, daha yüksek frekans, iletişim aralığını sınırlayan daha yüksek zayıflamaya neden olacaktır. Pratikte maksimum mesafeler birkaç yüz kilometredir. Daha uzun mesafeli iletişim gerekli olduğunda, iletim sinyalini yükseltmek için \gls{plc} güçlendirme terminalleri kullanılmaktadır.
+\gls{plc} için ayrılan frekans bandgenişliği, 64 kb/s veya 4 kHz olarak tanımlanmıştır. Daha yüksek bir frekans kullanıldığında, \gls{plc} iletişimi daha küçük bir hat endüktansı gerektirecektir; dolayısıyla iletişim maliyeti azalacaktır. Bununla birlikte, daha yüksek frekans, iletişim aralığını sınırlayan daha yüksek sinyal zayıflamasına neden olacaktır. Pratikte maksimum mesafeler birkaç yüz kilometredir. Daha uzun mesafeli iletişim gerekli olduğunda, iletim sinyalini yükseltmek için \gls{plc} güçlendirme terminalleri kullanılmaktadır.
 
 Enerji dağıtım ağları üzerinden \gls{plc} kullanmanın ana dezavantajı, yer üstü hattan yeraltı hattına geçişten veya bunun tersi durumundan kaynaklanan empedans uyumsuzluğudur. Birden fazla geçiş olması durumunda, geçişlerden kaynaklanan empedans uyumsuzluklarının neden olduğu yansımalar iletişimin kalitesini olumsuz yönde etkileyecektir. Empedans uyumsuzluğun etkisini azaltmak için her geçişte ek ekipman kurulması gerekir. Bu nedenle, \gls{plc} uygulanmadan önce, enerji hattı geçişlerini belirlemek için enerji dağıtım ağının empedans uyum analizi yapılmalıdır\cite{duluau2015scada}.
 \begin{comment}
@@ -26,7 +26,7 @@ Enerji dağıtım ağları üzerinden \gls{plc} kullanmanın ana dezavantajı, y
 
 \subsection{Mobil Haberleşme}
 
-Avrupa Telekomünikasyon Standartları Enstitüsü tarafından mobil telefon ağları için geliştirilmiş haberleşme sistemi olan \gls{gsm}, hem sesli hem de \gls{sms} hizmetlerini sağlar. \gls{sms} servisi 160 karaktere kadar mesaj uzunluklarına ve 4 adede kadar ayrı mesajın bir araya getirilmesine izin verir. Ancak, konuşma öncelikli bir haberleşme teknolojisi olduğundan, \gls{sms} mesajlarına şebeke tarafından düşük öncelik verilir ve teslimat garantisi yoktur. \gls{gsm} teknolojisinin üzerine eklenen \gls{gprs} teknolojisi veri hızını 170 kbps’e kadar ulaştırmıştır. \gls{gprs} teknolojisinden sonra mobil iletişim ağıda çığır açan 3. Nesil haberleşme servisi olan 3G haberleşme mimarisi oluşturulmuştur. Mobil ağa kalıcı olarak bağlanma tekniği sayesinde, mobil iletişim cihazlarına paket anahtarlamalı veri iletimine uygun bir şebeke geliştirilmiştir. \cite{smyth2003performance}. 3G iletişim hizmetleri, \gls{gsm} ve \gls{gprs} sistemlerinden farklı olarak veri iletişimi üzerine kuruludur. Geliştirilen 3G teknolojisi önceki nesillerdeki frekans bantlarından farklı olarak 1.6 -- 2.0 GHz frekans aralığında çalışır. Buna göre mobil cihazların anten boyutları güncellenmiştir. Teorik olarak 2Mbps hızında veri transferi kapasitesindedir. Geliştirilen ve ismini 4G teknolojisi olarak duyduğumuz haber-leşme teknolojisi sayesinde paket trafiğinin 100Mbps seviyelerine ulaştığı ve aynı zamanda \gls{wimax} teknoloji ile aynı bant genişliğine ulaştığı görülmektedir. 5G haberleşme sistemine geçiş aşamındaki kilometre taşı olarak belirlenen 4.5 haberleşme standardının en belirgin özelliği 4G haberleşmesinin veri hacminin teorik olarak 20 kat fazlasını sunabilmesidir \cite{routray20164}. 5G haberleşme ağı 4G’den daha hızlı ve güvenli bir şekilde veri iletimi yapmaktadır \cite{mishra2016mechanism}. Günümüzde mobil iletişim teknolojisinin gelişmesini devam ettirmektedir ve 6G haberleşme sistemleri üzerine Finlandiya ciddi çalışmalarda bulunmaktadır.
+Avrupa Telekomünikasyon Standartları Enstitüsü tarafından mobil telefon ağları için geliştirilmiş haberleşme sistemi \gls{gsm}, hem sesli hem de \gls{sms} hizmetlerini sağlar. \gls{sms} servisi 160 karaktere kadar mesaj uzunluklarına ve 4 adede kadar ayrı mesajın bir araya getirilmesine izin verir. Ancak, konuşma öncelikli bir haberleşme teknolojisi olduğundan, \gls{sms} mesajlarına şebeke tarafından düşük öncelik verilir ve teslimat garantisi yoktur. \gls{gsm} teknolojisinin üzerine eklenen \gls{gprs} teknolojisi veri hızını 170 kbps’e kadar ulaştırmıştır. \gls{gprs} teknolojisinden sonra mobil iletişim ağıda çığır açan 3. Nesil haberleşme servisi olan 3G haberleşme mimarisi oluşturulmuştur. Mobil ağa kalıcı olarak bağlanma tekniği sayesinde, mobil iletişim cihazlarına paket anahtarlamalı veri iletimine uygun bir şebeke geliştirilmiştir. \cite{smyth2003performance}. 3G iletişim hizmetleri, \gls{gsm} ve \gls{gprs} sistemlerinden farklı olarak veri iletişimi üzerine kuruludur. Geliştirilen 3G teknolojisi önceki nesillerdeki frekans bantlarından farklı olarak 1.6 -- 2.0 GHz frekans aralığında çalışır. Buna göre mobil cihazların anten boyutları güncellenmiştir. Teorik olarak 2Mbps hızında veri transferi kapasitesindedir. Geliştirilen ve ismini 4G teknolojisi olarak duyduğumuz haber-leşme teknolojisi sayesinde paket trafiğinin 100Mbps seviyelerine ulaştığı ve aynı zamanda \gls{wimax} teknoloji ile aynı bant genişliğine ulaştığı görülmektedir. 5G haberleşme sistemine geçiş aşamındaki kilometre taşı olarak belirlenen 4.5 haberleşme standardının en belirgin özelliği 4G haberleşmesinin veri hacminin teorik olarak 20 kat fazlasını sunabilmesidir \cite{routray20164}. 5G haberleşme ağı 4G’den daha hızlı ve güvenli bir şekilde veri iletimi yapmaktadır \cite{mishra2016mechanism}. Günümüzde mobil iletişim teknolojisinin gelişmesini devam ettirmektedir ve 6G haberleşme sistemleri üzerine Finlandiya ciddi çalışmalarda bulunmaktadır.
 
 \subsection{Fiber Optik Haberleşme}
 
@@ -36,12 +36,12 @@ Günümüzde çok yüksek hızda veri iletimi, zayıflama oranı diğer haberle�
 
 Fiber optik kablolar temelde çekirdek ve kılıf olmak üzere iki farklı bölgeden oluşmaktadır. Bu bölgelerdeki kırılma indis farkından yararlanılarak, modüle edilmiş lazer kilometrelerce öteye çok düşük kayıplarla iletilmektedir. \cite{agrawal2012fiber}
 
-Fiber optik kablolar tek modlu veya çok modlu olmak üzere ikiye ayrılır. Çekirdek genişliği genelde 8 mikron civarında olan kablo tek mod geçirebilmektedir. Yapılan çalışmalar ışığında tek mod kablonun efektif kullanımı için 1310 -- 1550 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılmaktadır. Çekirdek genişliği yaklaşık 50 -- 62.5 mikron olan fiber kablonun efektif kullanımı için 850 -- 1300 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılmaktadır. tek modlu kabloya göre daha kalın olan çok modlu kablonun veri iletim performansı tek molu fiber optik kabloya göre daha düşüktür \cite{keiser2000optical}. 
+Fiber optik kablolar ikiye ayrılır. Çekirdek genişliği genelde 8 mikron civarında olan kablo tek mod geçirebilmektedir. Yapılan çalışmalar ışığında tek mod kablonun efektif kullanımı için 1310 -- 1550 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılmaktadır. Çekirdek genişliği yaklaşık 50 -- 62.5 mikron olan fiber kablonun efektif kullanımı için 850 -- 1300 nm dalgaboyu aralığında çalışan lazer kaynaklar kullanılır. Tek modlu kabloya göre daha kalın olan çok modlu kablonun veri iletim performansı tek molu fiber optik kabloya göre daha düşüktür \cite{keiser2000optical}. 
 
 \subsection{Zigbee Teknolojisi}
 
 
-Zigbee teknolojisi, \gls{ieee} 802.15.4 standardı üzerine inşa edilmiş kontrol ve kablosuz algılayıcı ağlarıyla haberleşmek için özel olarak tasarlanmıştır. Zigbee 868 MHz, 915 MHz ve 2,4 GHz frekanslarında çalışır. Zigbee standardı 250 kbps veri hızı sağlar ve algılayıcılar ile kontrolörler arasında iki yönlü veri aktarımı yapabilmektedir. Zigbee, yöneticiden uç düğümlerine veya yöneticiden yöneticiye iletişim için çeşitli ağ yapılandırmalarını destekler. Zigbee ağları, yönlendiriciler kullanılarak genişletilebilir ve daha geniş bir alan ağı oluşturmak için birçok düğümün birbirine bağlanmasına izin verir \cite{ramya2011study}. Zigbee haberleşme teknolojisi düşük veri hızlarında olup, düşük güç tüketimi sunan bir sistemdir. Böylelikle nesnelerin interneti uygulamalarında tercih edilir \cite{alliance2010zigbee}.
+Zigbee teknolojisi, \gls{ieee} 802.15.4 standardında geliştirilen kablosuz algılayıcı ağlarıyla haberleşmek için tasarlanmıştır. 868 MHz, 915 MHz ve 2,4 GHz frekanslarında çalışır. Zigbee standardı 250 kbps veri hızı sağlar ve algılayıcılar ile kontrolörler arasında iki yönlü veri aktarımı yapabilmektedir. Zigbee, yöneticiden uç düğümlerine veya yöneticiden yöneticiye iletişim için çeşitli ağ yapılandırmalarını destekler. Zigbee ağları, geniş bir alan ağı oluşturmak için birçok düğümün birbirine bağlanmasına izin verir \cite{ramya2011study}. Zigbee haberleşme teknolojisi düşük veri hızlarında olup, düşük güç tüketimi sunan bir sistemdir. Böylelikle nesnelerin interneti uygulamalarında tercih edilir \cite{alliance2010zigbee}.
 
 
 
@@ -250,7 +250,7 @@ Yoğunlaştırıcı sistem, ana enerji kaynağı olarak güneş enerjisini kulla
 
 \end{tikzpicture}
 
-\caption{Parabolik kolektör vasıtasıyla ısı ve elektrik eldesi}
+\caption{Parabolik kolektör vasıtasıyla ısı ve elektrik üretim şeması.}
 \label{fig:parabolik}
 \end{figure}
 
@@ -272,7 +272,7 @@ Jeotermal akışkandan enerji üretimi amacında yapılan ilk saha çalışmalar
 
 Jeotermal enerji santralleri tarihi gelişiminde, kaynağa bağlı olarak termodinamik çevrim teknolojisinde bir çok gelişim gözlemlenmiştir. Dünya jeotermal enerji kaynaklarının çoğu çift fazlı, sıvı yoğun ve içinde çözünmemiş gaz miktarı ile çökelmeye sebep olan karbonatlı bileşimler barındıran özelliktedir.
 
-Orta sıcaklıklı jeotermal kaynaktan elektrik üretimine geçebilmek adına geliş-tirilen ikili (binary) çevrim modeli, üretilen akışkandaki ısı enerjisini ikincil bir akışkana aktarma ile elektrik üretme ilkesine dayanmaktadır. Bunların dışında, hem ayrıştırıcılı hem de ikili (binary) tip çevrim modelini kapsayan başka bir çevrim modeli de geliştirilmiş ya da kombine jeotermal enerji çevrimleri olarak ortaya çıkmıştır.
+Orta sıcaklıklı jeotermal kaynaktan elektrik üretimi için ikili (binary) çevrim modeli geliştirilmiştir. Üretilen akışkandaki ısı enerjisini ikincil bir akışkana aktarma ile elektrik üretme ilkesine dayanmaktadır. Bunların dışında, hem ayrıştırıcılı hem de ikili (binary) tip çevrim modelini kapsayan başka bir çevrim modeli de geliştirilmiş ya da kombine jeotermal enerji çevrimleri olarak ortaya çıkmıştır.
 
 
 
@@ -702,7 +702,7 @@ color(100bp)=(transparent!10) }
 \end{tikzpicture}
 
 
-\caption{Kuru buhar enerji santrali elektrik üretim topolojisi.}
+\caption{Kuru buhar enerji santrali elektrik üretim şeması.}
 \label{fig:kurubuhar}
 \end{figure}
 
@@ -1139,7 +1139,7 @@ color(100bp)=(transparent!10) }
 \end{tikzpicture}
 
 
-\caption{Tek flaşlı jeotermal enerji santrali elektrik üretim topolojisi}
+\caption{Tek flaşlı jeotermal enerji santrali elektrik üretim şeması.}
 \label{fig:singleflash}
 \end{figure}
 
@@ -1855,7 +1855,7 @@ pattern radius = 1pt}
 
 
 
-\caption{İkili (binary) çevrim jeotermal enerji santrali üretim topolojisi \protect\cite{dipippo2012geothermal}.}
+\caption{İkili (binary) çevrim jeotermal enerji santrali üretim şeması \protect\cite{dipippo2012geothermal}.}
 \label{fig:binary}
 \end{figure}
 
@@ -2420,7 +2420,7 @@ rgb(100bp)=(1,0,0)}
 \end{tikzpicture}
 
 
-\caption{Biyokütle enerji santrali üretim topolojisi}
+\caption{Biyokütle enerji santrali üretim şeması.}
 \label{fig:biomass}
 \end{figure}
 
@@ -2634,6 +2634,6 @@ pattern radius = 1pt}
 
 
 
-\caption{Hidroelektrik enerji santrali üretim diyagramı}
+\caption{Hidroelektrik enerji santrali üretim şeması.}
 \label{fig:hidroelek}
 \end{figure}
