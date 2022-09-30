@@ -25,7 +25,7 @@ Yenilenebilir enerji kaynaklarının dağıtık yapıda olması enerji üretim m
 Çok etmenli yaklaşım yöntemi kullanılarak yenilenebilir enerji sistemlerinde operasyon ve bakım maliyetlerinin düşürülmesi hakkında yapılan çalışmada ancak ve ancak haberleşme sisteminin etkin bir şekilde kullanılması durumunda ilgili modelin uyarlanabilir olduğu anlaşılmıştır \cite{7804974}. 
 Haberleşme sisteminin yenilenebilir enerji kaynaklarında etkin ve verimli bir şekilde kullanılması durumunda enerji üretim maliyetinin alt bileşeni olan bakım onarım ve operasyon giderlerinin maliyetlerine düşüş olacağı kaçınılmazdır.
 Enerji üretim maliyetlerine doğrudan etki eden bir diğer unsur ise üretim santrallerinde yaşanan kazalardır. İlgili çalışmada güneş enerji santrallerinde haberleşme sistemine ait düzgün bir altyapının olmadığı durumlarda yaşanan kaza oranlarının daha fazla olduğu gözlemlenmiştir \cite{https://doi.org/10.1002/dac.4517}. Bu kaza durumlarının enerji üretim maliyetlerine doğru orantılı bir şekilde yansıması beklenen bir durumdur.
-Mart 2022'de Uydu haberleşme hizmeti veren Euroskypark firmasına düzenlenen siber saldırı sonucu, toplamda yaklaşık 5800 adet rüzgar enerji türbininin haberleşmesi 1 saatliğine kesilmiştir \cite{sibersaldiri}. İlgili türbin topluluğunun üretim potansiyelinin 11 GW değerlerinde olduğu unutulmamalıdır. Haberin detayı incelendiğinde türbinlerin haberleşmesi kapalı durumdayken normal bir şekilde çalışmaya devam ettikleri belirtil-miştir. 11 GW'lık üretim kapasitesindeki bu türbin grubunun faaliyetlerinin 1 saatlik durması veya tamamen çalışmasına aykırı bir şekilde programlandığı durumu düşünül-düğünde yaşanabilecek sorunlar bir hayli maliyet oluşturacaktır.
+Mart 2022'de Uydu haberleşme hizmeti veren Euroskypark firmasına düzenlenen siber saldırı sonucu, toplamda yaklaşık 5800 adet rüzgar enerji türbininin haberleşmesi 1 saatliğine kesilmiştir \cite{sibersaldiri}. İlgili türbin topluluğunun üretim potansiyelinin 11 GW değerlerinde olduğu türbinlerin normal bir şekilde çalışmaya devam ettikleri belirtilmiştir. 11 GW'lık üretim kapasitesindeki bu türbin grubunun faaliyetlerinin 1 saatlik durması veya tamamen çalışmasına aykırı bir şekilde programlandığı durumu düşünüldüğünde yaşanabilecek sorunlar yüksek maliyet oluşturacaktır.
 
 
 
@@ -72,17 +72,20 @@ No&\multicolumn{1}{c}{Konum}&\multicolumn{2}{c}{Haberleşme Sınıfı}&\multicol
 
 
 
-Tablo \ref{tab:literatr}'de yenilenebilir enerji santrallerinde kullanılan haberleşme sistemleri hakkında yapılan çalışmaların özeti gösterilmiştir. 1. sırada \gls{bcit} içerisinde faal olarak çalışan yenilenebilir enerji santrallerinin akıllı şebekelere entegrasyonunda kullanılan veri haberleşme altyapısının iyileştirme projesidir \cite{BCIT}. Enstitü içerisinde 3 adet \gls{res}, 1 adet \gls{ges} bulunmaktadır. Enstitü haberleşme ağını 3 kısıma ayırmıştır. \gls{pan} kısmında Zigbee, \gls{lan} kısmında \gls{plc} son olarak \gls{wan} kısmında \gls{wimax} teknolojilerini kullanımıştır. İlgili çalışmada \gls{iec} 61850 standardı dikkate alınarak enerji santrallerinin veri modellenmesi yapılmıştır. Kullanılan veri boyutları maksimum 64 Byte civarı olarak belirlendiğinde, \gls{wimax} \%96 oranında veri iletim performansı göstermiştir. Veri boyutlarının arttırılması sonucunda paket kaybının olmadığı çalışmada gösterilmiştir. Tablo \ref{tab:literatr}'de 2. sırada belirtilen Huatacondo köyünde günlük enerji ihtiyacının \%40'lık kısmını dizel jeneratörlü enerji santralinden karşılamaktadır. Santral bünyesindeki haberleşme altyapısının performans değeri ile dizel jeneratöre olan ihtiyaç yüzdesinin ters orantılı olduğu belirtilmiştir \cite{microgrid_siliOrnek}. Ege Bölgesi'nde bulunan Termiye Adasının enerji ihtiyacı da Huatacondo köyündeki gibi hibrit enerji sistemleri üzerinden karşılanmaktadır. Adada bulunan hane sayısı ve iklim durumları göz önüne alınarak haberleşme sistemlerinin sürdürülebilir yapıda olmasına dikkat edilmiştir. Böylece Termiye Adasında dizel jeneratörlerin kullanım oranlarının düştüğü belirtilmiştir\cite{yunanOrnek}.
+Tablo \ref{tab:literatr}'de yenilenebilir enerji santrallerinde kullanılan haberleşme sistemleri hakkında yapılan çalışmaların özeti gösterilmiştir. \gls{bcit} içerisinde faal olarak çalışan yenilenebilir enerji santrallerinin akıllı şebekelere entegrasyonunda kullanılan veri haberleşme altyapısının iyileştirme projesidir \cite{BCIT}. Enstitü içerisinde 3 adet \gls{res}, 1 adet \gls{ges} bulunmaktadır. Enstitü haberleşme ağını 3 kısıma ayırmıştır. \gls{pan} kısmında Zigbee, \gls{lan} kısmında \gls{plc} son olarak \gls{wan} kısmında \gls{wimax} teknolojilerini kullanımıştır. İlgili çalışmada \gls{iec} 61850 standardı dikkate alınarak enerji santrallerinin veri modellenmesi yapılmıştır. Kullanılan veri boyutları maksimum 64 Byte civarı olarak belirlendiğinde, \gls{wimax} \%96 oranında veri iletim performansı göstermiştir. Veri boyutlarının arttırılması sonucunda paket kaybının olmadığı çalışmada gösterilmiştir. Huatacondo köyünde günlük enerji ihtiyacının \%40'lık kısmını dizel jeneratörlü enerji santralinden karşılamaktadır. Santral bünyesindeki haberleşme altyapısının performans değeri ile dizel jeneratöre olan ihtiyaç yüzdesinin ters orantılı olduğu belirtilmiştir \cite{microgrid_siliOrnek}. Ege Bölgesi'nde bulunan Termiye Adasının enerji ihtiyacı da Huatacondo köyündeki gibi hibrit enerji sistemleri üzerinden karşılanmaktadır. Adada bulunan hane sayısı ve iklim durumları göz önüne alınarak haberleşme sistemlerinin sürdürülebilir yapıda olmasına dikkat edilmiştir. Böylece Termiye Adasında dizel jeneratörlerin kullanım oranlarının düştüğü belirtilmiştir\cite{yunanOrnek}.
 
+Akıllı şebekelerdeki \gls{lan} ağları için \gls{wifi} teknolojisi kullanılması durumunda maliyet ve sürdürülebilir yapıda haberleşmenin mümkün olduğu belirtilmiştir \cite{5779257}.
+
+Polonya'da kurulu \gls{ges}'lere ait haberleşme altyapısının fizibilitesi ile ilgili çalışmada bulunulmuştur. Çalışmada, 4G teknolojisi uydu haberleşmeye göre daha az maliyete sahip olduğu belirtilmiştir \cite{TbarMartnez2021PositiveEO}.
 
 
 Teknolojinin gelişmesiyle birlikte, daha verimli ve daha düşük bakım maliyetlerine sahip rüzgar türbinlerinin üretimi yapılmaktadır. Rüzgar türbinlerinin yönetildiği komuta kontrol merkezleri, elektrik talebine göre açılıp kapatılan rüzgar türbinlerini yönetmek ve kontrol etmekten sorumludur. İlgili makalede rüzgar türbinlerinin güç tüketimini kullanılabilirliğini ve türbin verimliliğini en üst düzeyde kontrolü için tasarlanan iletişim ağ mimarisinden bahsedilmiştir \cite{ahmed2014communication}.
 
-2014 yılında yapılan başka bir çalışmada \cite{hussain2014multilayer} rüzgar enerjisi santralleri gerçek zamanlı izlenmesi ve kontrolü, yüksek güvenilirliğe sahip bir iletişim altyapısı gerektirdiği ile ilgili Ethernet teknolojisini SONET yazılımı aracılığıyla simülasyonu yapılmıştır.
+2014 yılında yapılan başka bir çalışmada \cite{hussain2014multilayer} rüzgar enerjisi santralleri gerçek zamanlı izlenmesi ve kontrolü, yüksek güvenilirliğe sahip bir iletişim altyapısı gerektirdiği ile ilgili Ethernet teknolojisini SONET ortamında simülasyonu yapılmıştır.
 
 Güneş enerji santrallerini, mevsimsel süreleri, hava durumu ve dağıtık yapıda olması gibi faktörlerden kolayca etkilenebilen bir yenilenebilir enerji sistemidir. Şebeke entegrasyonunun verimini arttırıcı faaliyetler olarak düşük gecikmeli, güvenilir ve iki yönlü iletişim esastır. Şebeke entegrasyonu için \gls{iec} 61850 standardına dayalı büyük ölçekli güneş enerji santrallerinin uzaktan izlenmesi için iletişim ağı mimarisinin tasarlanması ile ilgili çalışmalar yapılmıştır \cite{mackiewicz2006overview}.
 
-Güneşten enerji üretimi ve sistemin kontrolü için \gls{iot} yönteminde Arduino Uno mikrodenetleyicisi ve Rasberry Pi modülleri kullanılarak enerji üretim sisteminin kontrolü ve performansının artırılması yönünde çalışma yapılmıştır. Şekil ~\ref{fig:figure3}'de gösterilmiştir \cite{deshmukh2018smart}.
+Güneşten enerji üretimi ve sistemin kontrolü için \gls{iot} yönteminde Arduino Uno mikrodenetleyicisi ve Rasberry Pi modülleri kullanılarak enerji üretim sisteminin kontrolü ve performansının iyileştirilmesi yönünde çalışma yapılmıştır. İlgili çalışmanın topolojisi Şekil ~\ref{fig:figure3}'de gösterilmiştir \cite{deshmukh2018smart}.
 
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=7cm]{Resim/Screenshot 2022-06-12 at 20.44.42.png}}
@@ -225,13 +228,21 @@ color(100bp)=(transparent!10) }
 
 
 
-\caption{Bir \gls{res}'in \gls{iot} üzerinden izlenmesi ve kontrolü}
+\caption{Bir \gls{res}'in \gls{iot} üzerinden izlenme ve kontrolü diyagramı}
 \label{fig:figure3}
 \end{figure}
 
 
 Dağıtım şebekelerinde \gls{wimax} ve \gls{wifi} teknolojilerinin, şebeke maliyetinde ve performansındaki durumlarını olumlu yönde etkilediği ile ilgili bir makale çalışılması yapılmış olup, Şekil ~\ref{fig:figure4}'de kurulan topoloji gösterilmiştir \cite{wlanwimaxprem}.
 
+Yapılan çalışmada dağıtık \gls{res} ve \gls{ges}'lerde tercih edilen geleneksel haberleşme sistemlerinin dışında yenilikçi ve tamamen kapalı devre bir haberleşme sistemi kurularak \gls{ieee} ve \gls{iec} standartları ihlal edilmeden sistemin kontrolünün sağlanacağı belirtilmiştir \cite{donmezdesign}. Şekil \ref{sekildonmezmakale}'de çalışmanın topolojisi gösterilmiştir.
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=8cm]{Resim/makaledonmez.jpg}}
+\caption{\gls{ges} haberleşme topolojisi (\protect\citeA{donmezdesign}) }
+\label{sekildonmezmakale}
+\end{figure}
 
 \cite{eltamaly2021iot} enerji sistemlerinde haberleşme alanında yaptığı çalışmalarda, akıllı şebekelerde kullanılan haberleşme sistemlerini inceleyip 4 katmanda toplamıştır. İlgili katmanların paket gecikme performanslarını incelemiştir.
 
@@ -245,12 +256,7 @@ Akıllı şebekelerin haberleşme altyapılarındaki performans değerleri simü
 
 
 
-Teknolojinin gelişmesi ile birlikte enerji üretim santrallerinin de donanımsal açıdan yeni tasarımları yapılmaktadır. Rüzgar türbinlerinin fiziksel özellikleri de bu değişimden olumlu yönde etkilenmektedir. Günümüzde rüzgar türbinleri okyanuslarda, dağlık arazilerde daha verimli bir şekilde enerji üretmektedirler. \cite{liu2010status} \gls{res}'lerde \gls{wimax} tekniği kullanılması durumunda oluşacak performans değerlerini gözlemlemiştir.
-
-
-
-
-Türbin sayısının artmasından kaynaklı yerleşke olarak uzak noktaların tercih edildiği rüzgar tarlalarının çalışma, üretim ve arıza durumlarının minimum gecikmeyle izlenmesi için hiyerarşik ağ yapısı yöntemiyle birden fazla komuta kontrol merkezinin haberleşme trafiğinin yönetimi ile ilgili çalışma yapılmıştır \cite{hussain2014multilayer}. Oluş-turulan mimarinin gösterimi Şekil ~\ref{fig:figure6}'de paylaşılmıştır .
+Günümüzde rüzgar türbinleri okyanuslarda, dağlık arazilerde daha verimli bir şekilde enerji üretmektedirler. \cite{liu2010status} ilgili çalışmasında \gls{res}'lerde \gls{wimax} kullanarak performans değerlerini incelemişlerdir. Türbin sayısının artmasından kaynaklı yerleşke olarak uzak noktaların tercih edildiği rüzgar tarlalarının çalışma, üretim ve arızaların minimum gecikmeyle izlenmesi için hiyerarşik ağ yapısı yöntemiyle birden fazla komuta kontrol merkezinin haberleşme trafiğinin yönetimi ile ilgili çalışma yapılmıştır \cite{hussain2014multilayer}. Oluşturulan mimarinin gösterimi Şekil ~\ref{fig:figure6}'de paylaşılmıştır .
 
 
 
@@ -262,3 +268,17 @@ Türbin sayısının artmasından kaynaklı yerleşke olarak uzak noktaların te
 \caption{Yenilenebilir enerji sistemlerinde hiyerarşik durum kontrol sistemi (\protect\citeA{hussain2014multilayer}) }
 \label{fig:figure6}
 \end{figure}
+
+WiFi teknolojisi kullanarak Bragança Politeknik Üniversitesi kampüs alanında, güneş enerji panelinin çalışma verilerini gerçek zamanlı olarak takibi yapılmıştır \cite{delly2022solar}.
+Zigbee teknolojisinin çalışma limitleri, \gls{ges}'lerin uzaktan izleme ve kontrolünde performans belirleyici unsur olarak belirtilmiştir \cite{9670354}. Dalga enerji sistemlerinin uzaktan izlenmesi hakkında yapılan çalışmada, kurulacak enerji üretim sistemindeki bileşen sayısına ve kontrol merkezinin kurulacağı noktaya göre haberleşme sisteminin belirlenmesi gerektiği belirtilmiştir \cite{johanson2019condition}.
+
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width= 6 cm]{Resim/Screenshot 2022-09-29 at 16.05.17.png}}
+\caption{Bragança Politeknik Üniversitesi kampüs alanında kurulu çalışan prototip güneş paneli (\protect\citeA{delly2022solar}) }
+\label{fig:delly}
+\end{figure}
+
+
+

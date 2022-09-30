@@ -811,7 +811,7 @@ Zigbee, \gls{wifi} ve Ethernet altyapısında modellenen simülasyonların 2 \gl
 
 \subsection{Kablosuz Geniş Ağ Tasarımı}
 
-\ref{mikrohaberlesme} kısmında belirtilen kablosuz haberleşme tekniğinden \gls{wimax} teknolojisi kullanılarak meslek yüksekokulları arasında bir haberleşme linki kurulmuştur. Yüksek hızlarda haberleşme çözümü imkanı sağlayan \gls{wimax} teknolojisi 11-66 GHz arasında bir haberleşme taşıyıcı frekansına sahiptir. Bu frekans aralığındaki elektromanyetik dalganın boyu çok küçüktür. Elektromanyetik dalga için atmosfer soğurumu frekansın karesiyle ters orantılı olduğu için, yüksek frekans bölgesinde düşük kayıplı iletişim için doğrudan görüş hattında iletişim yapılması gereklidir.
+\ref{mikrohaberlesme} numaralı başlıkta belirtilen kablosuz haberleşme tekniğinden \gls{wimax} teknolojisi kullanılarak meslek yüksekokulları arasında bir haberleşme linki kurulmuştur. Yüksek hızlarda haberleşme çözümü imkanı sağlayan \gls{wimax} teknolojisi 11-66 GHz arasında bir haberleşme taşıyıcı frekansına sahiptir. Bu frekans aralığındaki elektromanyetik dalganın boyu çok küçüktür. Elektromanyetik dalga için atmosfer soğurumu frekansın karesiyle ters orantılı olduğu için, yüksek frekans bölgesinde düşük kayıplı iletişim için doğrudan görüş hattında iletişim yapılması gereklidir.
 
 İlgi \gls{myo}'ların \gls{dpu} merkez kampüsü ile sağlıklı bir haberleşme sağlaması için öncelikle sistemsel olarak Google Earth yazılımında Kütahya ilinin fiziki yükselti haritası incelenmiştir. Bu incelemelerin sonucunda 2 adet toplama noktası belirlenmiştir. Bu toplama noktaları ile üniversiteye ait kampüslerin birbirlerini doğrudan ve engelsiz bir şekilde görebildiği Google Earth yazılımından doğrulanmıştır.
 
@@ -964,15 +964,15 @@ yticklabel style = {
 \end{figure}
 
 
-Simülasyon sonucunda ana sunucuya gelen algılayıcıların anlık veri boyutları Resim \ref{fig:4-33}’te gösterilmiştir. Örneğin, Tablo \ref{tab:tablo4-5}’teki rüzgar algılayıcılarının ürettikleri veri değeri 6 Byte/s değerindedir, bu durum ile birlikte Tablo \ref{tab:tablo4-4}’teki WROT algılayıcısı 12010 Byte/s değerinde veri üretmektedir. İlgili \gls{wan} senaryosunda 5 adet \gls{ges}, 5 adet \gls{res} bulunmaktadır. Simülasyon sonucunda "Rüzgar Hızı" algılayıcıları toplamda 30 Byte/s'lik, "WROT" algılayıcıları toplamda 72.060 Byte/s'lik hızlarda ana sunucuya veri göndermişlerdir. Farklı algılayıcının üretmiş olduğu veri miktarlarının aynı grafikte birlikte gösterilebilmesi için logaritmik eksen tercih edilmiştir. 
+Simülasyon sonucunda ana sunucuya gelen algılayıcıların anlık veri boyutları Tablo \ref{fig:4-33}’de gösterilmiştir. Örneğin, Tablo \ref{tab:tablo4-5}’teki rüzgar algılayıcılarının ürettikleri veri değeri 6 Byte/s değerindedir, bu durum ile birlikte Tablo \ref{tab:tablo4-4}’teki WROT algılayıcısı 12010 Byte/s değerinde veri üretmektedir. İlgili \gls{wan} senaryosunda 5 adet \gls{ges}, 5 adet \gls{res} bulunmaktadır. Simülasyon sonucunda "Rüzgar Hızı" algılayıcıları toplamda 30 Byte/s'lik, "WROT" algılayıcıları toplamda 72.060 Byte/s'lik hızlarda ana sunucuya veri göndermişlerdir. Farklı algılayıcının üretmiş olduğu veri miktarlarının aynı grafikte birlikte gösterilebilmesi için logaritmik eksen tercih edilmiştir. 
 %bunu tablo olarak göster
 
 
-\begin{comment}
+
 
 \begin{table}[htbp]
 \centering
-\caption{Ana sunucada toplanan algılayıcılarıcıların anlık değişimi}
+\caption{Senaryo 1'e göre DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin zamana bağlı değişim tablosu.}
 \label{fig:4-33}
 \begin{tabular}{cc}
 \hline
@@ -982,24 +982,22 @@ Meteoroloji         & 50 B/s         \\
 İnverter Gerilim    & 72.000 B/s         \\
 Rüzgar Hızı         & 30 B/s    \\
 Radyant Işıma       & 1.000 B/s    \\
-WCNV                & 75.020 B/s         \\
-WGEN                & 70.020 B/s         \\
-WMET                & 40.000 B/s    \\
-WNAC                & 66.048 B/s    \\
-WROT                & 60.050 B/s       \\
-WTOW                & 12.036 B/s       \\
+WROT                & 72.060 B/s         \\
+WTRM                & 72.096 B/s         \\
+WGEN                & 84.024 B/s    \\
+WCNV                & 90.024 B/s    \\
 WTRF                & 48.036 B/s       \\
-WTRM                & 72.096 B/s       \\
+WNAC                & 66.048 B/s       \\
 WYAW                & 36.024 B/s       \\
-WROT                & 60.050 B/s       \\ \hline
-TOTAL & 684.460 B/s       \\ \hline
+WTOW                & 12.036 B/s       \\
+WMET                & 48.000 B/s       \\ \hline
+TOPLAM & 673.428 B/s       \\ \hline
 \end{tabular}
 \end{table}
-\end{comment}
 
 
 
-
+\begin{comment}
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/Sekil4-32.jpg}}
 
@@ -1014,6 +1012,7 @@ yticklabel style = {
 /pgf/number format/precision=5
 },
 }
+
     \begin{tikzpicture}
 \begin{semilogyaxis}[
 zmode = log,
@@ -1145,8 +1144,10 @@ legend pos = outer north east,]
 \label{fig:4-33}
 \end{figure}
 
+\end{comment}
 
-Tablo \ref{tab:tablo4-6}’ya göre \gls{myo}'larda üretilen algılayıcı verilerinin \gls{dpu} merkez sunu-cusuna gönderilme zamanı Şekil \ref{fig:4-34}’de gösterilmiştir. Şekil \ref{fig:4-34}’de üretilen veriler yaklaşık 0.46 saniyelik gecikme ile ana sunucuda toplandığı gözlemlenmiştir. Geniş alan ağında, \gls{iec} standartlarına göre, verilerin 1 saniyenin altında bir süre ile hedef noktasına iletilmesi gerektiği belirtilmektedir \cite{mackiewicz2006overview}. Buna göre tasarlanan \gls{wifi} ve \gls{wimax} hibrit teknolojili haberleşme ağı ilgili standartları tamamen karşılamaktadır.
+
+Tablo \ref{tab:tablo4-6}’e göre \gls{myo}'larda üretilen algılayıcı verilerinin \gls{dpu} merkez sunu-cusuna gönderilme zamanı Şekil \ref{fig:4-34}’de gösterilmiştir. Şekil \ref{fig:4-34}’de üretilen veriler yaklaşık 0.46 saniyelik gecikme ile ana sunucuda toplandığı gözlemlenmiştir. Geniş alan ağında, \gls{iec} standartlarına göre, verilerin 1 saniyenin altında bir süre ile hedef noktasına iletilmesi gerektiği belirtilmektedir \cite{mackiewicz2006overview}. Buna göre tasarlanan \gls{wifi} ve \gls{wimax} hibrit teknolojili haberleşme ağı ilgili standartları tamamen karşılamaktadır.
 
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/Sekil4-33.jpg}}
@@ -1272,8 +1273,7 @@ yticklabel style = {
 \end{figure}
 
 
-Ana sunucuda toplanan algılayıcıların gerçek zamanlı veri boyutları Şekil \ref{fig:4-37} üzerinde gösterilmiştir. Yerel ağda \gls{wifi} teknolojisi kullanıldığında da aynı değerler elde edilmiştir. Buna göre haberleşme trafiğinde yerel ağ teknolojisinin Ethernet veya \gls{wifi} olma durumu, performans açısından bir fark oluşturmamaktadır.
-
+\begin{comment}
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/sekil4-36.jpg}}
 
@@ -1420,6 +1420,38 @@ legend pos = outer north east,]
 \label{fig:4-37}
 \end{figure}
 
+\end{comment}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{Senaryo 2'ye göre DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin zamana bağlı değişim tablosu.}
+\label{fig:4-37}
+\begin{tabular}{cc}
+\hline
+\begin{tabular}[c]{@{}c@{}}Algılayıcı\\ Tanımı\end{tabular} & \begin{tabular}[c]{@{}c@{}}Merkez Sunucuya\\ İletilen Veri \end{tabular} \\ \hline
+Meteoroloji         & 50 B/s         \\
+İnverter Akım       & 72.000 B/s         \\
+İnverter Gerilim    & 72.000 B/s         \\
+Rüzgar Hızı         & 30 B/s    \\
+Radyant Işıma       & 1.000 B/s    \\
+WROT                & 72.060 B/s         \\
+WTRM                & 72.096 B/s         \\
+WGEN                & 84.024 B/s    \\
+WCNV                & 90.024 B/s    \\
+WTRF                & 48.036 B/s       \\
+WNAC                & 66.048 B/s       \\
+WYAW                & 36.024 B/s       \\
+WTOW                & 12.036 B/s       \\
+WMET                & 48.000 B/s       \\ \hline
+TOPLAM & 673.428 B/s       \\ \hline
+\end{tabular}
+\end{table}
+
+Ana sunucuda toplanan algılayıcıların gerçek zamanlı veri boyutları Tablo \ref{fig:4-37} üzerinde gösterilmiştir. Yerel ağda \gls{wifi} teknolojisi kullanıldığında da aynı değerler elde edilmiştir. Buna göre haberleşme trafiğinde yerel ağ teknolojisinin Ethernet veya \gls{wifi} olma durumu, performans açısından belirgin bir fark oluşturmamaktadır.
+
+
 Tablo \ref{tab:tablo4-6}’ya göre meslek yüksek okullarında üretilen algılayıcı verilerinin \gls{dpu} \\komuta merkezi sunucusuna gönderilme zamanı Şekil \ref{fig:4-38}’de gösterilmiştir. Bu grafiğe göre üretilen veriler yaklaşık 0.41 saniyelik gecikme ile ana sunucuda toplandığı gözlemlenir. Geniş ağ teknolojisindeki \gls{iec} standartlarında verilerin 1 saniyenin altında bir süre ile hedef noktasına iletilmesi gerektiği belirtilmektedir \cite{mackiewicz2006overview}. Buna göre tasarlanan Ethernet ve \gls{wimax} hibrit teknolojili haberleşme sistemi ilgili standartları tamamen karşılamaktadır.
 
 
@@ -1460,7 +1492,7 @@ yticklabel style = {
 \end{figure}
 
 \newpage
-\subsection{Fiber Altyapılı Geniş Ağ Tasarımı}\label{fibeeraciklama}
+\subsection{Senaryo: 3}\label{fibeeraciklama}
 
 
 Yerel internet sağlayıcıları üzerinden tarife anlaşması sağlanarak kurulmaktadır. Fakat telekom hattı sadece \gls{dpu} hizmet vermemekle birlikte hizmet sağladığı noktalardaki başka aboneleriyle birlikte ortak bir haberleşme havuzundan haberleşme hizmeti vermektedir. Bu hizmetin finansal açıdan ilk başta avantajının olması kaçınılmazdır. Fakat üniversiteye bağlı \gls{myo}'ların haberleşme güvenliğinin sağlanması son kullanıcının sorumluluğunda olacaktır. Buna göre ilgili meslek yüksekokullarına kurulacak harici bir güvenlik duvarı ve yönlendirici donanımlarıyla yerel ağlarda toplanan algılayıcı verileri fiziki bir güvenlik duvarından geçerek yönlendiriciler üzerinden \gls{dpu} Merkez kampüsüne ulaşır.
@@ -1513,7 +1545,7 @@ yticklabel style = {
 \end{figure}
 
 
-
+\begin{comment}
 \begin{figure}[htbp]
 %\centerline{\includegraphics[width=10cm]{Resim/Sekil4-32.jpg}}
 
@@ -1659,12 +1691,95 @@ legend pos = outer north east,]
 \label{fig:fiberLog}
 \end{figure}
 
+\end{comment}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{Senaryo 3'e göre DPÜ merkez kampüsünde bulunan komuta kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin zamana bağlı değişim tablosu.}
+\label{fig:fiberLog}
+\begin{tabular}{cc}
+\hline
+\begin{tabular}[c]{@{}c@{}}Algılayıcı\\ Tanımı\end{tabular} & \begin{tabular}[c]{@{}c@{}}Merkez Sunucuya\\ İletilen Veri \end{tabular} \\ \hline
+Meteoroloji         & 50 B/s         \\
+İnverter Akım       & 72.000 B/s         \\
+İnverter Gerilim    & 72.000 B/s         \\
+Rüzgar Hızı         & 30 B/s    \\
+Radyant Işıma       & 1.000 B/s    \\
+WROT                & 72.060 B/s         \\
+WTRM                & 72.096 B/s         \\
+WGEN                & 84.024 B/s    \\
+WCNV                & 90.024 B/s    \\
+WTRF                & 48.036 B/s       \\
+WNAC                & 66.048 B/s       \\
+WYAW                & 36.024 B/s       \\
+WTOW                & 12.036 B/s       \\
+WMET                & 48.000 B/s       \\ \hline
+TOPLAM & 673.428 B/s       \\ \hline
+\end{tabular}
+\end{table}
 
 
 
 
 
-\newpage
+
+\subsection{Senaryo: 4}\label{SadeceResyaptık}
+Başlık \ref{yerelEthernet} -- \ref{yerelWifi}'de \gls{myo} bünyesinde oluşturulan veri boyutu \gls{myo}'da tercih edilen enerji sistemine göre değişmektedir. Tüm \gls{myo}'larda \gls{res} kurulduğu kabul edilmesi durumunda veri boyutunda artış olup, tasarlanan ağın performansı incelenmiştir \cite{donmezdesign2}. \gls{dpu} bünyesinde faaliyet gösteren tüm \gls{myo}'ların konumlarını sistemsel açıdan bir bütün olarak değerlendirildiğinde dağıtık enerji üretim sistemi olarak kabul edilir bir yapıda olduğu görülmektedir. Bu duruma göre dağıtık \gls{res} için tasarlanan haberleşme şeması Şekil \ref{fig:donmezcalismaeleco}'da gösterilmiştir. 
+
+IEC 61400-25 standardına göre \(\Delta \) katmanındaki RES’e ait algılayıcı sayıları ve türbin içerisindeki algılayıcı gruplarında 1 saniyede üretilen veri boyutları Çizelge 1’de gösterilmiştir.
+Şekil 1’de dağıtık olarak faaliyet gösteren 11 adet RES, bulundukları MYO’ların enerji ihtiyacını karşıladığı varsayılmıştır. Her MYO’da 1 adet 0,5 MW’lık güç kapasiteli rüzgar türbini kullanıldığı kabul edilmiştir. Bu tasarım senaryosunda göre; \(\Delta \) katmanında 117 adet algılayıcı ve 88.058 B/s’lik (0,67 Mbps) veri trafiği üretilmesi beklenmektedir. \(\Pi \) katmanında 1287 adet algılayıcıda üretilen toplamda 968.698 B/s’lik (7,4 Mbps) veri trafiğini kayıpsız ve gerçek zamanlı izlemeye uygun şartları sağlayacak şekilde \(\Omega \) katmanındaki ana sunucuya yüklenmesi planlanmıştır. \(\Pi \) katmanındaki WAN haberleşmesinin sağlıklı bir şekilde yapılabilmesi için baz istasyonları ile rüzgar türbinleri arasında doğrudan görüş açısı (LOS) olması için Google Earth yazılımı kullanılmıştır. Önceki senaryolara göre oluşturulan veri boyutu \%40 oranında daha fazladır.
+
+
+
+
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width= 10 cm]{Resim/donmezReseleco.jpg}}
+\caption{Kütahya Dumlupınar Üniversitesi dağıtık \gls{res}'e ait haberleşme sistem şeması (\protect\citeA{donmezdesign2}) }
+\label{fig:donmezcalismaeleco}
+\end{figure}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width= 8 cm]{Resim/lamdakatman.jpg}}
+\caption{\(\Delta \) katmanı haberleşme ağı tasarımı (\protect\citeA{donmezdesign2}).}
+\label{fig:donmezdeltakatman}
+\end{figure}
+
+
+IEC 61400-25 standardına göre OPNET yazılımında oluşturulan algılayıcılar ve haberleşme parametrelerinden elde edilen simülasyon sonuçlarına göre; MYO’larda üretilen tüm verilerin kayıpsız olarak \(\Omega \) katmanına iletildiği Şekil \ref{fig:donmezsen4akatman}'de görülmektedir.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Senaryo 4'e göre \(\Omega \) katmanındaki kontrol merkezine ait ana sunucuya gönderilen algılayıcı verilerinin zamana bağlı değişim tablosu.}
+\label{fig:senaryo4gelen}
+\begin{tabular}{cc}
+\hline
+\begin{tabular}[c]{@{}c@{}}Algılayıcı\\ Tanımı\end{tabular} & \begin{tabular}[c]{@{}c@{}}Merkez Sunucuya\\ İletilen Veri \end{tabular} \\ \hline
+WROT                & 132.110 B/s         \\
+WTRM                & 132.176 B/s         \\
+WGEN                & 154.044 B/s    \\
+WCNV                & 165.044 B/s    \\
+WTRF                & 88.066 B/s       \\
+WNAC                & 121.088 B/s       \\
+WYAW                & 66.044 B/s       \\
+WTOW                & 22.066 B/s       \\
+WMET                & 88.000 B/s       \\ \hline
+TOPLAM & 968.638 B/s       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width= 8 cm]{Resim/senaryo4upload.jpg}}
+\caption{Senaryo 4, 11 adet MYO'da çalışan algılayıcı düğümlerinde üretilen veri paketlerinin ana sunucuya yüklenme süresine ait zamana bağlı değişim grafiği (\protect\citeA{donmezdesign2}).}
+\label{fig:donmezsen4akatman}
+\end{figure}
+
+
+
 \section{SİSTEM BİLEŞENLERİNİN MALİYET HESABI}
 
 2022 yılı inşaat ve tesisat birim fiyat kitabına, \gls{dmo} satın alım sayfalarına, Türkiye’de Aselsan AŞ’nin yetkili \gls{wimax} bayisine ve Türk Telekom A.Ş.’nin fiyatlarına bağlı kalınarak, haberleşme sistemlerinde kurulacak malzeme ve işçi-liklerin maliyet tabloları oluşturulmuştur \cite{birimfiyat}.
@@ -1675,9 +1790,7 @@ legend pos = outer north east,]
 \subsection{Kablolu Yerel Ağ Haberleşme Altyapısı (Güneş Enerji Sistemi)}
 
 
-Kablolu haberleşme ağı altyapısında kullanılan malzemelerin maliyeti Tablo \ref{tab:tablo4-7}’de gösterilmiştir.
-
-İlgili tabloya bakıldığında kablolu haberleşmedeki en yüksek maliyet haberleşme sisteminin dış ortam şartlarından korunması için gereken koruyucu ekipmanlarıdır. Çünkü\\ sistemin iletiminde dış ortamdan korunması için endüstriyel ortamlarda kullanılan koruge borusu, bir arıza durumunda müdahale kolaylığı sağlanması için kullanılan menhol malzemeleri, sistemin sürdürülebilirliğini sağlaması için kritik malzemelerdir.
+Tablo \ref{tab:tablo4-7}’ye bakıldığında kablolu haberleşmedeki en yüksek maliyet haberleşme sisteminin dış ortam şartlarından korunması için gereken koruyucu ekipmanlarıdır. Çünkü\\ sistemin iletiminde dış ortamdan korunması için endüstriyel ortamlarda kullanılan koruge borusu, bir arıza durumunda müdahale kolaylığı sağlanması için kullanılan menhol malzemeleri, sistemin sürdürülebilirliğini sağlaması için kritik malzemelerdir.
 
 
 \begin{table}[htbp]
@@ -1755,9 +1868,7 @@ Tablo \ref{tab:tablo4-8}’e bakıldığında kablosuz haberleşmedeki en yükse
 \subsection{Kablolu Yerel Ağ Haberleşme Altyapısı (Rüzgar Enerji Sistemi)}
 
 
-Kablolu haberleşme ağı altyapısında kullanılan malzemelerin maliyeti Tablo \ref{tab:tablo4-10}’de gösterilmiştir.
-
-İlgili tabloya bakıldığında kablolu haberleşmedeki en yüksek maliyet haberleşme sisteminin dış ortam şartlarından korunması için gereken koruyucu ekipmanlarıdır. Çünkü\\ sistemin iletiminde dış ortamdan korunması için endüstriyel ortamlarda kullanılan koruge borusu, bir arıza durumunda müdahale kolaylığı sağlanması için kullanılan menhol malzemeleri, sistemin sürdürülebilirliğini sağlaması için kritik malzemelerdir.
+ Tablo \ref{tab:tablo4-10}’e bakıldığında kablolu haberleşmedeki en yüksek maliyet haberleşme sisteminin dış ortam şartlarından korunması için gereken koruyucu ekipmanlarıdır. Çünkü\\ sistemin iletiminde dış ortamdan korunması için endüstriyel ortamlarda kullanılan koruge borusu, bir arıza durumunda müdahale kolaylığı sağlanması için kullanılan menhol malzemeleri, sistemin sürdürülebilirliğini sağlaması için kritik malzemelerdir.
 
 
 \begin{table}[htbp]
@@ -1835,7 +1946,7 @@ Patch Cord                                                           & 35.545.21
 
 
 
-Geniş ağ haberleşmesinde \gls{wimax} standartlarını uyarlayabilmek için 2 adet baz istasyonu kurulmuştur. Bu baz istasyonlarına, meslek yüksekokullarındaki abone erişim noktaları bağlanmıştır. Bu erişim noktaları sayesinde \gls{wimax} bandında bir haberleşme sistemi kurulmuştur. Kurulacak baz istasyonların olduğu bölgede Orman Genel Müdürlüğü\\  ile anlaşması yapılan \gls{gsm} kulelerinin yapıldığı varsayılmıştır. Hali hazırda kurulu olan \gls{gsm} kulelerinin enerji ve kule altyapısına \gls{wimax} antenleri ve baz istasyonları kolayca entegre edildiği düşünülmüştür.
+Geniş ağ haberleşmesinde \gls{wimax} standartlarını uyarlayabilmek için 2 adet baz istasyonu kurulmuştur. Bu baz istasyonlarına, meslek yüksekokullarındaki abone erişim noktaları bağlanmıştır. Bu erişim noktaları sayesinde \gls{wimax} bandında bir haberleşme sistemi kurulmuştur. Baz istasyonları Orman Genel Müdürlüğü ile anlaşmalı \gls{gsm} kulesine montajlandığı varsayılmıştır. Hali hazırda kurulu olan \gls{gsm} kulelerinin enerji ve kule altyapısına \gls{wimax} antenleri ve baz istasyonları kolayca entegre edildiği düşünülmüştür.
 Bu varsayıma göre Tablo \ref{tab:tablo4-11}'de gösterilen kule kurulum maliyetinden muaf sayılmıştır.
 
 
@@ -1984,7 +2095,7 @@ Malzeme tanımı &
 
 Yenilenebilir enerji kaynaklarının gerçek zamanlı durum ve üretimin gözlemlenmesi ile ilgili Kütahya Dumlupınar Üniversitesi (DPÜ) merkez kampüs ve bağlı uzak 11 kampüsün bağlı olduğu bir haberleşme ağında veri iletim süreleri açısında performansı ortaya koyan ve IEC standartlarını karşılayıp karşılamadığını test eden modelleme ve simülasyon çalışmaları yapılmıştır. Yerel alan ağları incelendiğinde, Zigbee standardının kullanılması durumunda veri paket kaybının oluşmadığı görülmesine rağmen yerel ağda kurulacak bir gözlem merkezine iletilen verinin gecikme süresi ve yerel sunucuya yüklenen ölçüm verilerinin süresi 1 saniyenin üzerindedir. Bu durum, \gls{iec}'nin belirlemiş olduğu standartları karşılamamaktadır. Bu nedenle yerel noktalarda Zigbee haberleşme tekniğinin kullanılması uygun değildir. Yerel noktalarda Ethernet ve \gls{wifi} standartlarında kullanılacak donanımların ayrı ayrı simülasyonları yapılıp sonuç grafikleri incelendiğinde ilgili standartların tamamen karşılandığı görülmüştür. 
 
-\gls{lan} haberleşme maliyet tabloları incelendiğinde, \gls{wifi} tekniğinin kullanıldığı Güneş Enerji Sisteminin kablolu haberleşme tekniğine göre \%55 oranında daha az maliyetli olduğu hesaplanmıştır. Bu oran Rüzgar Enerji Sistemi için \%28’dir. Rüzgar Enerji Sistemi, daha merkezi bir topolojiye sahip olduğundan, haberleşme maliyeti güneş enerji sistemine göre daha düşüktür.
+\gls{lan} haberleşme maliyet tabloları incelendiğinde, \gls{wifi} tekniğinin kullanıldığı Güneş Enerji Sisteminin kablolu haberleşme tekniğine göre \%55 oranında az maliyetli olduğu hesaplanmıştır. Bu oran Rüzgar Enerji Sistemi için \%28’dir. Rüzgar Enerji Sistemi, daha merkezi bir topolojiye sahip olduğundan, haberleşme maliyeti güneş enerji sistemine göre daha düşüktür.
 
 \gls{wan} tasarımında durum değerlendirildiğine fiber optik haberleşme sisteminin gecikme \gls{wimax} teknolojisine göre çok düşük olduğu gözlemlenmiştir. 
 
@@ -1992,7 +2103,6 @@ Telekom altyapısıyla bir haberleşme trafiği sağlandığında, haberleşme s
 
 Geniş ağ tasarımında fizibilite analizinin son kriteri ise sürdürülebilir yapıda olmasıdır. \gls{wimax} altyapısı kullanılırken, baz istasyonlarının olduğu kuleler şehirden uzak dağlık alanlara yerleştirilmiştir. Kulelerde bir problem yaşanması durumunda, arıza müdahale ekibinin ulaşması maliyetli bir süreçtir. Fakat Telekom altyapısında bir problem yaşanması durumunda tüm sorumluluk Telekom firmasına ait olacaktır. 
 
-İlgili kriterler dikkate alınarak hesaplanan maliyetler  Tablo \ref{tab:tablo5-1}’de gösterilmiştir.
 
 \begin{table}[htbp]
 \centering
@@ -2009,7 +2119,7 @@ Güvenli iletişim ve en düşük maliyetli çözüm & \gls{wifi}           & \g
 \end{table}
 
 
-Kütahya Dumlupınar Üniversitesi'ne bağlı 11 kampüste Yenilenebilir Enerji Santralleri kurulması durumunda haberleşme sisteminin maliyetleri ve \gls{opnet} yazılımı sayesinde haberleşme sistemlerinin performansları incelenmiştir. Yenilenebilir Enerji Santralleri'nin gerçek zamanlı performans takibi ilk önceliktir. Tablo \ref{tab:tablo5-1}'deki sunulan çözümler Yenilenebilir Enerji Sistemleri için IEC 61850, IEC 61400 ve IEEE 1646 standartlarında belirtilmiş olan kriterler tamamen karşılanmaktadır.
+İlgili kriterler dikkate alınarak hesaplanan maliyetler  Tablo \ref{tab:tablo5-1}’de gösterilmiştir. Kütahya Dumlupınar Üniversitesi'ne bağlı 11 kampüste Yenilenebilir Enerji sistemi kurulması durumunda haberleşme sisteminin maliyetleri ve \gls{opnet} yazılımında haberleşme sistemlerinin performansları incelenmiştir. Enerji santrallerinin gerçek zamanlı performans takibi ilk önceliktir. Tablo \ref{tab:tablo5-1}'deki sunulan çözümler Yenilenebilir Enerji Sistemleri için IEC 61850, IEC 61400 ve IEEE 1646 standartlarında belirtilmiş olan kriterler tamamen karşılanmaktadır.
 
 
 Üniversitenin bünyesinde üreteceği enerji sistemlerinin sağlık durumlarının ve verimlerinin takibini personel maliyetlerini minimize ederek çözmesi üniversitenin mali bütçesi açısından en mantıklı çözüm olacaktır. Bu temel nedene göre Tablo \ref{tab:tablo5-1}'deki sürdürülebilir çözümün tercih edilmesi mantıklı olacaktır.

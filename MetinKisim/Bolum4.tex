@@ -3,7 +3,7 @@
 \newpage
 \section{YENİLENEBİLİR ENERJİ SİSTEMLERİNDE KULLANILAN ALGILAYICILARIN VERİ YAPILARI}
 
-Yenilenebilir enerji sistemlerinde veri transfer standartlarını oluşturabilmek için \gls{iec} 61850 iletişim standardı oluşturulmuştur. Bu standart sayesinde enerji santrallerinde oluşturulan veriler sayesinde kontrol, gözlem ve enerji sistemlerinde oluşabilecek arızaların gerçek zamanlı şekilde kontrolünün sağlanması amaçlanmıştır \cite{1385190}. Rüzgar enerji türbinleri ve güneş enerji panellerinde oluşturulacak sistemsel çalışma verilerinin aktif bir şekilde kontrolü amaçlanmıştır. Bu kontrolün sağlanması için \gls{iec} 61850 ve benzer standartlardan olan \gls{iec} 61400-25 standartları dikkate alınmıştır \cite{Olsen_prototypeof} \cite{francisco2016protection}.
+Yenilenebilir enerji sistemlerinde veri transfer standartlarını oluşturabilmek için \gls{iec} 61850 iletişim standardı kullanılır. İlgili standart kullanılarak enerji santrallerinde oluşturulan veriler kontrol, gözlem ve enerji sistemlerinde oluşabilecek arızaların gerçek zamanlı şekilde kontrolünün sağlanması amaçlanmıştır \cite{1385190}. Rüzgar enerji türbinleri ve güneş enerji panellerinde oluşturulacak sistemsel çalışma verilerinin aktif bir şekilde kontrolü amaçlanmıştır. Bu kontrolün sağlanması için \gls{iec} 61850 ve benzer standartlardan olan \gls{iec} 61400-25 standartları dikkate alınmıştır \cite{Olsen_prototypeof} \cite{francisco2016protection}.
 
 
 \subsection{Rüzgar Enerji Sistemlerinde Veri Yapıları}
@@ -12,7 +12,7 @@ Eskiden, rüzgar enerji türbinleri ile kontrol odası arasındaki iletişim sis
 \gls{iec} 61400-25 standardı, rüzgar enerjisi santrallerinin izlenmesi ve kontrolü için birleşik bir iletişim sisteminin tanımlanması ve standartlaştırılması için özel bir versiyondur. \gls{iec} 61400-25 serisi, genel olarak trafo merkezlerindeki iletişim ağlarını ve sistemleri tanımla-yan \gls{iec} 61850 serisi standartların bir uzantısıdır. 
 
 
-\gls{iec} 61400-25 standardı sayesinde, enerji üretim sistemindeki algılayıcılardan oluşan veriler sayısal haberleşme standartlarında tekrardan yapılandırılıp komuta kontrol merkezlerine iletilir. İlgili standarda ait 6 alt kategoride veri iletişim standardı yayınlanmıştır.
+\gls{iec} 61400-25 standardı sayesinde, enerji üretim sistemindeki algılayıcılardan oluşan veriler sayısal haberleşme standartlarında tekrardan yapılandırılıp komuta kontrol merkezlerine iletilir. IEC 61400 5 kategoriye ayrılır.
 
 •	Genel tanımlar ilkeler ve modeller (\gls{iec} 61400-25-1).
 
@@ -38,7 +38,7 @@ Enformasyon modeli standardı sayesinde rüzgar enerji santrallerinin faaliyeti 
 \label{fig:figure15}
 \end{figure}
 
-\gls{iec} 61850 ve \gls{iec} 61400 standartları dikkate alındığında bir rüzgar türbininin sağlıklı bir şekilde çalışması için üzerinde faal durumda olması gereken 79 analog, 32 adet durum algılayıcısı bulunmalıdır. Tablo \ref{tab:tabb2}’de bir rüzgar türbininde bulunan algılayıcıların sayıları ve bağlı oldukları modüller gösterilmiştir. Tablo \ref{tab:WNACdetay}’de türbin içi modüllerden \gls{wnac}, rüzgar türbinlerinin pal kısmını kapsayan motor mekanizmasına ait modüldür. Bu modüle ait 4 adet durum algılayıcısı ve 11 adet analog algılayıcı bulunmaktadır.WNAC modülüne ait algılayıcıların yerleşim detayı Şekil \ref{fig:4-2}'de, algılayıcıların tanımı ise Tablo \ref{tab:WNACdetay}’de gösterilmiştir. 
+\gls{iec} 61850 ve \gls{iec} 61400 standartları dikkate alındığında bir rüzgar türbininin sağlıklı bir şekilde çalışması için üzerinde faal durumda olması gereken 79 analog, 32 adet durum algılayıcısı bulunmalıdır. Tablo \ref{tab:tabb2}’de bir rüzgar türbininde bulunan algılayıcıların sayıları ve bağlı oldukları modüller gösterilmiştir. Tablo \ref{tab:WNACdetay}’de türbin içi modüllerden \gls{wnac}, rüzgar türbinlerinin pal kısmını kapsayan motor mekanizmasına ait modüldür. Bu modüle ait 4 durum ve 11 adet analog algılayıcı bulunmaktadır. WNAC modülüne ait algılayıcıların yerleşim detayı Şekil \ref{fig:4-2}'de, algılayıcıların tanımı ise Tablo \ref{tab:WNACdetay}’de gösterilmiştir. 
 \cite{francisco2016protection}\cite{trinnass}\cite{san2007use}.
 
 
@@ -132,7 +132,7 @@ Tablo \ref{tab:tablo4-3}’de gösterilen algılayıcı sınıflarından yola ç
 
 \section{OPNET Yazılımı}
 
-Günümüzde \gls{iot} ve veri haberleşmesinin boyutlarının her geçen gün artması nedeniyle şirketlerin haberleşme sistemlerine yapmış olduğu yatırımların büyüklüğü artmakta olduğu bilinmektedir. Haberleşme çözümleri için kullanılan donanımların sayısı arttıkça kurulum maliyetinin artması ve sistemsel bir aksamanın oluşturacağı maddi zararın da orantılı bir şekilde artacağı aşikardır. Buna göre araştırmacılar bir haberleşme sisteminin sahada kurulum aşamasından önce simülasyon ortamında tasarlanarak ilgili maliyetlerin fizibilitesini yapabilecekleri yazılımlar tasarlamışlardır. \gls{opnet} şimdiye kadar tasarlanmış en popüler ağ simülatör yazılımıdır. \gls{opnet} ticari bir yazılımdır ve ticari amaçlarla kullanılmasından kaynaklı olarak, OPNET hakkında yazılmış çok fazla makale ve kitap bulunmaktadır \cite{lu2012unlocking}\cite{sethi2012practical}. 
+Günümüzde \gls{iot} ve veri haberleşmesinin boyutlarının her geçen gün artması nedeniyle şirketlerin haberleşme sistemlerine yapmış olduğu yatırımların büyüklüğü artmakta olduğu bilinmektedir. Haberleşme çözümleri için kullanılan donanımların sayısı arttıkça kurulum maliyeti ve sistemsel bir aksamanın oluşturacağı maliyet orantılı bir şekilde artacaktır. Buna göre araştırmacılar bir haberleşme sisteminin sahada kurulum aşamasından önce simülasyon ortamında tasarlanarak ilgili maliyetlerin fizibilitesini yapabilecekleri yazılımlar tasarlamışlardır. \gls{opnet} şimdiye kadar tasarlanmış en popüler ağ simülatör yazılımıdır. \gls{opnet} ticari bir yazılımdır ve ticari amaçlarla kullanılmasından kaynaklı olarak, OPNET hakkında yazılmış çok fazla makale ve kitap bulunmaktadır \cite{lu2012unlocking}\cite{sethi2012practical}. 
 
 \begin{comment}
 \subsection{OPNET Yazılımının Özellikleri}
@@ -156,8 +156,8 @@ Günümüzde \gls{iot} ve veri haberleşmesinin boyutlarının her geçen gün a
 
 \subsection{OPNET Yazılımında Algılayıcı Düğümlerin Modellenmesi}
 
-Rüzgar türbinlerinde ve güneş enerjisi tarlalarında gözlem ve durum analizinin kolayca uygulanması için bir takım algılayıcı modüller \gls{iec} 61400, \gls{iec} 61724 ve \gls{iec} 61850 standartlarına göre oluşturulmuştur\cite{ahmed2011simulation}. \gls{iec} 61400 standardı dikkate alınarak bir rüzgar enerji türbininin OPNET ortamında simülasyon çalışması yapılmıştır. Bu çalışmada tasarlanan algılayıcı düğümlerinin Ethernet standartlarına göre haberleşme altyapısı oluşturulmuş 10BaseT, 100BaseT ve 1000BaseX standartlarındaki haberleşme hızlarına göre performansı incelenmiştir.
-Kütahya Dumlupınar Üniversitesi'ne bağlı eğitim birimlerinin bulunduğu uzak yerleşkelere kurulacak güneş ve rüzgar enerji sistemlerindeki algılayıcı düğümlerin tasarımında ilgili makalede bahsedilen teknikler kullanılarak yenilenebilir enerji kaynaklarının algılayıcı yapıları model-lenmiştir. Şekil \ref{fig:4-2} ve Şekil \ref{fig:4-3}, OPNET yazılımında tasarlanan algılayıcıların türbin içi ve meslek yüksekokullarındaki vaziyet planlarını göstermektedir. Tüm algılayıcı düğümler ilgili \gls{iec} standartları gereği bağlı oldukları sistemin çatısı altındaki kontrol sunucularına çalışma, durum ve ölçüm verilerini gönderirler. Algılayıcı düğümlerinin OPNET ortamında tasarımı dört değişken üzerinden yapılmıştır\cite{ahmed2011simulation}. Bunlar;
+Rüzgar türbinlerinde ve güneş enerjisi tarlalarında gözlem ve durum analizinin kolayca uygulanması için bir takım algılayıcı modüller \gls{iec} 61400, \gls{iec} 61724 ve \gls{iec} 61850 standartlarına göre oluşturulmuştur\cite{ahmed2011simulation}. \gls{iec} 61400 standardı dikkate alınarak bir rüzgar enerji türbininin OPNET yazılımında simülasyonu yapılmıştır. Bu çalışmada tasarlanan algılayıcı düğümlerinin Ethernet standartlarına göre haberleşme altyapısı oluşturulmuş 10BaseT, 100BaseT ve 1000BaseX standartlarındaki haberleşme hızlarına göre performansı incelenmiştir.
+Kütahya Dumlupınar Üniversitesi'ndeki uzak yerleşkelere kurulacak güneş ve rüzgar enerji sistemlerindeki algılayıcıların tasarımında ilgili makalede bahsedilen teknikler kullanılmıştır. Şekil \ref{fig:4-2} ve Şekil \ref{fig:4-3} OPNET ortamında türbin içi ve MYO vaziyet planlarını göstermektedir. Tüm algılayıcı düğümler ilgili \gls{iec} standartları gereği bağlı oldukları sistemin çatısı altındaki kontrol sunucularına çalışma, durum ve ölçüm verilerini gönderirler. Algılayıcı düğümlerinin OPNET ortamında tasarımı dört değişken üzerinden yapılmıştır\cite{ahmed2011simulation}. Bunlar;
 
 •	Örnekleme Frekansı
 
@@ -206,8 +206,8 @@ Mantıksal düğümler, ilgili bileşenle ilgili farklı türde bilgileri tutabi
   \begin{tabular}[c]{@{}c@{}}Durum algılayıcı\\ veri boyutu (f\textsubscript{s} = 1)\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Analog algılayıcı\\ veri boyutu (f\textsubscript{s} = 500)\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Toplam aktarılan\\ veri\end{tabular} \\ \hline
-WROT & 5*2*f\textsubscript{s} = 10 Byte/s & 5*2*f\textsubscript{s} = 10 Byte/s     & 12010 Byte/s \\
-WTRM & 8*2*f\textsubscript{s} = 16 Byte/s & 12*2*f\textsubscript{s} = 1200 Byte/s  & 12016 Byte/s \\
+WROT & 5*2*f\textsubscript{s} = 10 Byte/s & 12*2*f\textsubscript{s} = 12000 Byte/s     & 12010 Byte/s \\
+WTRM & 8*2*f\textsubscript{s} = 16 Byte/s & 12*2*f\textsubscript{s} = 12000 Byte/s  & 12016 Byte/s \\
 WGEN & 2*2*f\textsubscript{s} = 4 Byte/s  & 14*2*f\textsubscript{s} = 14000 Byte/s & 14004 Byte/s \\
 WCNV & 2*2*f\textsubscript{s} = 4 Byte/s  & 15*2*f\textsubscript{s} = 15000 Byte/s & 15004 Byte/s \\
 WTRF & 3*2*f\textsubscript{s} = 6 Byte/s  & 8*2*f\textsubscript{s} = 8000 Byte/s   & 8006 Byte/s  \\
