@@ -9,7 +9,7 @@
 \subsection{OPNET Yerel Ağ Tasarımı} \label{opnetges}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{Resim/PV-2.png}}
+\centerline{\includegraphics[width=12cm]{Resim/PV-2.png}}
 \caption{Güneş enerji sistemi haberleşme topolojisi}
 \label{fig:4-6}
 \end{figure}
@@ -22,18 +22,18 @@
 \paragraph{Güneş Enerji Sistemi \gls{lan} Tasarımı }
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{Resim/Sekil4-7.jpg}}
+\centerline{\includegraphics[width=11cm]{Resim/Sekil4-7.jpg}}
 \caption{Altıntaş \gls{myo}'nun OPNET yazılımda tasarım topolojisi.}
 \label{fig:4-7}
 \end{figure}
 
-Bölüm \ref{opnetges}'deki ilgili tabloda güneş enerji sisteminde kullanılan algılayıcılara göre OPNET yazılımında oluşturulan ağın görseli Şekil \ref{fig:figure9}'dedir. İlgili ağ yapısının tasarımı için OPNET yazılımında seçilmiş Ethernet algılayıcı düğümünün detayı şekil \ref{fig:4-9}’da gösterilmiştir. Bölüm \ref{algilayicidugum}'de tanımlanan Ethernet düğüm modülü ile OPNET yazılımında düğüm modülü uyumluluk göstermektedir.
+Bölüm \ref{opnetges}'deki ilgili tabloda güneş enerji sisteminde kullanılan algılayıcılara göre OPNET yazılımında oluşturulan ağın görseli Şekil \ref{fig:figure9}'de, ethernet algılayıcı düğüm detayı şekil \ref{fig:4-9}’da gösterilmiştir. Bölüm \ref{algilayicidugum}'de tanımlanan Ethernet düğüm modülü ile OPNET yazılımında düğüm modülü uyumluluk göstermektedir.
 
 Yerel enerji üretim durumunu kontrol edebilmek için komuta kontrol merkezi ile enerji üretim sisteminin haberleşme gecikmesinin 1 saniyenin altında olması ve paket trafiğinin minimum gecikmeyle komuta merkezine aktarılması gerektiği \gls{iec} 61724 standardının temel kriteridir. Bu kritere göre tasarlanan topolojide gözlemlenen performans değerleri Şekil \ref{fig:4-10}--\ref{fig:4-12}’lerde paylaşılmıştır.
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=10cm]{Resim/Sekil 4-8.png}}
+\centerline{\includegraphics[width=13cm]{Resim/mak2solar.png}}
 \caption{Kampüs ortamında kurulan örnek güneş enerji santralinin invertör dizi grubunun OPNET yazılımında tasarlanması.}
 \label{fig:4-8}
 \end{figure}
@@ -253,8 +253,13 @@ ylabel={Yüklenen Veri Boyutu (Byte/s)},
 xmode=normal, ymode=log, 
 grid = major,
 log ticks with fixed point,
-ytick={15004,14004,8000,11008,12010,2006,8006,12016,6004},
+ytick={14004,8000,11008,2006,6004},
+extra y ticks={15004,12016},
+extra y tick labels={15\textbf{,}000,12\textbf{,}000},
+extra y tick style={y tick label style={right, xshift=6.8cm}},
 transpose legend,
+%label style = {font=\tiny},
+ytick style = {font=\tiny},
 legend columns = 3,
 legend style = {font=\tiny,at={(1,0.3)}, anchor=east}
 ]

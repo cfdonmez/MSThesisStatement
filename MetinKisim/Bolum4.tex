@@ -168,15 +168,15 @@ Kütahya Dumlupınar Üniversitesi'ndeki uzak yerleşkelere kurulacak güneş ve
 •	Paket Boyutu
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{Resim/Sekil4-2.png}}
-\caption{Türbin içi \gls{wnac} modülünün temsili gösterimi (\protect\citeA{ltd_2005}).}
+\centerline{\includegraphics[width=8cm]{Resim/Wind_inside.jpg}}
+\caption{Türbin içi \gls{wnac} modülünün temsili gösterimi.}
 \label{fig:4-2}
 \end{figure}
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{Resim/sekil4-3.jpg}}
-\caption{OPNET yazılımında güneş enerji sisteminde çalışan algılayıcı modüllerin gösterimi (\protect\citeA{inc_2015}).}
+\centerline{\includegraphics[width= 14cm]{Resim/mak2solar.png}}
+\caption{OPNET yazılımında güneş enerji sisteminde çalışan algılayıcı modüllerin gösterimi}
 \label{fig:4-3}
 \end{figure}
 
@@ -190,12 +190,11 @@ Yenilenebilir enerji sistemlerinde çalışan algılayıcı düğümlerinin olu�
 
 
 \begin{equation}
-\text{Veri hızı} = 2.\text{f\textsubscript{s}}(\text{Örnekleme frekansı}) \label{eq4-1}
+\text{Veri hızı} = 2.\text{f\textsubscript{s}} \label{eq4-1}
 \end{equation}
 
-Mantıksal düğümlerden çıkan veriler örneklendiğinde 2 Byte’lık veri üretilecek şekilde tasarlanmıştır. Örnekleme frekansıyla çarpıldığı zaman mantıksal düğümün bir saniyede oluşturduğu veri boyutu hesaplanmış olur.
+Mantıksal düğümler 2 Byte’lık veri üretecek şekilde tasarlanmıştır. Örnekleme frekansı (\text{f\textsubscript{s}}) ile çarpılarak bir saniyede oluşturduğu veri boyutu hesaplanmış olur. Çalışan sisteme ait üretilen veri boyutlarının OPNET ortamına uyarlanma imkanı sağlanmaktadır. Denklem \eqref{eq4-1}'den faydalanılarak \gls{res} ve \gls{ges} içerisinde çalışan algılayıcıların 1 saniyede oluşturduğu veri boyutları değişimi Tablo \ref{tab:tablo4-4} ve Tablo \ref{tab:tablo4-5}’te gösterilmiştir \cite{klise2017application}.
 
-Mantıksal düğümler, ilgili bileşenle ilgili farklı türde bilgileri tutabilen bir verilerdir. Gerçek cihazla ilgili sanal model tarafından modellenen iyi bilinen fonksiyonlardır ve işlevselliğine dayalı bir veri listesi içerirler. Ek olarak mantıksal düğümlerde oluşan verilerin doğruluğu çok önemli olduğundan TCP/IP tekniği ile veri iletimi ve FTP uygulama katmanı ile çalışan bir haberleşme temelinde tasarlanmıştır. \cite{klise2017application} makalede tasarlanan veri modeli üzerinden gidildiğinde rüzgar enerji sistemi ve güneş enerji sisteminde çalışan algılayıcıların oluşturduğu veri boyutları Tablo \ref{tab:tablo4-4} ve Tablo \ref{tab:tablo4-5}’te gösterilmiştir.
 
 \begin{table}[htbp]
 \centering
@@ -234,14 +233,14 @@ Rüzgar hızı                & 1*2*3 = 6 Byte/s        \\
 \end{table}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{Resim/sekil4-4.png}}
+\centerline{\includegraphics[width=13.5cm]{Resim/sekil4-4.png}}
 \caption{OPNET Yazılımında “Application Config” bölümü}
 \label{fig:4-4}
 \end{figure}
 
-Örneğin, invertör profiline ait güneş panelinde voltaj ve akım algılayıcısı olarak iki adet algılayıcı modeli bulunmaktadır. Bu kritere göre OPNET yazılımının “Application Config” modülünde gerilim ve akım algılayıcılarının veri yapıları oluşturulur. İkinci aşamada ise oluşturulan bu veri yapıları “Profil Definition” modülü kullanılarak invertör profili çatısında toplanır. Böylelikle invertör, OPNET’in ağ senaryolarında kullanımı sağlanmış olur. Şekil \ref{fig:4-5}’te \gls{wnac} profilinin \gls{opnet} yazılım yapısı görülmektedir. Tablo \ref{tab:tablo4-4}’e göre \gls{wnac}'a ait olan algılayıcılar \gls{opnet} yazılımında kurulmuştur. Rüzgar türbininde enerji üretimi gerçekleşirken eş zamanlı çalışan \gls{wnac} gibi toplamda 9 adet algılayıcı düğüm modül grubu, güneş enerji sisteminde kullanılan 4 adet algılayıcı düğüm modül grubu, “Application config” ve “Profile config” bileşenleri kullanılarak simülasyon ortamında çalışan algılayıcı gruplarına dönüştürülmüştür.
+Örneğin, invertör profiline ait güneş panelinde voltaj ve akım algılayıcısı olarak iki adet algılayıcı modeli bulunmaktadır. Bu kritere göre OPNET yazılımının “Application Config” modülünde gerilim ve akım algılayıcılarının veri boyutları oluşturulur. İkinci aşamada ise oluşturulan bu veri boyutları “Profil Definition” modülü kullanılarak invertör profili çatısında toplanır. Böylelikle tasarlanan invertör, OPNET’in ağ senaryolarında kullanımı sağlanmış olur. Şekil \ref{fig:4-5}’te \gls{wnac} profilinin \gls{opnet} yazılım yapısı gösterilmiştir. Tablo \ref{tab:tablo4-4}’e göre \gls{wnac}'a ait olan algılayıcılar \gls{opnet} yazılımında kurulmuştur. Rüzgar türbininde enerji üretimi gerçekleşirken eş zamanlı çalışan \gls{wnac} gibi toplamda 9 adet algılayıcı düğüm modül grubu, güneş enerji sisteminde kullanılan 4 adet algılayıcı düğüm modül grubu, “Application config” ve “Profile config” bileşenleri kullanılarak simülasyon ortamında çalışan algılayıcı gruplarına dönüştürülmüştür.
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=5cm]{Resim/sekil4-5.png}}
+\centerline{\includegraphics[width=8cm]{Resim/sekil4-5.png}}
 \caption{OPNET Yazılımında “Profile Definition" bölümü}
 \label{fig:4-5}
 \end{figure}
